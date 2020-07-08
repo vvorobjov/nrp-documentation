@@ -27,7 +27,7 @@ Be sure to have an up-to-date Platform
     cd $HBP/user-scripts
     ./update_nrp update all
 
-It is assumed that you followed the local installation guide of the NRP.
+It is assumed that you have a `source installation`_ of the NRP. Unfortunately, this tutorial will not work yet from "local" docker installations since iPythonNotebook would not work.
 All the configuration files and the python scripts specific to an experiment are located in the Experiments folder (except the brain and the robot which are located in Models).
 Let's make a copy of the tutorial:
 
@@ -76,3 +76,5 @@ You should have now a new browser window with the following view
     :width: 50%
 
 The tutorial continues in this window. Have fun!
+
+.. _`source installation`: https://bitbucket.org/hbpneurorobotics/neurorobotics-platform
