@@ -38,11 +38,12 @@ Once we created a VirtualCoach instance, we can use it to check out the current 
     vc.print_available_servers()
     vc.print_running_experiments()
 
-After making sure our experiments exist and enough resources are available, we can attempt to launch an experiment. In this next section we will launch the Template Husky experiment. To launch a specific experiment, we need to specify its configuration name, which we can get from the experiment list.
+After making sure our experiments exist and enough resources are available, we can attempt to launch an experiment. In this next section we will launch the Template Husky experiment. We first need to clone the experiment in our storage. To launch a specific experiment, we need to specify its configuration name, which we can get from the cloned experiment list.
 
 .. code-block:: python
-
-    sim = vc.launch_experiment('ExDTemplateHusky')
+    vc.clone_experiment_to_storage('ExDTemplateHusky')
+    vc.print_cloned_experiments()
+    sim = vc.launch_experiment('template_husky_0')
 
 Launching an experiment can take some time and once it's been successfully launched, we'll get a `Simulation Successfully Created` log.
 
