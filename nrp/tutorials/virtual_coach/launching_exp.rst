@@ -42,9 +42,9 @@ After making sure our experiments exist and enough resources are available, we c
 
 .. code-block:: python
 
-    vc.clone_experiment_to_storage('ExDTemplateHusky')
+    exp_id = vc.clone_experiment_to_storage('ExDTemplateHusky')
     vc.print_cloned_experiments()
-    sim = vc.launch_experiment('template_husky_0')
+    sim = vc.launch_experiment(exp_id)
 
 
 Launching an experiment can take some time and once it's been successfully launched, we'll get a `Simulation Successfully Created` log.

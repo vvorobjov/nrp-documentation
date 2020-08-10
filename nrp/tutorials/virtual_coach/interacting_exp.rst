@@ -11,14 +11,14 @@ When an experiment is launched, it is initially in the `paused` state. This mean
 
     sim.get_state()
 
-The state of the simulation is returned as a string. In this case calling get_state() will return `paused`. The possible states we can set a simulation to are `paused`, `started` and `stopped` using these calls respectively:
+The state of the simulation is returned as a string. In this case calling get_state() will return `paused`. The possible states we can set a simulation to are `paused`, `started` and `stopped`. We can alternatively start and pause the simulation by calling: 
 
 .. code-block:: python
 
     sim.pause()
     sim.start()
-    sim.stop()
 
+Note that the timeout for a simulation is 15 minutes.
 
 Transfer Functions
 ^^^^^^^^^^^^^^^^^^
@@ -86,7 +86,7 @@ As a user you can also delete transfer functions from the Virtual Coach. You jus
 
     sim.delete_transfer_function('turn_around')
 
-This will delete the turn_around transfer function we just modified. After that you will notice that the robot stopped spinning since the transfer function responsible for that behavior has been deleted. If you want more proof that the transfer function has been deleted, you can revisit the print_transfer_functions call and make sure that it doesn't print out turn_around.
+This will delete the turn_around transfer function we just modified. If you have a frontend web cockpit joined on your simulation, you will notice that the robot stopped spinning since the transfer function responsible for that behavior has been deleted. If you want more proof that the transfer function has been deleted, you can revisit the print_transfer_functions call and make sure that it doesn't print out turn_around.
 
 We can also add new transfer functions. For this we only need to provide the transfer function code as a string parameter to the add_transfer_function function. We don't have to provide a name since the name will just be the function's name. Remember that transfer functions definition names have to be unique, so duplicate function names will result in errors. Here we'll create three transfer functions that store Spike, Joint and Robot positions into csv files.
 
@@ -157,13 +157,13 @@ With the transfer functions that we wrote, we can access all csv data from the V
 
 .. code-block:: python
 
-    vc.print_last_run_csv_files('template_husky_0')
+    vc.print_last_run_csv_files(exp_id)
 
 In the case of the Template Husky experiment, this will print out `all_spikes.csv` and `all_joints_positions.csv` and `robot_position.csv`. We can now get the data from any one of these files. Note that these files will be populated only if a simulation has been running. Here we will get and print out the Spike data:
 
 .. code-block:: python
 
-    spikes = vc.get_last_run_csv_file('template_husky_0', 'all_spikes.csv')
+    spikes = vc.get_last_run_csv_file(exp_id, 'all_spikes.csv')
     print(spikes)
     [[u'id', u'time', u'Simulation_reset'],
      [u'3.0', u'0.10000000000000001', u'RESET'],
@@ -180,18 +180,19 @@ We can also write our own custom functions to plot the data we got. The followin
     import pandas as pd
     import matplotlib.pyplot as plt
 
-    spikes_df = pd.read_csv(StringIO(csv), sep=",")
+    spikes_df = pd.read_csv(StringIO(spikes), sep=",")
     spikes_df.plot.scatter('time','id')
     plt.show()
 
 State Machines
 ^^^^^^^^^^^^^^
-Through the Virtual Coach, users can interact with the simulation state machines the same way they can with the transfer functions. Currently we have only one experiment that contains a state machine. Let's start it and see how we can interact with the state machines.
+Through the Virtual Coach, users can interact with the simulation state machines the same way they can with the transfer functions. Currently we have only one experiment that contains a state machine. Let's stop our current simulation and start it and see how we can interact with the state machines.
 
 .. code-block:: python
 
-    vc.clone_experiment_to_storage('ScreenSwitchingHuskyExperiment')
-    sim = vc.launch_experiment('screen_switching_0')
+    sim.stop()
+    exp_id = vc.clone_experiment_to_storage('ScreenSwitchingHuskyExperiment')
+    sim = vc.launch_experiment(exp_id)
 
 After the experiment has been started, we can retrieve the names of the defined state machines.
 
