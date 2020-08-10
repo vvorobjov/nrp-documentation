@@ -86,7 +86,7 @@ As a user you can also delete transfer functions from the Virtual Coach. You jus
 
     sim.delete_transfer_function('turn_around')
 
-This will delete the turn_around transfer function we just modified. If you have a frontend web cockpit joined on your simulation, you will notice that the robot stopped spinning since the transfer function responsible for that behavior has been deleted. If you want more proof that the transfer function has been deleted, you can revisit the print_transfer_functions call and make sure that it doesn't print out turn_around.
+This will delete the turn_around transfer function we just modified. If you have a frontend web cockpit joined on your simulation, you will notice that the robot stopped spinning since the transfer function responsible for that behavior has been deleted. Note that deletion and addition of transfer functions are not reflected in the frontend. If you want more proof that the transfer function has been deleted, you can revisit the print_transfer_functions call and make sure that it doesn't print out turn_around.
 
 We can also add new transfer functions. For this we only need to provide the transfer function code as a string parameter to the add_transfer_function function. We don't have to provide a name since the name will just be the function's name. Remember that transfer functions definition names have to be unique, so duplicate function names will result in errors. Here we'll create three transfer functions that store Spike, Joint and Robot positions into csv files.
 
