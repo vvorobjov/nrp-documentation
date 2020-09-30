@@ -11,14 +11,14 @@ When an experiment is launched, it is initially in the `paused` state. This mean
 
     sim.get_state()
 
-The state of the simulation is returned as a string. In this case calling get_state() will return `paused`. The possible states we can set a simulation to are `paused`, `started` and `stopped` using these calls respectively:
+The state of the simulation is returned as a string. In this case calling get_state() will return `paused`. The possible states we can set a simulation to are `paused`, `started` and `stopped`. We can alternatively start and pause the simulation by calling: 
 
 .. code-block:: python
 
     sim.pause()
     sim.start()
-    sim.stop()
 
+Note that the timeout for a simulation is 15 minutes.
 
 Transfer Functions
 ^^^^^^^^^^^^^^^^^^
@@ -45,10 +45,10 @@ This should load this function in a new cell in the jupyter notebook:
 .. code-block:: python
 
     import hbp_nrp_cle.tf_framework as nrp
-    from hbp_nrp_cle.robotsim.RobotInterface import topic
+    from hbp_nrp_cle.robotsim.RobotInterface import Topic
     import geometry_msgs.msg
     @nrp.MapSpikeSink("output_neuron", nrp.brain.neurons[1], nrp.leaky_integrator_alpha)
-    @nrp.Neuron2Robot(Topic('/husky/cmd_vel', geometry_msgs.msg.Twist))
+    @nrp.Neuron2Robot(Topic('/husky/husky/cmd_vel', geometry_msgs.msg.Twist))
     # Example TF: get output neuron voltage and output constant on robot actuator. You could do something with the voltage here and command the robot accordingly.
     def turn_around(t, output_neuron):
         voltage=output_neuron.voltage
@@ -61,10 +61,10 @@ You can modify the code however you want and then save it as a string. Here we'l
 
     turn_around_tf = """
     import hbp_nrp_cle.tf_framework as nrp
-    from hbp_nrp_cle.robotsim.RobotInterface import topic
+    from hbp_nrp_cle.robotsim.RobotInterface import Topic
     import geometry_msgs.msg
     @nrp.MapSpikeSink("output_neuron", nrp.brain.neurons[1], nrp.leaky_integrator_alpha)
-    @nrp.Neuron2Robot(Topic('/husky/cmd_vel', geometry_msgs.msg.Twist))
+    @nrp.Neuron2Robot(Topic('/husky/husky/cmd_vel', geometry_msgs.msg.Twist))
     # Example TF: get output neuron voltage and output constant on robot actuator. You could do something with the voltage here and command the robot accordingly.
     def turn_around(t, output_neuron):
         voltage=output_neuron.voltage
@@ -86,30 +86,113 @@ As a user you can also delete transfer functions from the Virtual Coach. You jus
 
     sim.delete_transfer_function('turn_around')
 
-This will delete the turn_around transfer function we just modified. After that you will notice that the robot stopped spinning since the transfer function responsible for that behavior has been deleted. If you want more proof that the transfer function has been deleted, you can revisit the print_transfer_functions call and make sure that it doesn't print out turn_around.
+This will delete the turn_around transfer function we just modified. If you have a frontend web cockpit joined on your simulation, you will notice that the robot stopped spinning since the transfer function responsible for that behavior has been deleted. Note that deletion and addition of transfer functions are not reflected in the frontend. If you want more proof that the transfer function has been deleted, you can revisit the print_transfer_functions call and make sure that it doesn't print out turn_around.
 
-We can also add new transfer functions. For this we only need to provide the transfer function code as a string parameter to the add_transfer_function function. We don't have to provide a name since the name will just be the function's name. Remember that transfer functions definition names have to be unique, so duplicate function names will result in errors. Here we'll create a new transfer function with the default transfer function code you get when adding a new transfer function from the web cockpit.
+We can also add new transfer functions. For this we only need to provide the transfer function code as a string parameter to the add_transfer_function function. We don't have to provide a name since the name will just be the function's name. Remember that transfer functions definition names have to be unique, so duplicate function names will result in errors. Here we'll create three transfer functions that store Spike, Joint and Robot positions into csv files.
 
 .. code-block:: python
 
-    new_transfer_function = """
+    csv_spike_monitor = """@nrp.MapCSVRecorder("recorder", filename="all_spikes.csv", headers=["id", "time"])
+    @nrp.MapSpikeSink("record_neurons", nrp.brain.record, nrp.spike_recorder)
+    @nrp.Neuron2Robot(Topic('/monitor/spike_recorder', cle_ros_msgs.msg.SpikeEvent))
+    def csv_spike_monitor(t, recorder, record_neurons):
+        for i in range(0, len(record_neurons.times)):
+            recorder.record_entry(
+                record_neurons.times[i][0],
+                record_neurons.times[i][1]
+            )"""
+
+    sim.add_transfer_function(csv_spike_monitor)
+
+.. code-block:: python
+
+    csv_joint_state_monitor = """@nrp.MapRobotSubscriber("joint_state", Topic('/husky/joint_states', sensor_msgs.msg.JointState))
+    @nrp.MapCSVRecorder("recorder", filename="all_joints_positions.csv", headers=["Name", "time", "Position"])
+    def csv_joint_state_monitor(t, joint_state, recorder):
+        if not isinstance(joint_state.value, type(None)):
+            for i in range(0, len(joint_state.value.name)):
+                recorder.record_entry(joint_state.value.name[i], t, joint_state.value.position[i])"""
+
+    sim.add_transfer_function(csv_joint_state_monitor)
+    
+.. code-block:: python
+
+    csv_robot_position = """@nrp.MapCSVRecorder("recorder", filename="robot_position.csv", headers=["x", "y", "z"])
+    @nrp.MapRobotSubscriber("position", Topic('/gazebo/model_states', gazebo_msgs.msg.ModelStates))
+    @nrp.MapVariable("robot_index", global_key="robot_index", initial_value=None)
     @nrp.Robot2Neuron()
-    def transferfunction_0(t):
-        if (t%2 < 0.02):
-            clientLogger.info('Time: ', t)
-    """
+    def csv_robot_position(t, position, recorder, robot_index):
+        if not isinstance(position.value, type(None)):
 
-    sim.add_transfer_function(new_transfer_function)
+            # determine if previously set robot index has changed
+            if robot_index.value is not None:
 
-This transfer function will log the simulation time to the log console every two seconds.
+                # if the value is invalid, reset the index below
+                if robot_index.value >= len(position.value.name) or\
+                   position.value.name[robot_index.value] != 'husky':
+                    robot_index.value = None
+
+            # robot index is invalid, find and set it
+            if robot_index.value is None:
+
+                # 'husky' is the bodyModel declared in the bibi, if not found raise error
+                robot_index.value = position.value.name.index('husky')
+
+            # record the current robot position
+            recorder.record_entry(position.value.pose[robot_index.value].position.x,
+                                  position.value.pose[robot_index.value].position.y,
+                                  position.value.pose[robot_index.value].position.z)"""
+
+    sim.add_transfer_function(csv_robot_position)
+
+
+Those transfer functions will log the simulation time to the log console every two seconds.
+
+
+Getting CSV Data
+
+^^^^^^^^^^^^^^^^
+
+With the transfer functions that we wrote, we can access all csv data from the Virtual Coach and plot or analyze the data. To know what kind of data is being saved to csv files in an experiment, you can print out the names of the csv files first using this call:
+
+.. code-block:: python
+
+    vc.print_last_run_csv_files(exp_id)
+
+In the case of the Template Husky experiment, this will print out `all_spikes.csv` and `all_joints_positions.csv` and `robot_position.csv`. We can now get the data from any one of these files. Note that these files will be populated only if a simulation has been running. Here we will get and print out the Spike data:
+
+.. code-block:: python
+
+    spikes = vc.get_last_run_csv_file(exp_id, 'all_spikes.csv')
+    print(spikes)
+    [[u'id', u'time', u'Simulation_reset'],
+     [u'3.0', u'0.10000000000000001', u'RESET'],
+     [u'4.0', u'2.6000000000000001', u''],
+     [u'3.0', u'57.200000000000003', u'']]
+
+In the code snippet above you can notice the additional `Simulation_reset` column in that automatically keeps track of 'reset' events.
+
+We can also write our own custom functions to plot the data we got. The following is a custom function that will plot each spike from the csv file as a blue dot. Note also that the first line in the csv data is a header that need to be accounted for when plotting.
+
+.. code-block:: python
+
+    from StringIO import StringIO
+    import pandas as pd
+    import matplotlib.pyplot as plt
+
+    spikes_df = pd.read_csv(StringIO(spikes), sep=",")
+    spikes_df.plot.scatter('time','id')
+    plt.show()
 
 State Machines
 ^^^^^^^^^^^^^^
-Through the Virtual Coach, users can interact with the simulation state machines the same way they can with the transfer functions. Currently we have only one experiment that contains a state machine. Let's start it and see how we can interact with the state machines.
+Through the Virtual Coach, users can interact with the simulation state machines the same way they can with the transfer functions. Currently we have only one experiment that contains a state machine. Let's stop our current simulation and start it and see how we can interact with the state machines.
 
 .. code-block:: python
 
-    sim = vc.launch_experiment('ScreenSwitchingHuskyExperimnent')
+    sim.stop()
+    exp_id = vc.clone_experiment_to_storage('ScreenSwitchingHuskyExperiment')
+    sim = vc.launch_experiment(exp_id)
 
 After the experiment has been started, we can retrieve the names of the defined state machines.
 
@@ -133,43 +216,12 @@ Since state machines are also python scripts, we can load them in jupyter notebo
 
 The only difference between interacting with state machines and transfer functions is that the state machines' are not the python function names. Therefore, when adding a new state machine, the user has to explicitly give it a name.
 
-
-Getting CSV Data
-^^^^^^^^^^^^^^^^
-Currently in all our template experiments, Spike and Joint data are being saved to csv files. Data being saved to csv files are, however, not limited to Spike and Joint data. You can access all csv data from the Virtual Coach and plot or analyze the data. To know what kind of data is being saved to csv files in an experiment, you can print out the names of the csv files first using this call:
-
-.. code-block:: python
-
-    sim.print_csv_file_names()
-
-In the case of the Template Husky experiment, this will print out `all_spikes.csv` and `all_joints_positions.csv`. We can now get the data from any one of these files. Note that these files will be populated only if a simulation has been running. Here we will get and print out the Spike data:
-
-.. code-block:: python
-
-    spikes = sim.get_csv_data('all_spikes.csv')
-    pprint(spikes)
-    [[u'id', u'time', u'Simulation_reset'],
-     [u'8.0', u'0.10000000000000001', u'RESET'],
-     [u'10.0', u'2.6000000000000001', u''],
-     [u'8.0', u'57.200000000000003', u'']]
-
-In the code snippet above you can notice the additional `Simulation_reset` column in that automatically keeps track of 'reset' events.
-
-We can also write our own custom functions to plot the data we got. The following is a custom function that will plot each spike from the csv file as a blue dot. Note also that the first line in the csv data is a header that need to be accounted for when plotting.
-
-.. code-block:: python
-
-    import matplotlib.pyplt as plt
-    plt.gca()
-    plt.ylim(2, 12)
-    plt.yticks(range(3, 11))
-    plt.xlabel('Time [ms]')
-    plt.ylabel('Neuron ID')
-    plt.plot([float(spike[1]) for spike in spikes[1:], [int(float(spike[0])) for spike in spikes[1:]], 'bo')
-
 Reset Functionality
+
 ^^^^^^^^^^^^^^^^^^^
+
 It is also possible to reset certain aspects of the simulation from the Virtual Coach, exactly as it is possible from the web cockpit. There are four reset types possible from the Virtual Coach: `Robot Frame`, `Environment`, `Brain`, and the `Full Simulation`. You can reset all simulation aspects with the same call:
+
 
 .. code-block:: python
 
@@ -178,5 +230,5 @@ It is also possible to reset certain aspects of the simulation from the Virtual 
     sim.reset('brain')
     sim.reset('full')
 
-
 If you want to look at more concrete example experiments run from the Virtual Coach, you can check out the hbp_nrp_virtual_coach/examples directory.
+
