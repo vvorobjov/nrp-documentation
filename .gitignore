@@ -1,0 +1,4 @@
+_build
+nrp/generated/**
+.vscode
+

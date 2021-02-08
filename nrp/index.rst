@@ -12,7 +12,7 @@ This covers exactly what you need to set-up and run a successful in-silico exper
 
    user_manual/index
    tutorials/index
-..    developer_manual/index
+   developer_manual
    specifications/index
 
 .. image:: images/nrp.jpg
