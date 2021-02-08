@@ -39,4 +39,5 @@ $(COPY_PY_DOCS): cp_$(HBP)/%:
 	mkdir -p $(THIS_DIR)/nrp/generated/$*/../../
 	cp -rf $(HBP)/$*/source/* $(THIS_DIR)/nrp/generated/$*/../
 	
-	
+doc-clean:
+	rm -rf _build nrp/generated 
