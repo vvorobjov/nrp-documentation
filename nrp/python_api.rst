@@ -9,5 +9,7 @@ Python developer API
    generated/ExDBackend/hbp_nrp_cleserver/apidoc/hbp_nrp_cleserver
    generated/ExDBackend/hbp_nrp_commons/apidoc/hbp_nrp_commons
    generated/ExDBackend/hbp_nrp_watchdog/apidoc/hbp_nrp_watchdog
-   generated/VirtualCoach/hbp_nrp_virtual_coach/apidoc/hbp_nrp_virtual_coach
+   generated/VirtualCoach/hbp_nrp_virtual_coach/apidoc/pynrp
    generated/BrainSimulation/hbp_nrp_distributed_nest/apidoc/hbp_nrp_distributed_nest
+   generated/ExperimentControl/hbp_nrp_excontrol/apidoc/hbp_nrp_excontrol
+   

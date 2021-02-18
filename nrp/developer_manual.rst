@@ -12,4 +12,5 @@ Developer Manual
     generated/ExDBackend/hbp_nrp_watchdog/index
     generated/VirtualCoach/hbp_nrp_virtual_coach/index
     generated/BrainSimulation/hbp_nrp_distributed_nest/index
+    generated/ExperimentControl/hbp_nrp_excontrol/index
     python_api

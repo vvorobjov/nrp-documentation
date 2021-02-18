@@ -4,10 +4,10 @@ Tutorial: Writing an Experiment Configuration
 File format
 ^^^^^^^^^^^
 
-The Experiment Configuration (ExD Configuration) is shown in :numref:`exd-config`. The metamodel of the experiment
+The Experiment Configuration (ExD Configuration) is shown in :numref:`exd-config-nrp`. The metamodel of the experiment
 configuration is available as an XML Schema document. Experiment Configurations models have the file extension **.exc**.
 
-.. _exd-config:
+.. _exd-config-nrp:
 .. figure:: img/exd_config.png
     :align: center
 

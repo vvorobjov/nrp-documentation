@@ -1,7 +1,9 @@
 import sys
 import os
 
-import sphinx_rtd_theme # added by FOM
+# import conf.py from admin-scripts
+sys.path.insert(0, os.environ.get('HBP') + '/admin-scripts/ContinuousIntegration/python/docs')
+from sphinxconf import *
 
 # create up2date gitversion file (which is included at the top)
 from subprocess import call
@@ -14,13 +16,7 @@ sys.path.append('../../lib')
 authors = u'TBD'
 latex_authors = authors.replace(',', r'\and')
 project = title = u'HBP Neurorobotics Platform'
-copyright = u'2014-2020, Human Brain Project'
 basename = u'HBPNeuroroboticsPlatformDocumentation'
-
-# The short X.Y version.
-version = '2.0'
-# The full version, including alpha/beta/rc tags.
-release = '2.0.0'
 
 todo_include_todos = True
 description = u'HBP Neurorobotics Platform user manual'
@@ -33,18 +29,6 @@ html_static_path = ['_static']
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
 
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.doctest',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.ifconfig',
-    "sphinx_rtd_theme",  #added by FOM
-]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -70,7 +54,7 @@ master_doc = 'index'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'nrp/developer_manual.bk']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.

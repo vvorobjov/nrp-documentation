@@ -5,7 +5,8 @@ $(HBP)/ExDBackend/hbp_nrp_commons/doc \
 $(HBP)/ExDBackend/hbp_nrp_watchdog/doc \
 $(HBP)/CLE/hbp_nrp_cle/doc \
 $(HBP)/VirtualCoach/hbp_nrp_virtual_coach/doc \
-$(HBP)/BrainSimulation/hbp_nrp_distributed_nest/doc
+$(HBP)/BrainSimulation/hbp_nrp_distributed_nest/doc \
+$(HBP)/ExperimentControl/hbp_nrp_excontrol/doc
 
 
 # You can set these variables from the command line, and also
@@ -14,6 +15,8 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
+
+VERSION       = $(shell git -C $(HBP)/ExDBackend describe --tags --abbrev=0)
 
 ## Include common makefile from adminscripts
 CI_REPO?=git@bitbucket.org:hbpneurorobotics/admin-scripts.git
@@ -33,7 +36,7 @@ include $(COMMON_PY_MAKEFILE)
 COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
 
 doc: $(COPY_PY_DOCS)
-	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 $(COPY_PY_DOCS): cp_$(HBP)/%:
 	mkdir -p $(THIS_DIR)/nrp/generated/$*/../../
