@@ -35,12 +35,12 @@ include $(COMMON_PY_MAKEFILE)
 
 COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
 
-doc: $(COPY_PY_DOCS)
+doc: $(DOCS) $(COPY_PY_DOCS)
 	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 $(COPY_PY_DOCS): cp_$(HBP)/%:
-	mkdir -p $(THIS_DIR)/nrp/generated/$*/../../
-	cp -rf $(HBP)/$*/source/* $(THIS_DIR)/nrp/generated/$*/../
+	mkdir -p $(THIS_DIR)/nrp/modules/$*/../../
+	cp -rf $(HBP)/$*/source/* $(THIS_DIR)/nrp/modules/$*/../
 	
-doc-clean:
-	rm -rf _build nrp/generated 
+doc-clean-full: doc-clean
+	rm -rf _build nrp/modules 
