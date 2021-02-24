@@ -8,6 +8,16 @@ $(HBP)/VirtualCoach/hbp_nrp_virtual_coach/doc \
 $(HBP)/BrainSimulation/hbp_nrp_distributed_nest/doc \
 $(HBP)/ExperimentControl/hbp_nrp_excontrol/doc
 
+INSTALL_MODULES=$(HBP)/ExDBackend/hbp-flask-restful-swagger-master \
+$(HBP)/ExDBackend/hbp_nrp_backend \
+$(HBP)/ExDBackend/hbp_nrp_cleserver \
+$(HBP)/ExDBackend/hbp_nrp_commons \
+$(HBP)/ExDBackend/hbp_nrp_watchdog \
+$(HBP)/CLE/hbp_nrp_cle \
+$(HBP)/VirtualCoach/hbp_nrp_virtual_coach \
+$(HBP)/BrainSimulation/hbp_nrp_distributed_nest \
+$(HBP)/ExperimentControl/hbp_nrp_excontrol
+
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
@@ -36,7 +46,7 @@ include $(COMMON_PY_MAKEFILE)
 COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
 
 doc: $(DOCS) $(COPY_PY_DOCS)
-	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -w sphinx_w.txt "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 $(COPY_PY_DOCS): cp_$(HBP)/%:
 	mkdir -p $(THIS_DIR)/nrp/modules/$*/../../

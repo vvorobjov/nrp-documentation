@@ -56,9 +56,9 @@ master_doc = 'index'
 # directories to ignore when looking for source files.
 exclude_patterns = ['_build', 'nrp/developer_manual.bk']
 
-# The reST default role (used for this markup: `text`) to use for all
-# documents.
-#default_role = None
+
+# the following modules are part of CLE and should be mocked
+autodoc_mock_imports = ['SpiNNaker']
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #add_function_parentheses = True
