@@ -1,4 +1,5 @@
 _build
-nrp/modules/**
+src/nrp/modules/**
 .vscode
 
+sphinx_w.txt

@@ -23,7 +23,7 @@ $(HBP)/ExperimentControl/hbp_nrp_excontrol
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = .
+SOURCEDIR     = src
 BUILDDIR      = _build
 
 VERSION       = $(shell git -C $(HBP)/ExDBackend describe --tags --abbrev=0)
@@ -49,8 +49,8 @@ doc: $(DOCS) $(COPY_PY_DOCS)
 	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -w sphinx_w.txt "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 $(COPY_PY_DOCS): cp_$(HBP)/%:
-	mkdir -p $(THIS_DIR)/nrp/modules/$*/../../
-	cp -rf $(HBP)/$*/source/* $(THIS_DIR)/nrp/modules/$*/../
+	mkdir -p $(SOURCEDIR)/nrp/modules/$*/../../
+	cp -rf $(HBP)/$*/source/* $(SOURCEDIR)/nrp/modules/$*/../
 	
 doc-clean-full: doc-clean
-	rm -rf _build nrp/modules 
+	rm -rf _build $(SOURCEDIR)/nrp/modules 
