@@ -5,6 +5,7 @@
 // https://www.jenkins.io/doc/book/pipeline/shared-libraries/
 @Library('nrp-shared-libs@master') _
 
+def docs_version
 pipeline
 {
     environment
@@ -97,60 +98,34 @@ pipeline
                 }
             }
         }
-        // stage('Push Docker Images to Nexus Registry')
-        // {
-        //     when
-        //     {
-        //         expression {  true }
-        //     }
-        //     steps
-        //     {
-        //         script
-        //         {
-        //             withCredentials([usernamePassword(credentialsId: 'nexusadmin', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
-        //             {
-        //                 sh 'docker login -u $USER -p $PASSWORD ${NexusDockerRegistryUrl}'
-        //             }
-        //             sh "docker tag nrp:dev ${NexusDockerRegistryUrl}/nrp:${branch_tag}"
-        //             sh "docker tag hbpneurorobotics/nrp_frontend:dev ${NexusDockerRegistryUrl}/nrp_frontend:${branch_tag}"
-        //             sh "docker push ${NexusDockerRegistryUrl}/nrp:${branch_tag}"
-        //             sh "docker push ${NexusDockerRegistryUrl}/nrp_frontend:${branch_tag}"
-        //             sh 'docker logout ${NexusDockerRegistryUrl}'
-        //         }
-        //     }
-        // }
-        // stage('Deploy with ansible')
-        // {
-        //     when
-        //     {
-        //         expression { return params.DEPLOY_IMAGE }
-        //     }
-        //     steps
-        //     {
-        //         script
-        //         {
-
-        //             dir('admin-scripts')
-        //             {
-        //                 git branch: "${params.ADMIN_SCRIPT_BRANCH}", url: 'git@bitbucket.org:hbpneurorobotics/admin-scripts.git'
-
-
-        //                 withCredentials([usernamePassword(credentialsId: 'nexusadmin', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
-        //                 {
-        //                     //update backends first
-        //                     ansiblePlaybook(credentialsId: 'test-key', inventory: 'ansible/hosts', playbook: 'ansible/update.yml', limit : "${params.env}_backends", become : true , extraVars: [docker_tag :  "${branch_tag}" , docker_reg : "${NexusDockerRegistryUrl}", docker_user :  '$USER', docker_pass :  '$PASSWORD' ] )
-        //                     //keep_running backends
-        //                     ansiblePlaybook(credentialsId: 'test-key', inventory: 'ansible/hosts', playbook: 'ansible/keep_running.yml', limit : "${params.env}_backends", become : true , extraVars: [docker_tag :  "${branch_tag}" , docker_reg : "${NexusDockerRegistryUrl}", force_config: "true" , jenkins_home : "${HOME}"] )
-
-        //                     //update frontend
-        //                     ansiblePlaybook(credentialsId: 'test-key', inventory: 'ansible/hosts', playbook: 'ansible/update.yml', limit : "${params.env}_frontend", become : true , extraVars: [docker_tag :  "${branch_tag}" , docker_reg : "${NexusDockerRegistryUrl}", docker_user :  '$USER', docker_pass :  '$PASSWORD' ] )
-        //                     //keep_running frontend
-        //                     ansiblePlaybook(credentialsId: 'test-key', inventory: 'ansible/hosts', playbook: 'ansible/keep_running.yml', limit : "${params.env}_frontend", become : true , extraVars: [docker_tag :  "${branch_tag}" , docker_reg : "${NexusDockerRegistryUrl}", force_config: "true" , jenkins_home : "${HOME}" ] )
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Deploy with ansible')
+        {
+            when
+            {
+                expression { return params.DEPLOY }
+            }
+            steps
+            {
+                script
+                {
+                    docs_version = readFile "version"
+                    dir(env.DOCS_DIR)
+                    {
+                        
+                        withCredentials([usernamePassword(credentialsId: 'website_ansible', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
+                        {
+                            ansiblePlaybook(credentialsId: "website_ansible_key", \
+                                            colorized: true, \
+                                            inventory: 'ansible/hosts', \
+                                            playbook: 'ansible/deploy_docs.yml',  \
+                                            become : true ,  \
+                                            extraVars: [ansible_become_pass :  '$PASSWORD' , \
+                                                        docs_version : "${docs_version}", \
+                                                        sphinx_build_html :  '_build/html/' ] )}
+                    }
+                }
+            }
+        }
      }
 
 }

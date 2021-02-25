@@ -1,0 +1,2 @@
+[docs_vm]
+vmknoll60.in.tum.de ansible_ssh_extra_args='-o StrictHostKeyChecking=no'

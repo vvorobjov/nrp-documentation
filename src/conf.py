@@ -58,7 +58,7 @@ exclude_patterns = ['_build', 'nrp/developer_manual.bk']
 
 
 # the following modules are part of CLE and should be mocked
-autodoc_mock_imports = ['SpiNNaker']
+autodoc_mock_imports = ['SpiNNaker', 'nest']
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #add_function_parentheses = True

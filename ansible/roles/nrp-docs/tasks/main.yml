@@ -1,0 +1,35 @@
+---
+- name: Print all available facts
+  ansible.builtin.debug:
+    var: ansible_facts
+
+- name: Archive the files
+  archive:
+    path: "{{ sphinx_build_html }}"
+    dest: "{{ sphinx_build_html }}/src.zip"
+    format: zip
+  delegate_to: localhost
+  become: false
+
+- name: Create a directory for docs on host if it does not exist
+  ansible.builtin.file:
+    path: "/var/www/html/Documentation/{{ docs_version }}"
+    state: directory
+    mode: '0755'
+    owner: nrp
+    group: www-data
+  become: true
+
+- name: Extract files to host
+  ansible.builtin.unarchive:
+    src: "{{ sphinx_build_html }}/src.zip"
+    dest: "/var/www/html/Documentation/{{ docs_version }}"
+    owner: nrp
+    group: www-data
+  become: true
+
+- name: Clean artifact path
+  file:
+    state: absent
+    path: "/var/www/html/Documentation/{{ docs_version }}/src.zip"
+  become: true

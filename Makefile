@@ -46,7 +46,8 @@ include $(COMMON_PY_MAKEFILE)
 COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
 
 doc: $(DOCS) $(COPY_PY_DOCS)
-	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -w sphinx_w.txt "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	$(file > version,$(VERSION))
+	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt $(SPHINXOPTS) "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
 
 $(COPY_PY_DOCS): cp_$(HBP)/%:
 	mkdir -p $(SOURCEDIR)/nrp/modules/$*/../../
