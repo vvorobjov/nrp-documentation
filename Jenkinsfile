@@ -112,10 +112,10 @@ pipeline
           }
             steps
             {
-                dir(env.GIT_CHECKOUT_DIR)
+                dir(env.DOCS_DIR)
                 {
                   sh "bash ./.ci/build.bash"
-                  archiveArtifacts artifacts: "${env.WORKSPACE}/${env.DOCS_DIR}/_build/html/**/*"
+                  archiveArtifacts artifacts: "_build/html/**/*"
                   recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
                 }
             }
