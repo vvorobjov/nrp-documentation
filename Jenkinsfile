@@ -1,9 +1,30 @@
-#!groovy
-// Load shared library at master branch
-// the path to the repo with this library should be specified in Jenkins
-// https://tomd.xyz/jenkins-shared-library/
-// https://www.jenkins.io/doc/book/pipeline/shared-libraries/
-@Library('nrp-shared-libs@master') _
+def cloneRepoTopic(folder, repoUrl, topicBranch, defaultBranch, user) {
+// cloneRepoTopic: 
+//      1 - directory to checkout
+//      2 - repo
+//      3 - name of topic branch
+//      4 - default branch if topic unavailable
+//      5 - username for chown
+    dir(folder) {
+        try {
+            echo "${folder}: Trying to checkout branch ${topicBranch}."
+            git branch: topicBranch, url: repoUrl
+        }
+        catch (e) {
+            echo "${folder}: Branch ${topicBranch} is not available, getting ${defaultBranch} instead."
+            git branch: defaultBranch, url: repoUrl
+        }
+        sh "chown -R ${user} ./"
+    }
+}
+def selectTopicBranch(branch_name, change_branch){
+    if (change_branch){
+        return change_branch
+    }
+    else {
+        return branch_name
+    }
+}
 
 def docs_version
 pipeline
@@ -108,21 +129,27 @@ pipeline
             {
                 script
                 {
-                    docs_version = readFile "version"
                     dir(env.DOCS_DIR)
                     {
+                        docs_version = readFile "version"
+                        docs_version = docs_version.trim()
                         
-                        withCredentials([usernamePassword(credentialsId: 'website_ansible', usernameVariable: 'USER', passwordVariable: 'PASSWORD')])
-                        {
-                            ansiblePlaybook(credentialsId: "website_ansible_key", \
-                                            colorized: true, \
-                                            inventory: 'ansible/hosts', \
-                                            playbook: 'ansible/deploy_docs.yml',  \
-                                            become : true ,  \
-                                            extraVars: [ansible_become_pass :  '$PASSWORD' , \
-                                                        docs_version : "${docs_version}", \
-                                                        sphinx_build_html :  '_build/html/' ] )}
-                    }
+                        sh '''
+                        sudo apt-add-repository --yes --update ppa:ansible/ansible
+                        sudo apt update 
+                        sudo apt install -y software-properties-common ansible-base
+                        ansible-galaxy collection install community.general
+                        ansible-galaxy collection install ansible.posix
+                        '''
+                        ansiblePlaybook(credentialsId: "website_ansible_key", \
+                                        colorized: true, \
+                                        inventory: 'ansible/hosts', \
+                                        playbook: 'ansible/deploy_docs.yml',  \
+                                        become : true ,  \
+                                        extraVars: [ansible_become_pass :  "${params.DEPLOY_PASS}" , \
+                                                    docs_version : "${docs_version}", \
+                                                    sphinx_build_html :  '${WORKSPACE}/${DOCS_DIR}/_build/html/' ] )}
+                    
                 }
             }
         }
