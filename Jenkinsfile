@@ -115,7 +115,7 @@ pipeline
                 dir(env.GIT_CHECKOUT_DIR)
                 {
                   sh "bash ./.ci/build.bash"
-                  archiveArtifacts artifacts: '${WORKSPACE}/${DOCS_DIR}/_build/html/**/*'
+                  archiveArtifacts artifacts: "${env.WORKSPACE}/${env.DOCS_DIR}/_build/html/**/*"
                   recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
                 }
             }
