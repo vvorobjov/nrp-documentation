@@ -4,8 +4,6 @@ set -e
 set -x
 cd ${WORKSPACE}
 
-echo $1
-
 whoami
 env | sort
 pwd
@@ -15,6 +13,11 @@ pwd
 if [ -z ${PYTHON_VERSION_MAJOR_MINOR} ]; then
     export PYTHON_VERSION_MAJOR=$(python -c "import sys; print(sys.version_info.major)")
     export PYTHON_VERSION_MAJOR_MINOR=$(python -c "import sys; print('{}.{}'.format(sys.version_info.major, sys.version_info.minor))")
+fi
+
+MAKE_TARGET=doc
+if [ $1 -eq "true" ]; then
+    MAKE_TARGET=doc-release
 fi
 
 # Set dev mode and switch HBP to Jenkins workspace
