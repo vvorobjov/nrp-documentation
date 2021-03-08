@@ -4,6 +4,8 @@ set -e
 set -x
 cd ${WORKSPACE}
 
+echo $1
+
 whoami
 env | sort
 pwd
@@ -73,6 +75,8 @@ cd ${WORKSPACE}
 cd ${GIT_CHECKOUT_DIR}
 env | sort
 make devinstall
+
+
 
 # create docs
 . $VIRTUAL_ENV_PATH/bin/activate \

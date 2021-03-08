@@ -17,11 +17,13 @@ authors = u'TBD'
 latex_authors = authors.replace(',', r'\and')
 project = title = u'HBP Neurorobotics Platform'
 basename = u'HBPNeuroroboticsPlatformDocumentation'
-
-todo_include_todos = True
 description = u'HBP Neurorobotics Platform user manual'
 
 # -- General configuration ------------------------------------------------
+
+todo_include_todos = True
+todo_emit_warnings = True
+todo_link_only = True
 
 #ADDED BY FOM
 html_static_path = ['_static']
@@ -310,8 +312,6 @@ epub_exclude_files = ['search.html']
 
 # Example configuration for intersphinx: refer to the Python standard library.
 #intersphinx_mapping = {'http://docs.python.org/': None}
-
-todo_include_todos = True
 
 # Enable numfig to automatically assign numbers to figures.
 numfig = True
