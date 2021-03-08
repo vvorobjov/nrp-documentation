@@ -1,6 +1,7 @@
 Developer Manual
 ================
 
+.. _developer-manual:
 
 .. toctree::
     :maxdepth: 1

@@ -20,15 +20,10 @@ These accounts can be requested on the `account page`_ on our website.
 If you have installed the Neurorobotics Platform **on your computer** as indicated in our `installation guide`_, the default credentials to run 
 simulations and store data locally are:
 
-|
-
   - **username**: nrpuser
   - **password**: password
 
-|
+If you have questions, please :ref:`write to us<contact>`.
 
-If you have questions, please `write to us`_.
-
-.. _write to us: contact-and-support.html
 .. _account page: https://neurorobotics.net/entry.html
 .. _installation guide: https://bitbucket.org/hbpneurorobotics/neurorobotics-platform

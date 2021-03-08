@@ -24,4 +24,4 @@ For bug reports and feature requests, please email neurorobotics-support@humanbr
 .. _SSSA: http://sssa.bioroboticsinstitute.it
 .. _HBP support portal: https://support.humanbrainproject.eu
 .. _forum: https://forum.humanbrainproject.eu/c/neurorobotics
-.. _contact form: http://www.neurorobotics.net/contact.html
+.. _contact-link form: http://www.neurorobotics.net/contact.html
