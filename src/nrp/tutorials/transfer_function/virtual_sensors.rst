@@ -1,6 +1,9 @@
 Tutorial: Accessing virtual sensors
 ===================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/virtual_sensors`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 In many experiments, the simulated brain does not cover a full perception-cognition-action loop.
 Rather, only an aspect of the brain is modeled. In many cases such as the visual cortex, the visualization
 of the brain activity is rather easy and can be accomplished by raising a hand or equivalent tasks.

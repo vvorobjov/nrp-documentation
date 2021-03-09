@@ -1,6 +1,9 @@
 Tutorial: Using TFs specified directly in Python
 ================================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/python_only_tfs`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 .. warning:: This integration is subject to change due to security issues. In the future, users may
     be limited to certain packages and may not be allowed to use double underscores (__)
 

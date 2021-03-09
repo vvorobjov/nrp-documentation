@@ -1,5 +1,8 @@
 Tutorial: Variables in Transfer Functions
-===============================================
+=========================================
+
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/variables`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
 
 The evaluation of certain experiments requires observing the world and or the brain simulation and
 judge based on the observations whether an experiment is executed successfully or not. These

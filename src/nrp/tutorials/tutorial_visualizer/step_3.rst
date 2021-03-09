@@ -1,6 +1,9 @@
 Step 3: fixing the brain file
 =============================
 
+.. todo:: Add author/responsible
+
+
 Context
 ^^^^^^^
 

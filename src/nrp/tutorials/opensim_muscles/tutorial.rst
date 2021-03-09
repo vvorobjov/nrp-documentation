@@ -1,6 +1,9 @@
 Tutorial Description
 --------------------
 
+.. todo:: Add author/responsible
+
+
 The goal of the experiment is to build a model to simulate a simple knee reflex.
 A knee reflex tries to compensate for a sudden muscle stretch by activating the
 muscle under stretch appropriately based on its' muscle stretching speed to compensate

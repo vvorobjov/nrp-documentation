@@ -1,6 +1,9 @@
 Step 1: show something to the robot
 ===================================
 
+.. todo:: Add author/responsible
+
+
 Context
 ^^^^^^^
 

@@ -2,6 +2,8 @@
 Tutorial: A simple Braitenberg experiment with a Husky robot connected to a Spinnaker board
 ===========================================================================================
 
+.. todo:: Add author/responsible
+
 In this tutorial, we connect a Spinnaker board to a simulated Husky robot in a Braitenberg-like experiment.
 We do this by altering a nest-based Husky Braitenberg experiment and port that to Spinnaker.
 

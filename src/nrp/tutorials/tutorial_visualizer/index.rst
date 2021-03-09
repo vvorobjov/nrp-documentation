@@ -1,6 +1,9 @@
 Brain visualizer tutorial
 =========================
 
+.. todo:: Add author/responsible
+
+
 This tutorial shows you how to use the brain visualizer to highlight what is happenng in your simulated brain.
 
 Your initial move is to connect to the online Platform from http://neurorobotics.net if you are a registered user, or to start your locally installed Platform.

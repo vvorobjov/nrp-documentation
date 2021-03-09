@@ -1,6 +1,10 @@
 Tutorial: Writing an Experiment Configuration
 =============================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/ExDBackend/hbp_nrp_backend/tutorials/ex_configuration`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
+
 File format
 ^^^^^^^^^^^
 

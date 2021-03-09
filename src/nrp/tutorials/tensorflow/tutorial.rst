@@ -2,6 +2,8 @@
 Scope
 =====
 
+.. todo:: Add author/responsible
+
 This tutorial will teach you how to install and use TensorFlow within an NRP experiment. Upon completion you will be able to run a "Hello World" level experiment and be able to explore a more advanced experiment distributed with the NRP.
 
 ========================================

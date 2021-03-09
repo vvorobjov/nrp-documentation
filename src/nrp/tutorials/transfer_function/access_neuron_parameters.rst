@@ -1,6 +1,9 @@
 Accessing neural network variables to configure Transfer Functions
 ==================================================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/manual/access_neuron_parameters`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 In some cases, it may be beneficial to access parameters of the neural network to configure
 Transfer Functions. These variables may be specified as global variables of the neural network
 module that is to be loaded. These variables may contain size information of a dynamically sizable

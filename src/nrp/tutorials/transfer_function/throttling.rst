@@ -1,6 +1,8 @@
 Tutorial: throttling a Transfer Function
 ========================================
 
+.. todo:: Add author/responsible
+
 In some applications, in particular when using multiple triggers as in the :doc:`triggers`,
 you need to throttle Transfer Functions so that they are only executed fewer times. For example,
 you experience that your camera is very fast sending new images but you actually only need to update much slower.

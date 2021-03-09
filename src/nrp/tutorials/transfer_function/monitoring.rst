@@ -1,6 +1,9 @@
 Tutorial: Monitoring neurons
 ============================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/monitoring`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 To monitor neuronal network activity, neuronal network information is published to a robot topic that is used for display purposes instead of
 being used by the robot. Thus, monitoring information can be specified using the normal TF mechanisms.
 

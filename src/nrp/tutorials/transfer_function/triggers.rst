@@ -1,6 +1,8 @@
 Tutorial: Executing Transfer Functions outside the simulation loop
 ==================================================================
 
+.. todo:: Add author/responsible
+
 Transfer Functions by default run synchronized to the neural network and the world simulation due to
 the advantages in reproducibility. However, some applications have special demands where Transfer
 Functions should be able to be executed independent of the simulation loop, for example when a new

@@ -1,6 +1,8 @@
 Tutorials
 =========
 
+.. todo:: Add author/responsible
+
 The following tutorials demonstrate beginner's or original use cases given simple examples.
 
 .. image:: ../images/tutorials.png
@@ -20,4 +22,3 @@ The following tutorials demonstrate beginner's or original use cases given simpl
     debugging/index
     opensim_muscles/index
     tutorial_visualizer/index
-    brain_visualizer/index

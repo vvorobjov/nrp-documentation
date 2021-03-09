@@ -1,6 +1,9 @@
 Tutorial: A custom device for reusable image processing
 =======================================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/custom_devices`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 Some applications are recurrent and could be reused among multiple applications. A typical application is
 image recognition, i.e. how to *map* an image from the robot (typically in RGB) to a neuronal network. We assume that
 the connection to the network is to some degree similar and so we want to create a common denominator to specify

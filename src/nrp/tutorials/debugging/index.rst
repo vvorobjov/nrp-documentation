@@ -1,6 +1,9 @@
 How to debug my experiment
 ==========================
 
+.. todo:: Add author/responsible
+
+
 This tutorial guides you through steps to debug a faulty experiment. Upon completing the tutorial,
 you will have learnt about the data monitors, the visualizers, the logging mechanism, the online
 editing tools and you will have fixed the tutorial example experiment.

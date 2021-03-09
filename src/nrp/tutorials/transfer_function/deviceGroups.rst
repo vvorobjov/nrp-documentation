@@ -1,6 +1,9 @@
 Tutorial: Accessing multiple neurons with device groups
 =======================================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/deviceGroups`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 In some applications, particularly when working with image data, it is not sufficient to work with single neurons.
 This may work with the simplified Braitenberg network because it only has a fixed amount of sensor neurons regardless of the image
 resolution. However, this is different in the general case when an image should be processed by hundreds or thousands of neurons.

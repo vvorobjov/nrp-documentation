@@ -3,6 +3,11 @@
 Tutorial: Writing a state machine for an experiment
 ===================================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/ExDBackend/hbp_nrp_backend/tutorials/state_machines`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
+
+
 The NRP is designed to use state machines to control and evaluate experiments. A state machine controlling an experiment can monitor any simulation properties published on ROS topics (e.g. simulation time, sensor output, spiking activity of brain), it can also publish on ROS topics or call ROS services. A state machine evaluating the success of an experiment has the same capabilities for monitoring a simulation and should either publish a success or failure message to the NRP ROS status topic.
 
 The NRP uses SMACH for executing state machines, hence state machines have to be specified in Python.

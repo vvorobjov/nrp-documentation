@@ -1,6 +1,8 @@
 Tutorial: Interacting with an Experiment from the Virtual Coach
 ===============================================================
 
+.. todo:: Add author/responsible
+
 In the previous section we successfully launched a simulation of the Template Husky experiment. In this tutorial, we will interact with the simulation through the Virtual Coach.
 
 Getting and Setting Simulation States

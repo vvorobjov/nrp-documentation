@@ -1,6 +1,9 @@
 Tutorial: Writing a Neuron2Robot TF
 ===================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/neuron2robot`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 This tutorial assumes you have familiarized yourself with the Braitenberg experiment. If not, please consider reading the :doc:`setup` first.
 
 A TF in Python is basically a Python function with a set of decorators. These decorators create a TF from a simple Python function by specifying where the function parameters come from and what should happen

@@ -1,6 +1,9 @@
 Tutorial: Tutorial Setup
 ========================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/setup`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 The tutorial series starting with this section will introduce the TF framework given the simple Braitenberg vehicle experiment.
 
 In the Braitenberg experiment, a simple vehicle looks out for a red camera image.
@@ -34,3 +37,4 @@ As a consequence, the Braitenberg demo consists of two TFs. The first **Robot2Ne
 A second **Neuron2Robot TF** converts the wheel neurons voltages back to velocity commands that can be processed by the Husky.
 
 If you have understood the Braitenberg demo, you may want to continue with :doc:`bibi_config`.
+

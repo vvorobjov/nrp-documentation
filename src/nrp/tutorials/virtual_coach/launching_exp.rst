@@ -1,6 +1,8 @@
 Tutorial: Launching an Experiment from the Virtual Coach
 ========================================================
 
+.. todo:: Add author/responsible
+
 Starting the Virtual Coach
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 There are different ways to start a Virtual Coach instance. With a local NRP install you can use the alias *cle-virtual-coach* in three different ways:

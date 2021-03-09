@@ -1,6 +1,9 @@
 Tutorial: Writing a Robot2Neuron TF
 ===================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/robot2neuron`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 This tutorial assumes you have familiarized yourself with the Braitenberg experiment.
 If not, please consider reading the :doc:`setup` first.
 

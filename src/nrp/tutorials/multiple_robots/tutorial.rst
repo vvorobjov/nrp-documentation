@@ -2,6 +2,8 @@
 Scope of this tutorial
 ======================
 
+.. todo:: Add author/responsible
+
 This tutorial will teach you how to include and simulate two brain-controlled robots.
 You will implement two basic behaviors; namely, color recognition and obstacle avoidance.
 

@@ -1,6 +1,9 @@
 Tutorial: Writing a BIBI Configuration
 ======================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/tutorials/bibi_config`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
 A BIBI Configuration contains all the information necessary to couple a brain model with a robot model using transfer functions and to run these simulations
 in the Closed Loop Engine (CLE). Thus, besides references to the brain model and the robot model, it contains the specifications of the TFs.
 
