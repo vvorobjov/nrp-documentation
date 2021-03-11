@@ -2,6 +2,8 @@
 Web Cockpit
 ===========
 
+.. todo:: Add author/responsible
+
 .. toctree::
    :maxdepth: 1
 

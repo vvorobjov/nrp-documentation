@@ -1,6 +1,8 @@
 Experiment configuration
 ========================
 
+.. todo:: Add author/responsible
+
 Apart from the BIBI configuration, the experiment configuration mainly consists of the following artifacts:
 
 - The experiment metadata refers to the experiment name, description and image to show in the experiment list.

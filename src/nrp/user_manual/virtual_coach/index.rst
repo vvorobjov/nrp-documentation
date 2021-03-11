@@ -6,4 +6,4 @@ Virtual Coach
        :maxdepth: 1
 
        introduction
-       API
+       Virtual Coach API</nrp/modules/VirtualCoach/hbp_nrp_virtual_coach/apidoc/pynrp>

@@ -1,6 +1,11 @@
 Changing Simulated Models during a running simulation
 =====================================================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/manual/hard_reset`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
+
+
 During a simulation, it is possible to change the models simulated in each of the simulators separately.
 This may be done in order to continue to use the state of the other simulator or the internal state
 of transfer functions. Besides actually changing the models, such a change may imply a reset of the

@@ -1,6 +1,8 @@
 Introduction
 ============
 
+.. todo:: Add author/responsible
+
 The possibility of creating a multitude of experiments is a crucial success factor for any simulation platform. The
 Neurorobotics Platform has been designed to support a wide range of possible experiments. Flexibility, however,
 usually comes at the price of complexity. The experiment configurations in the NRP are complex artifacts

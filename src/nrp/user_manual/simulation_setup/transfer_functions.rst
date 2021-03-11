@@ -1,6 +1,10 @@
 Transfer Functions with PyTF
 ============================
 
+.. todo:: Add author/responsible
+.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/manual/transfer_functions`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
+
+
 Abstraction is about concentrating on the essential parts of a system. To explain what we
 see as essential in the connection between a robot and a spiking
 neuronal network, we begin with the explanation of the domain-specific language (DSL) that captures
