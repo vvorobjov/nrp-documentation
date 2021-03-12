@@ -24,6 +24,8 @@ description = u'HBP Neurorobotics Platform user manual'
 todo_include_todos = True
 todo_emit_warnings = True
 
+show_authors = True
+
 #ADDED BY FOM
 html_static_path = ['_static']
 

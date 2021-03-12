@@ -2,8 +2,7 @@
 HBP neurorobotics guide book
 ============================
 
-.. meta::
-   :author: Viktor Vorobev <vorobev@in.tum.de>
+.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
 .. toctree::
    :maxdepth: 2

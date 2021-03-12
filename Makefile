@@ -49,7 +49,7 @@ doc: $(DOCS) $(COPY_PY_DOCS)
 	$(file > version,$(VERSION))
 	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
 	
-doc-release: SPHINXOPTS += -D todo_include_todos=0
+doc-release: SPHINXOPTS += -D todo_include_todos=0 -D show_authors=0
 doc-release: doc;
 
 $(COPY_PY_DOCS): cp_$(HBP)/%:

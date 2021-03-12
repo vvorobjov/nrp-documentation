@@ -2,6 +2,8 @@
 Introduction
 ============
 
+.. todo:: Add author/responsible
+
 General goals
 -------------
 

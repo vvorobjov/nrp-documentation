@@ -2,6 +2,8 @@
 Experiment files
 ================
 
+.. todo:: Add author/responsible
+
 This page describes the different configuration files a Neurorobotics experiment is made of.
 For a detailed description, please refer to the :doc:`../specifications/index` section of this manual.
 

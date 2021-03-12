@@ -2,6 +2,8 @@
 Authentication and user account
 ===============================
 
+.. todo:: Add author/responsible
+
 To access the online Neurorobotics Platform, you need to have an account. There are two types of accounts to choose from:
 
 +----------------------+-------------------------------------------------------------------+

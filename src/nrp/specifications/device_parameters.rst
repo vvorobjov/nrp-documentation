@@ -1,6 +1,8 @@
 Device Parameters
 =================
 
+.. todo:: Add author/responsible
+
 Devices in the CLE can be configured with additional parameters depending on the type of device created. The purpose of this section is to document these parameters and their default values.
 With these configurations, a user may override some parameters in the device creation.
 

@@ -1,6 +1,8 @@
 Experiment Model Specification
 ==============================
 
+.. todo:: Add author/responsible
+
 Schema Document Properties
 --------------------------
 :Target Namespace: http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig
