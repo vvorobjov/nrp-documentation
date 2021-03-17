@@ -1,7 +1,16 @@
 Developer Manual
 ================
 
+.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+
 .. _developer-manual:
+
+.. note::
+    Currently, Developer Manual represents a collection of documentation gathered from repositories with code. 
+    Along with automatically documentated code API, which is for sure a part of Developer Manual, here are the manually written descriptions that resides in the repositories with the code.
+    These descriptions migth be suitable as for Developer, so as for User manual.
+
+.. todo:: Separate Developer from User manuals and generic tutorials
 
 .. toctree::
     :maxdepth: 1
