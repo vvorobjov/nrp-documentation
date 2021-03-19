@@ -45,9 +45,7 @@ include $(COMMON_PY_MAKEFILE)
 
 COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
 
-doc: $(DOCS) $(COPY_PY_DOCS)
-	$(file > version,$(VERSION))
-	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
+doc: $(DOCS) $(COPY_PY_DOCS) doc-fast
 
 doc-fast: 
 	$(file > version,$(VERSION))
