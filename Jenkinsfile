@@ -40,6 +40,7 @@ pipeline
         ADMIN_SCRIPTS_DIR = "admin-scripts"
         USER_SCRIPTS_DIR = "user-scripts"
         DOCS_DIR = "nrp-documentation"
+        NRP_DIR = "neurorobotics-platform"
         GIT_CHECKOUT_DIR = "${env.DOCS_DIR}"
 
         // If parameter BRANCH_NAME is set, use it as topic,
@@ -98,6 +99,8 @@ pipeline
                 cloneRepoTopic(env.EXP_CONTROL_DIR,         'git@bitbucket.org:hbpneurorobotics/experimentcontrol.git',   env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
                 cloneRepoTopic(env.CLE_DIR,                 'git@bitbucket.org:hbpneurorobotics/cle.git',                 env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
                 cloneRepoTopic(env.VC_DIR,                  'git@bitbucket.org:hbpneurorobotics/virtualcoach.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
+
+                cloneRepoTopic(env.NRP_DIR,                 'git@bitbucket.org:hbpneurorobotics/neurorobotics-platform.git',env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
 
                 cloneRepoTopic(env.USER_SCRIPTS_DIR,        'git@bitbucket.org:hbpneurorobotics/user-scripts.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
                 cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')

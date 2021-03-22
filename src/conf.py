@@ -13,6 +13,8 @@ sys.path.append('../../lib')
 
 #from theme.conf import *
 
+extensions += ['recommonmark', 'sphinx_copybutton']
+
 authors = u'TBD'
 latex_authors = authors.replace(',', r'\and')
 project = title = u'HBP Neurorobotics Platform'
@@ -33,7 +35,10 @@ html_static_path = ['_static']
 templates_path = ['_templates']
 
 # The suffix of source filenames.
-source_suffix = '.rst'
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 # The master toctree document.
 master_doc = 'index'

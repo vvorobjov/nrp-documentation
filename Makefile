@@ -47,7 +47,7 @@ COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
 
 doc: $(DOCS) $(COPY_PY_DOCS) doc-fast
 
-doc-fast: 
+doc-fast: copy-nrp
 	$(file > version,$(VERSION))
 	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
 
@@ -60,3 +60,6 @@ $(COPY_PY_DOCS): cp_$(HBP)/%:
 	
 doc-clean-full: doc-clean
 	rm -rf _build $(SOURCEDIR)/nrp/modules 
+
+copy-nrp:
+	cp -rf $(HBP)/neurorobotics-platform/*.md $(SOURCEDIR)/nrp/
