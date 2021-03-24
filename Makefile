@@ -63,3 +63,5 @@ doc-clean-full: doc-clean
 
 copy-nrp:
 	cp -rf $(HBP)/neurorobotics-platform/*.md $(SOURCEDIR)/nrp/
+	sed -i -E 's/^        (.*)/    ```bash\n    \1\n    ```/' src/nrp/*.md
+	sed -i -E '/    ```/N;/```\n    ```bash/d' src/nrp/*.md
