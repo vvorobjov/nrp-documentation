@@ -1,5 +1,5 @@
 ============================
-HBP neurorobotics guide book
+HBP Neurorobotics guide book
 ============================
 
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>

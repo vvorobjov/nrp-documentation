@@ -12,7 +12,7 @@ Developer Manual
 .. toctree::
     :maxdepth: 1
 
-    Source installation and running<source_installation>
+    Install and run NRP (from source)<source_installation>
     Installation troubleshooting<dev_troubleshooting.md>
-    modules/index
+    nrp_modules
     python_api
