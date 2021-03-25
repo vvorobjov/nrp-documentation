@@ -1,10 +1,10 @@
+.. _docker-installation:
+
 ====================================================
 Installation and running NRP using Docker containers
 ====================================================
 
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
-
-.. _docker-installation:
 
 This installation guide is for users who want to try out the :abbr:`NRP (Neurorobotics Platform)` locally on their machine, clone template experiments, or create new ones based on our template models. More expert users or developers who might want to change code directly in the Platform or add Gazebo plugins and robot controllers should install the NRP :ref:`from source<source-installation>` instead.
 
