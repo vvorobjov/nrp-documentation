@@ -1,0 +1,7 @@
+_build
+src/nrp/modules/*/**
+.vscode
+
+sphinx_w.txt
+version
+src/nrp/*.md

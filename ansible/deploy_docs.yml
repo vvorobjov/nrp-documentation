@@ -1,0 +1,3 @@
+- hosts: docs_vm
+  roles:
+  - nrp-docs

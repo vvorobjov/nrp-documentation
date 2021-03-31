@@ -1,20 +1,67 @@
-# Minimal makefile for Sphinx documentation
-#
+#documentation to build
+DOC_MODULES=$(HBP)/ExDBackend/hbp_nrp_backend/doc \
+$(HBP)/ExDBackend/hbp_nrp_cleserver/doc \
+$(HBP)/ExDBackend/hbp_nrp_commons/doc \
+$(HBP)/ExDBackend/hbp_nrp_watchdog/doc \
+$(HBP)/CLE/hbp_nrp_cle/doc \
+$(HBP)/VirtualCoach/hbp_nrp_virtual_coach/doc \
+$(HBP)/BrainSimulation/hbp_nrp_distributed_nest/doc \
+$(HBP)/ExperimentControl/hbp_nrp_excontrol/doc
+
+INSTALL_MODULES=$(HBP)/ExDBackend/hbp-flask-restful-swagger-master \
+$(HBP)/ExDBackend/hbp_nrp_backend \
+$(HBP)/ExDBackend/hbp_nrp_cleserver \
+$(HBP)/ExDBackend/hbp_nrp_commons \
+$(HBP)/ExDBackend/hbp_nrp_watchdog \
+$(HBP)/CLE/hbp_nrp_cle \
+$(HBP)/VirtualCoach/hbp_nrp_virtual_coach \
+$(HBP)/BrainSimulation/hbp_nrp_distributed_nest \
+$(HBP)/ExperimentControl/hbp_nrp_excontrol
+
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?=
+SPHINXOPTS    ?= 
 SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = .
+SOURCEDIR     = src
 BUILDDIR      = _build
 
-# Put it first so that "make" without argument is like "make help".
-help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+VERSION       = $(shell git -C $(HBP)/ExDBackend describe --tags --abbrev=0)
 
-.PHONY: help Makefile
+## Include common makefile from adminscripts
+CI_REPO?=git@bitbucket.org:hbpneurorobotics/admin-scripts.git
+CI_DIR?=$(HBP)/admin-scripts/ContinuousIntegration
+THIS_DIR:=$(PWD)
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+FETCH_CI := $(shell \
+		if [ ! -d $(CI_DIR) ]; then \
+				cd $(HBP) && git clone $(CI_REPO) > /dev/null && cd $(THIS_DIR);\
+		fi;\
+		echo $(CI_DIR) )
+
+COMMON_PY_MAKEFILE:=$(FETCH_CI)/python/common_makefile
+
+include $(COMMON_PY_MAKEFILE)
+
+COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
+
+doc: $(DOCS) $(COPY_PY_DOCS) doc-fast
+
+doc-fast: copy-nrp
+	$(file > version,$(VERSION))
+	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
+
+doc-release: SPHINXOPTS += -D todo_include_todos=0 -D show_authors=0
+doc-release: doc;
+
+$(COPY_PY_DOCS): cp_$(HBP)/%:
+	mkdir -p $(SOURCEDIR)/nrp/modules/$*/../../
+	cp -rf $(HBP)/$*/source/* $(SOURCEDIR)/nrp/modules/$*/../
+	
+doc-clean-full: doc-clean
+	rm -rf _build $(SOURCEDIR)/nrp/modules 
+
+copy-nrp:
+	cp -rf $(HBP)/neurorobotics-platform/*.md $(SOURCEDIR)/nrp/
+	sed -i -E 's/^        (.*)/    ```bash\n    \1\n    ```/' src/nrp/*.md
+	sed -i -E '/    ```/N;/```\n    ```bash/d' src/nrp/*.md
