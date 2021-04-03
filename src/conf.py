@@ -31,6 +31,10 @@ show_authors = True
 #ADDED BY FOM
 html_static_path = ['_static']
 
+html_css_files = [
+    'css/hbpdoc.css',
+]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
