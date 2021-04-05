@@ -8,7 +8,14 @@ Installation and running NRP using Docker containers
 
 This installation guide is for users who want to try out the :abbr:`NRP (Neurorobotics Platform)` locally on their machine, clone template experiments, or create new ones based on our template models. More expert users or developers who might want to change code directly in the Platform or add Gazebo plugins and robot controllers should install the NRP :ref:`from source<source-installation>` instead.
 
-This installation uses Docker as the underlying package manager. It is technically possible for users to open a shell in the containers and hack them, but they must be aware that containers are replaced on Platform updates and all there changes inside containers will be lost. Of course, all user data, custom experiments and models are safe and kept between updates!
+This installation uses `Docker`_ as the underlying package manager. It is technically possible for users to open a shell in the containers and hack them, but they must be aware that containers are replaced on Platform updates and all there changes inside containers will be lost. Of course, all user data, custom experiments and models are safe and kept between updates!
+
+.. note:: It is our wish to provide an open and inclusive access to our platform, therefore users can freely download and install the NRP on their machines. However, we would like to remind all the NRP current and prospective users of our commitment to the EC `Horizon 2020`_ guidelines and recommendations which regulate the use of publicly funded research and research applications for benign use only. You can read more about this in the `HBP Opinion`_ on ‘Responsible Dual Use'.
+
+
+.. _Docker: https://docs.docker.com/get-started/overview/
+.. _HBP Opinion: https://www.humanbrainproject.eu/en/follow-hbp/news/opinion-on-responsible-dual-use-from-the-human-brain-project/
+.. _Horizon 2020: https://ec.europa.eu/programmes/horizon2020/
 
 .. contents:: Guide Contents
     :depth: 3
@@ -78,10 +85,15 @@ By default, the NRP works with a 4-chip SpiNNaker board using the standard IP-ad
     # Open a new terminal and enter
     nano ~/.spynnaker.cfg
     # Modify the IP-address and board settings in the text file 
-    (more information on how to change the settings can be found here)
+
+More information on the SpiNNaker settings can be found in the `SpiNNaker documentation`_.
+
+..  code-block:: bash
+
     # Back in the old terminal enter
     ./nrp_installer.sh restart
-                
+
+.. _SpiNNaker documentation: http://spinnakermanchester.github.io/spynnaker/5.0.0/PyNNOnSpinnakerInstall.html
 
 Connect to the Neurorobotics Platform
 =====================================
