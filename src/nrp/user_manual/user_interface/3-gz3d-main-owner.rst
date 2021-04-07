@@ -2,32 +2,32 @@
 Simulation view
 ================
 
-|
+
 
 You have cloned or created an experiment which is now located in your private storage. 
 This page describes how you can control simulations. 
 Once your simulation is launched, you can access the 3D simulation view, a view similar to the one below.
 
-|
+
 
 .. image:: images/gz3d-example-view.jpg
     :align: center
     :width: 100%
 
-|
+
 
 From there, you can essentially start, pause, stop, reset the simulation and interact with the environment. 
 Details about spike monitoring and real-time interaction are covered in `Interact with the simulation`_ and `Monitoring the simulation`_.
 
 The following image displays all available controls and indicators.
 
-|
+
 
 .. image:: images/gz3d-toolbar.png
     :align: center
     :width: 50%
 
-|
+
 
 Let us detail the toolbar from left to right and top to bottom:
 
@@ -36,13 +36,13 @@ Let us detail the toolbar from left to right and top to bottom:
 - **Exit**: leave the simulation and resume it later, or kill it. 
 - **Reset**: this button resets whole or part of the simulation. You can reset the robot position, the environment, the brain, the view or the entire simulation. In this last case, the timeout is also reset. It is the best choice if you want to rerun everything without having to start a new simulation.
 
-|
+
 
 .. image:: images/gz3d-reset-pane.jpg
     :align: center
     :width: 50%
 
-|
+
 
 - **Time**: simulation time is the time measured from the robot's point of view, real time is our time and timeout shows the time left before a simulation stop is forced. Simulation and real time are equal in the best case, when the simulation is run in real time. They may differ if the server is too slow to compute it as fast as needed.
 - **Light Intensity**: these two buttons control the general light intensity of the scene. More details in `Interact with the simulation`_.
@@ -52,13 +52,13 @@ Let us detail the toolbar from left to right and top to bottom:
 - **Joint Monitor**: opens a view that displays curves of robot joints states data. More info in `Monitoring the simulation`_.
 - **Robot view**: opens an overlaid view of the robot camera(s). You may move or resize this view, toggle camera frustum on / off.
 
-|
+
 
 .. image:: images/gz3d-robot-view.jpg
     :align: center
     :width: 100%
 
-|
+
 
 - **Apply Force**: enables a mode in which you can apply forces on objects by dragging the mouse. See `Interact with the simulation`_.
 - **Performance Monitor**: opens the Performance Monitor panel showing statistics about the execution of the experiment. See `Performance Monitor`_.

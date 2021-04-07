@@ -2,35 +2,35 @@
 Create an experiment
 ====================
 
-|
+
 
 On the entrance page,  **My Experiments** tab lets you create an experiment 
 by selecting models for the environment, the robot and the brain.
 
-|
+
 
 .. image:: images/create-new-experiment.jpg
     :align: center
     :width: 100%
 
-|
+
 
   A model can be selected from the template model library provided with the NRP, from your private storage or from a file
   stored on your computer.
 
-|
+
 
 .. image:: images/choose-environment.jpg
     :align: center
     :width: 100%
 
-|
+
 
   If you select a model located on your computer, it will be added to your private library inside your storage space.
   For environment and robot models, you can select a zip file from your computer. This zip file must be a zipped folder 
   containing a file named model.config at its root. The format of this file is described in the example below. 
 
-|
+
 
 .. code-block:: xml
 
@@ -80,11 +80,11 @@ by selecting models for the environment, the robot and the brain.
       </documentation>
   </model>
 
-|
+
 
   The content of model.config will be used to generate the online robot documentation, see `Inspect a robot`_.
 
-|
+
 
 
 When your choice of assembly is made, you can instantiate the experiment in your private storage 

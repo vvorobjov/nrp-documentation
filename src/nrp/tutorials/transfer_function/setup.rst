@@ -13,10 +13,12 @@ camera images can be obtained with about 25fps.
 
 To make the Husky robot detect red colors, the camera image must be analyzed. For this, a very simple neuronal network with only 8 neurons is used. This network can be seen in :numref:`braitenberg-network`.
 
-.. _braitenberg-network:
-.. figure:: img/braitenberg_network.png
+..  _braitenberg-network:
+..  figure:: img/braitenberg_network.png
+    :align: center
+    :width: 50%
    
-   The neuronal network of the Braitenberg Demo
+    The neuronal network of the Braitenberg Demo
 
 
 The data from the camera is divided into red pixels on the right side, red pixels on the left side, as well as green and blue pixels all over the image. This image data is fed into

@@ -5,7 +5,7 @@ Web Cockpit
 .. todo:: Add author/responsible
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    introduction
    1-esv-main
