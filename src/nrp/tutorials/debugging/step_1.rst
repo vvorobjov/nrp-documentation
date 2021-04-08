@@ -7,7 +7,7 @@ Step 1: using monitoring tools
 Context
 ^^^^^^^
 
-This is the husky braitenberg experiment, but it has some bugs that we will hunt down with the NRP tools.
+This is the husky braitenberg experiment, but it has some bugs that we will hunt down with the :abbr:`NRP (Neurorobotics Platform)` tools.
 
 If you launch and press play, you can see that the physics are working but the wheels of the robot are not moving, in this tutorial we want to use the monitoring tools to observe the data flows and find possible reasons for this issue.
 

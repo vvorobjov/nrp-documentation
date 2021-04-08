@@ -7,7 +7,7 @@ Introduction
 General goals
 -------------
 
-The Neurorobotics Platform's purpose is to offer neuroscientists a tool to perform in-silico cognitive or lower-level neural experiments on virtual Guinea pigs, be them biologically inspired or not. It will, on the other side, provide roboticists with the possibility to experiment on their robots with brain models instead of classical controllers.
+The :term:`Neurorobotics Platform`'s purpose is to offer neuroscientists a tool to perform in-silico cognitive or lower-level neural experiments on virtual Guinea pigs, be them biologically inspired or not. It will, on the other side, provide roboticists with the possibility to experiment on their robots with brain models instead of classical controllers.
 
 The platform will provide them with:
 
@@ -32,11 +32,11 @@ The software has been tested against OS/browsers that are listed below. Other pr
 +============================+===============+================+==============+==============+
 |Windows (8/10)              |OK             |OK              |NO            |NO            |
 +----------------------------+---------------+----------------+--------------+--------------+
-|Linux (Ubuntu 14.04, 16.04) |OK             |OK              |n.a.          |n.a.          |
+|Linux (Ubuntu 18.04, 20.04) |OK             |OK              |n.a.          |n.a.          |
 +----------------------------+---------------+----------------+--------------+--------------+
 |Mac OS (X)                  |OK             |OK              |NO            |n.a.          |
 +----------------------------+---------------+----------------+--------------+--------------+
-|Android (4.4)               |NO             |NO              |n.a.          |n.a.          |
+|Android (11)                |NO             |NO              |n.a.          |n.a.          |
 +----------------------------+---------------+----------------+--------------+--------------+
 |IOS (IPad)                  |NO             |n.a.            |NO            |n.a.          |
 +----------------------------+---------------+----------------+--------------+--------------+

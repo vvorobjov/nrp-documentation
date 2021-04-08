@@ -12,7 +12,7 @@ Developer Manual
 .. toctree::
     :maxdepth: 1
 
-    Install and run NRP (from source)<source_installation>
+    Install and run :abbr:`NRP (Neurorobotics Platform)` (from source)<source_installation>
     Installation troubleshooting<dev_troubleshooting.md>
     nrp_modules
     python_api

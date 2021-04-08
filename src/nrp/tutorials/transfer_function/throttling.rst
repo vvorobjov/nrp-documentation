@@ -6,7 +6,7 @@ Tutorial: throttling a Transfer Function
 In some applications, in particular when using multiple triggers as in the :doc:`triggers`,
 you need to throttle Transfer Functions so that they are only executed fewer times. For example,
 you experience that your camera is very fast sending new images but you actually only need to update much slower.
-For that, the NRP offers throttling of TFs. That is, you can specify that a Transfer Function runs at most at a given frequency.
+For that, the :abbr:`NRP (Neurorobotics Platform)` offers throttling of TFs. That is, you can specify that a Transfer Function runs at most at a given frequency.
 
 As an example, consider again the *eye_sensor_transmit* TF from the :doc:`triggers`. We basically want that the TF is only run
 if at least a certain time has passed since the last execution of that TF. To achieve that, we can specify a throttling to a maximum frequency.

@@ -17,6 +17,6 @@ Defining new transfer functions to record some spikes
 
 This transfer function feeds the first layers of the network (LGN layers) with the camera output. Click on apply to take the change into account. Still no spike? That's ok. What we need to do next is to record the spikes of the populations. So click on the "upload" button again to upload the transfer functions numbered from 4a to 4e. Each transfer function records the spikes occuring in a specific layer of the network.
 
-After you uploaded all the transfer functions, you need to click on "apply all" to take the changes into account. This takes a while to load, because the NRP needs to create a spike recorder for every neuron in the network. But in the end, you start to see some spikes happening (don't forget to move the spike contrast cursor).
+After you uploaded all the transfer functions, you need to click on "apply all" to take the changes into account. This takes a while to load, because the :abbr:`NRP (Neurorobotics Platform)` needs to create a spike recorder for every neuron in the network. But in the end, you start to see some spikes happening (don't forget to move the spike contrast cursor).
 
 However, even if we play with the different display modalities of the brain visualizer, the spike pattern never really looks like what we would expect. We would like to see the actual stimulus encoded in the brain, just as in the figure of step 2! To do so, we need to customize the brain visualizer a bit. This happens at the next step.

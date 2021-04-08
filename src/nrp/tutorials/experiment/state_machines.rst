@@ -8,9 +8,9 @@ Tutorial: Writing a state machine for an experiment
 
 
 
-The NRP is designed to use state machines to control and evaluate experiments. A state machine controlling an experiment can monitor any simulation properties published on ROS topics (e.g. simulation time, sensor output, spiking activity of brain), it can also publish on ROS topics or call ROS services. A state machine evaluating the success of an experiment has the same capabilities for monitoring a simulation and should either publish a success or failure message to the NRP ROS status topic.
+The :abbr:`NRP (Neurorobotics Platform)` is designed to use state machines to control and evaluate experiments. A state machine controlling an experiment can monitor any simulation properties published on ROS topics (e.g. simulation time, sensor output, spiking activity of brain), it can also publish on ROS topics or call ROS services. A state machine evaluating the success of an experiment has the same capabilities for monitoring a simulation and should either publish a success or failure message to the :abbr:`NRP (Neurorobotics Platform)` ROS status topic.
 
-The NRP uses SMACH for executing state machines, hence state machines have to be specified in Python.
+The :abbr:`NRP (Neurorobotics Platform)` uses SMACH for executing state machines, hence state machines have to be specified in Python.
 
 
 Controlling an experiment
@@ -140,7 +140,7 @@ The following examples demonstrate the application of some special state impleme
 Spawn Objects
 """""""""""""
 
-The NRP has an integrated state implementation class **ModelSpawnServiceState**, designed to spawn objects dynamically from a state machine. As the name suggests, it can be used to spawn simple objects.
+The :abbr:`NRP (Neurorobotics Platform)` has an integrated state implementation class **ModelSpawnServiceState**, designed to spawn objects dynamically from a state machine. As the name suggests, it can be used to spawn simple objects.
 This state supports the following parameters:
 
 :model_name: The name of the newly spawned object. This can either be a constant string, a function or a SMACH callback. In the latter cases, it must accept two arguments: The user data of the state chart and the last model name. The first last model name is *None*.
@@ -153,7 +153,7 @@ This state supports the following parameters:
 :mass: The mass of the spawned object. By default, this is 1.
 :color: A Gazebo color name. By default, the object is spawned in grey (*Gazebo/Grey*)
 
-In addition, the NRP contains several state implementations to make spawning of simple shapes easier. These states do not allow to specify a *geometry* directly, but rather through other arguments.
+In addition, the :abbr:`NRP (Neurorobotics Platform)` contains several state implementations to make spawning of simple shapes easier. These states do not allow to specify a *geometry* directly, but rather through other arguments.
 
 * **SpawnSphere** spawns a sphere. An additional *radius* parameter determines the radius of the spawned sphere and defaults to 1m. The default position is (0,0,0), same as the default rotation.  Kinematics and collision are disabled by default.
 * **SpawnCylinder** spawns a cylinder. The shape of the cylinder is determined by the *length* and *radius* parameters. Same as spheres, cylinders by default have no kinematics and do not collide.

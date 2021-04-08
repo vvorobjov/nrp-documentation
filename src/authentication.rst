@@ -2,7 +2,10 @@
 Accessing the NRP
 ===============================
 
-.. todo:: Add author/responsible
+.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+
+Online service
+------------------------------------------
 
 To access the online :abbr:`NRP (Neurorobotics Platform)`, you need to have an account. There are two types of accounts to choose from:
 
@@ -19,7 +22,11 @@ To access the online :abbr:`NRP (Neurorobotics Platform)`, you need to have an a
 
 These accounts can be requested on the `account page`_ on our website.
 
-If you have installed the NRP **on your computer** using :ref:`Docker containers <docker-installation>` or :ref:`installation from source <source-installation>`, as indicated in our guides, the default credentials to run 
+
+Local usage
+------------------------------------------
+
+If you have installed the :abbr:`NRP (Neurorobotics Platform)` **on your computer** using :ref:`Docker containers <docker-installation>` or :ref:`installation from source <source-installation>`, as indicated in our guides, the default credentials to run 
 simulations and store data locally are:
 
   - **username**: nrpuser

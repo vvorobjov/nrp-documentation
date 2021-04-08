@@ -8,7 +8,7 @@ the advantages in reproducibility. However, some applications have special deman
 Functions should be able to be executed independent of the simulation loop, for example when a new
 sensor value arrives or when a special event happens.
 
-For these applications, the NRP allows to define custom triggers for Transfer Functions. That is,
+For these applications, the :abbr:`NRP (Neurorobotics Platform)` allows to define custom triggers for Transfer Functions. That is,
 you can define that certain devices of the TF should be used to indicate when the TF should be run.
 
 Calling Transfer Functions when a new image arrives

@@ -1,8 +1,86 @@
-.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+..  sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
-.. todo:: Update Release Notes
+..  _release-notes:
 
-.. _release-notes:
+..  contents:: Release Notes:
+    :depth: 1
+
+
+
+Release 3.1 (January 2021)
+--------------------------------------------------------
+Release 3.1 comes with updated stack of third-party software.
+
+- Base OS for :ref:`Docker image <docker-installation>` is Ubuntu 20.04 Focal Fossa
+- Full Python 3 support
+- 3D robotics simulator Gazebo is updated to version 11
+- Robot Operating System (ROS) is updated to release Noetic Ninjemys
+- Stand-alone Virtual Coach
+
+
+
+Release 3.0.5 (December 2020)
+---------------------------------------------------------
+
+- **Last version with Python 2 support!**
+- New Whiskeye robot experiment
+- Multi experiment web GUI
+- Web ROS Console reimplementation
+- Brain simulator selector for new experiments
+
+
+
+Release 3.0 (April 2020)
+--------------------------------------------------------
+
+- Fluid simulation
+- Plotting tools in the frontend
+- Human-in-the-loop improvement in the Unity client
+- Graphical experiment designe
+- Web robot designer
+- Improved SpiNNaker integration
+- Support of HBP EBRAINS Sonata brain file format and SP6 Cerebellum model
+- New models and experiment templates
+- Python 3 ready
+
+
+
+Release 2.3 (October 2019)
+--------------------------------------------------------
+
+- Share experiments and models
+- Improved editor layout
+- Import and export experiments
+- Spinnaker visualizers
+- Support for pure NEST brains (no PyNN)
+- Integration with the HBP EBRAINS Knowledge Graph
+
+
+
+Release 2.2 (April 2019)
+--------------------------------------------------------
+
+- Record and replay simulations
+- New experiment creation work flow with robots and brain drag and drop
+- New models libraries
+- Support multiple robots (full)
+- Plotting and visualization tools support for Nengo
+- Join simulation shared by others
+- Custom workspace management
+
+
+
+Release 2.1 (November 2018)
+--------------------------------------------------------
+
+- Easy local installation using docker installer
+- Support Nengo brains (in 2.1.1)
+- Changelog informs user of new features and compatibility breaks
+- New frontend design with layouts and new toolbars
+- Support multiple robots (in progress)
+- Code editors auto-persistance (no save button anymore)
+
+
 
 Release 2.0 (March 2018)
 --------------------------------------------------------
@@ -17,6 +95,8 @@ Release 2.0 enhances usability and enables to create experiments from scratch.
 - Spinnaker free run integration
 - Performance improvements
 
+
+
 Release 1.3 (October 2017)
 --------------------------------------------------------
 Release 1.3 improves on the stability of the platform and adds several new features.
@@ -29,6 +109,8 @@ The new features include:
 - Demo simulations on Amazon cloud servers for basic users
 - User installable platform
 - Pilot experiments
+
+
 
 Release 1.2 (April 2017)
 ---------------------------------------
@@ -46,6 +128,8 @@ The new features include:
 - New experiments available
 
   + Husky with neuronal red detection : the color detection is done with a neuronal image recognition.
+
+
 
 Release 1.1 (October 2016)
 ---------------------------------------

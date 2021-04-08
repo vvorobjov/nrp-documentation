@@ -47,7 +47,7 @@ In this example, we have specified that the brain model from *braitenberg.py* sh
 relative to the **NRP_MODELS_DIRECTORY** environment variable. Models of neural networks are usually in the *brain_models* directory inside this directory.
 
 .. note::
-    When using the CLE through the NRP platform, the **NRP_MODELS_DIRECTORY** will be your user directory.
+    When using the CLE through the :abbr:`NRP (Neurorobotics Platform)` platform, the **NRP_MODELS_DIRECTORY** will be your user directory.
     When using the CLE separately as e.g. for development machines, this environment variable should be set to a Models repository clone.
 
 We further specify two neuron groups, the sensors ranging from 0 to 5 (exclusive) and the actors from 6 to and excluding 8. Note that these neuron groups exactly match the

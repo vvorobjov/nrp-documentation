@@ -5,7 +5,7 @@ License
 .. todo:: Add author/responsible
 
 Neurorobotics Platform software:
-Copyright (C) 2014, 2015, 2016, 2017, 2018, 2019, 2020 Human Brain Project
+Copyright (C) 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021 Human Brain Project
 https://www.humanbrainproject.eu
 
 The Human Brain Project is a European Commission funded project

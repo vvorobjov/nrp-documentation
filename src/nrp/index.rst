@@ -17,6 +17,7 @@ This covers exactly what you need to set-up and run a successful in-silico exper
    tutorials/index
    developer_manual
    specifications/index
+   glossary
 
 .. image:: images/nrp.jpg
    :align: center

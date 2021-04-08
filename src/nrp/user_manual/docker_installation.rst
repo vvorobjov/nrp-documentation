@@ -6,14 +6,13 @@ Installation and running NRP using Docker containers
 
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
-This installation guide is for users who want to try out the :abbr:`NRP (Neurorobotics Platform)` locally on their machine, clone template experiments, or create new ones based on our template models. More expert users or developers who might want to change code directly in the Platform or add Gazebo plugins and robot controllers should install the NRP :ref:`from source<source-installation>` instead.
+This installation guide is for users who want to try out the :abbr:`NRP (Neurorobotics Platform)` locally on their machine, clone template experiments, or create new ones based on our template models. More expert users or developers who might want to change code directly in the :term:`Platform` or add Gazebo plugins and robot controllers should install the :abbr:`NRP (Neurorobotics Platform)` :ref:`from source<source-installation>` instead.
 
-This installation uses `Docker`_ as the underlying package manager. It is technically possible for users to open a shell in the containers and hack them, but they must be aware that containers are replaced on Platform updates and all there changes inside containers will be lost. Of course, all user data, custom experiments and models are safe and kept between updates!
+This installation uses :term:`Docker` as the underlying package manager. It is technically possible for users to open a shell in the containers and hack them, but they must be aware that containers are replaced on Platform updates and all there changes inside containers will be lost. Of course, all user data, custom experiments and models are safe and kept between updates!
 
-.. note:: It is our wish to provide an open and inclusive access to our platform, therefore users can freely download and install the NRP on their machines. However, we would like to remind all the NRP current and prospective users of our commitment to the EC `Horizon 2020`_ guidelines and recommendations which regulate the use of publicly funded research and research applications for benign use only. You can read more about this in the `HBP Opinion`_ on ‘Responsible Dual Use'.
+.. note:: It is our wish to provide an open and inclusive access to our platform, therefore users can freely download and install the :abbr:`NRP (Neurorobotics Platform)` on their machines. However, we would like to remind all the :abbr:`NRP (Neurorobotics Platform)` current and prospective users of our commitment to the EC `Horizon 2020`_ guidelines and recommendations which regulate the use of publicly funded research and research applications for benign use only. You can read more about this in the `HBP Opinion`_ on ‘Responsible Dual Use'.
 
 
-.. _Docker: https://docs.docker.com/get-started/overview/
 .. _HBP Opinion: https://www.humanbrainproject.eu/en/follow-hbp/news/opinion-on-responsible-dual-use-from-the-human-brain-project/
 .. _Horizon 2020: https://ec.europa.eu/programmes/horizon2020/
 
@@ -56,7 +55,7 @@ This install procedure should work on any Linux OS, macOS (with Docker version >
 
 #. The first step is to install Docker on your system (on Windows, install it in Windows, not in the WSL Ubuntu).
 #. Then `download the following script`_ and run it in a terminal (Linux terminal for Windows users). The script should auto-update itself later when needed.
-#. The following steps will install and configure the Docker images of the NRP on your system. Your user data will be stored in Docker volumes. So everything is cleanly self contained. You just need to specify the release type of the NRP.
+#. The following steps will install and configure the Docker images of the :abbr:`NRP (Neurorobotics Platform)` on your system. Your user data will be stored in Docker volumes. So everything is cleanly self contained. You just need to specify the release type of the NRP.
 
   ..  code-block:: bash
 
@@ -65,7 +64,7 @@ This install procedure should work on any Linux OS, macOS (with Docker version >
       # Option 1: ./nrp_installer.sh install latest 
       # Option 2: ./nrp_installer.sh install legacy
 
-In order to install the latest release of the NRP (Python 3.8 compatible) use :code:`latest` as VERSION. In case the VERSION parameter is set to :code:`legacy`, then the script installs the legacy release of the NRP (v3.0.5 - Python 2.7 compatible). Note, that **omitting VERSION** parameter forces the script to install **the latest release** of the NRP. You can run the script without any arguments to get a list of other options, e.g. uninstall, restart, connect to containers (open a bash inside them) etc.
+In order to install the latest release of the :abbr:`NRP (Neurorobotics Platform)` (Python 3.8 compatible) use :code:`latest` as VERSION. In case the VERSION parameter is set to :code:`legacy`, then the script installs the legacy release of the :abbr:`NRP (Neurorobotics Platform)` (v3.0.5 - Python 2.7 compatible). Note, that **omitting VERSION** parameter forces the script to install **the latest release** of the NRP. You can run the script without any arguments to get a list of other options, e.g. uninstall, restart, connect to containers (open a bash inside them) etc.
 
 .. _download the following script: https://neurorobotics-files.net/index.php/s/83zqkdp5PXQXMzz/download
 
@@ -77,7 +76,7 @@ Installing SpiNNaker
 
 .. note:: This step might only be necessary for users who own a SpiNNaker board and want to connect this board with the NRP.
 
-By default, the NRP works with a 4-chip SpiNNaker board using the standard IP-address as shown here. To change the standard settings, please follow these steps:
+By default, the :abbr:`NRP (Neurorobotics Platform)` works with a 4-chip SpiNNaker board using the standard IP-address as shown here. To change the standard settings, please follow these steps:
 
 ..  code-block:: bash
 
