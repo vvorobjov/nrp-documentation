@@ -17,7 +17,7 @@ The following tutorials demonstrate beginner's or original use cases given simpl
     tutorials/virtual_coach/index
     tutorials/multiple_robots/index
     modules/CLE/hbp_nrp_cle/tutorials/index
-    tutorials/experiment/index
+    modules/ExDBackend/hbp_nrp_backend/tutorials/index.rst
     tutorials/spinnaker/index
     tutorials/debugging/index
     tutorials/opensim_muscles/index

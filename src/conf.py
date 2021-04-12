@@ -5,10 +5,6 @@ import os
 sys.path.insert(0, os.environ.get('HBP') + '/admin-scripts/ContinuousIntegration/python/docs')
 from sphinxconf import *
 
-# create up2date gitversion file (which is included at the top)
-from subprocess import call
-call("git describe --always --tags --dirty > gitversion.rst_tochide", shell=True)
-
 sys.path.append('../../lib')
 
 #from theme.conf import *

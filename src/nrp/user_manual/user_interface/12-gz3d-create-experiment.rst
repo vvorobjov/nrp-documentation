@@ -15,8 +15,8 @@ by selecting models for the environment, the robot and the brain.
 
 
 
-  A model can be selected from the template model library provided with the NRP, from your private storage or from a file
-  stored on your computer.
+A model can be selected from the template model library provided with the NRP, from your private storage or from a file
+stored on your computer.
 
 
 
@@ -26,9 +26,9 @@ by selecting models for the environment, the robot and the brain.
 
 
 
-  If you select a model located on your computer, it will be added to your private library inside your storage space.
-  For environment and robot models, you can select a zip file from your computer. This zip file must be a zipped folder 
-  containing a file named model.config at its root. The format of this file is described in the example below. 
+If you select a model located on your computer, it will be added to your private library inside your storage space.
+For environment and robot models, you can select a zip file from your computer. This zip file must be a zipped folder 
+containing a file named model.config at its root. The format of this file is described in the example below. 
 
 
 

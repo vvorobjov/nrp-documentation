@@ -23,16 +23,16 @@ NRP Glossary
         is a task-level architecture for rapidly creating complex robot behavior. At its core, SMACH is a ROS-independent Python library to build hierarchical state machines. SMACH is a new library that takes advantage of very old concepts in order to quickly create robust robot behavior with maintainable and modular code.
 
     BIBI
-        Brain and Body Integrator, the configuration of transfer functions through a simple and eventually graphical syntax. See :doc:`architecture/BIBI-configuration` for details.
+        Brain and Body Integrator, the configuration of transfer functions through a simple and eventually graphical syntax. See :ref:`cle-bibi-configuration` for details.
 
     Brain comm. adapter
         The adapter that is used by the TF framework to connect with the neuronal simulation, e.g. to create suitable devices to connect with the parameters of a TF
     
     :abbr:`CLC (Closed Loop Controller)`
-        Abbreviation for Closed Loop Controller, see :doc:`CLE architecture<architecture/cle_architecture>`
+        Abbreviation for Closed Loop Controller, see :ref:`CLE architecture<cle-architecture>`
 
     :abbr:`CLE (Closed Loop Engine)`
-        The Closed Loop Engine whose architecture can be found here: :doc:`CLE architecture<architecture/cle_architecture>`
+        The Closed Loop Engine whose architecture can be found here: :ref:`CLE architecture<cle-architecture>`
 
     Communication Object
         Communication object is the generalization of neuronal network devices and robot publishers and subscribers. Thus, it represents objects that are accessed by the TF framework to connect parameters of a TF with a simulation in either way.
@@ -68,3 +68,16 @@ NRP Glossary
 
     WSE
         World Simulation Engine, the generalization of the robot simulation. We currently use Gazebo (see http://gazebosim.org/) through a ROS (see http://www.ros.org/) interface as our World Simulation Engine.
+
+    REST
+        Representational State Transfer, design principle for web interfaces
+
+    rosbridge
+        Web interface for ROS using WebSockets, see http://wiki.ros.org/rosbridge_suite
+
+    gzweb
+        Web interface for Gazebo using WebGL. Consisting of gzbridge (server) and gz3d (client), see https://bitbucket.org/osrf/gzweb
+
+    ExD
+        Experiment (Designer) Backend
+

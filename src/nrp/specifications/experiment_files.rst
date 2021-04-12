@@ -193,7 +193,7 @@ Experiment design file
 ----------------------
 The EXD file is a Python file that uses the SMACH state machines framework.
 
-:doc:`../tutorials/experiment/state_machines` describes how to set up these state machines.
+:ref:`state_machines_tutorial` describes how to set up these state machines.
 
 |
 
