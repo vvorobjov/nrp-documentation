@@ -1,4 +1,4 @@
-.. _state_machines:
+.. _state_machines_tutorial:
 
 Tutorial: Writing a state machine for an experiment
 ===================================================

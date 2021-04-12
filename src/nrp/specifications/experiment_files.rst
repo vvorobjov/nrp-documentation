@@ -165,7 +165,7 @@ BIBI file
 
 The Brain and Body Interface (BIBI) file is in the XML format.
 
-An extensive documentation on the BIBI file can be found in :doc:`../tutorials/transfer_function/bibi_config`.
+An extensive documentation on the BIBI file can be found in :ref:`bibi-specification` and :ref:`BIBI Configuration Tutorail <cle-tutorials-bibi-cofig>`.
 
 .. code-block:: xml
     

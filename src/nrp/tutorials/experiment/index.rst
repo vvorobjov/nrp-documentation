@@ -1,3 +1,5 @@
+.. _experiment_tutorial:
+
 Experiment configuration advanced Tutorial
 ==========================================
 

@@ -21,7 +21,7 @@ $(HBP)/ExperimentControl/hbp_nrp_excontrol
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?= 
+SPHINXOPTS    ?= -t fulldocs
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = src
 BUILDDIR      = _build
@@ -65,3 +65,7 @@ copy-nrp:
 	cp -rf $(HBP)/neurorobotics-platform/*.md $(SOURCEDIR)/nrp/
 	sed -i -E 's/^        (.*)/    ```bash\n    \1\n    ```/' src/nrp/*.md
 	sed -i -E '/    ```/N;/```\n    ```bash/d' src/nrp/*.md
+
+linkcheck: doc-fast
+	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b linkcheck -D version=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/linkcheck" $(O)
+
