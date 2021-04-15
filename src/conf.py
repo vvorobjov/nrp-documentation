@@ -61,7 +61,9 @@ html_show_sphinx = False
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = { }
+html_theme_options = { 
+    'analytics_id': 'G-D14W7SXK1Y'
+    }
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {

@@ -14,7 +14,7 @@ The following tutorials demonstrate beginner's or original use cases given simpl
 
     tutorials/baseball/index
     tutorials/tensorflow/index
-    tutorials/virtual_coach/index
+    modules/VirtualCoach/hbp_nrp_virtual_coach/tutorials/index.rst
     tutorials/multiple_robots/index
     modules/CLE/hbp_nrp_cle/tutorials/index
     modules/ExDBackend/hbp_nrp_backend/tutorials/index.rst
