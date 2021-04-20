@@ -4,7 +4,7 @@ Scope of this tutorial
 
 .. todo:: Add author/responsible
 
-This tutorial will teach you how to set an experiment and how to use iPythonNotebook to post-process it with the Virtual Coach.
+This tutorial will teach you how to set an experiment and how to use iPythonNotebook to post-process it with the :term:`Virtual Coach`.
 
 1. Create the basic setup of the experiment
 2. Launch the Platform, tune rendering quality

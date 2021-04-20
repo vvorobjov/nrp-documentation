@@ -1,4 +1,4 @@
-NRP components description
+NRP components
 ==========================
 
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
@@ -21,3 +21,4 @@ NRP components description
     Virtual Coach <modules/VirtualCoach/hbp_nrp_virtual_coach/developer_manual>
     modules/BrainSimulation/hbp_nrp_distributed_nest/index
     modules/ExperimentControl/hbp_nrp_excontrol/index
+    Backend Proxy <developer_manual/nrpBackendProxy/index>

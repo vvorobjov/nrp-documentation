@@ -28,11 +28,13 @@ NRP Glossary
     Brain comm. adapter
         The adapter that is used by the TF framework to connect with the neuronal simulation, e.g. to create suitable devices to connect with the parameters of a TF
     
-    :abbr:`CLC (Closed Loop Controller)`
-        Abbreviation for Closed Loop Controller, see :ref:`CLE architecture<cle-architecture>`
+    :abbr:`CLC (Closed Loop Controller)` : Closed Loop Controller
+    Closed Loop Controller
+        The Closed Loop Controller, fo reference see :ref:`CLE architecture<cle-architecture>`
 
-    :abbr:`CLE (Closed Loop Engine)`
-        The Closed Loop Engine whose architecture can be found here: :ref:`CLE architecture<cle-architecture>`
+    :abbr:`CLE (Closed Loop Engine)` : Closed Loop Engine
+    Closed Loop Engine
+        The Closed Loop Engine is the middleware putting all the pieces of the Neurorobotics Platofmr together on the server. In particular, it is connecting :term:`Gazebo` and :term:`NEST` through our Transfer Functions mechanism. For more information on CLE, use the dedicated :ref:`tutorials<cle-tutorials>` and :ref:`developer pages<cle-developer-manual>`. The architecture of the CLE can be found :ref:`here<cle-architecture>`.
 
     Communication Object
         Communication object is the generalization of neuronal network devices and robot publishers and subscribers. Thus, it represents objects that are accessed by the TF framework to connect parameters of a TF with a simulation in either way.
@@ -80,4 +82,12 @@ NRP Glossary
 
     ExD
         Experiment (Designer) Backend
+
+    Virtual Coach
+        The :ref:`Virtual Coach <virtual_coach_intro>` is a Python API that allows you to run and interact with experiments by scripting them instead of having to use the Web Cockpit. Find more information on the Virtual Coach in the dedicated :ref:`developer pages<virtual_coach_dev_space>`, :ref:`tutorials<virtual-coach-tutorials>` and :ref:`code API reference<virtual-coach-api>`.
+
+    HBP : Human Brain Project
+    Human Brain Project
+        The Human Brain Project (HBP) is one of the three FET (Future and Emerging Technology) Flagship projects. Started in 2013, it is one of the largest research projects in the world . More than 500 scientists and engineers at over than 140 universities, teaching hospitals, and research centres across Europe come together to address one of the most challenging research targets – the human brain. `Read more about HBP <https://www.humanbrainproject.eu/en/about/overview/>`_.
+
 
