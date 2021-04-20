@@ -1,4 +1,4 @@
-NRP components description
+NRP components
 ==========================
 
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
@@ -13,11 +13,12 @@ NRP components description
 .. toctree::
     :maxdepth: 1
 
-    modules/CLE/hbp_nrp_cle/index
+    Closed Loop Engine <modules/CLE/hbp_nrp_cle/developer_manual>
     modules/ExDBackend/hbp_nrp_backend/index
     modules/ExDBackend/hbp_nrp_cleserver/index
     modules/ExDBackend/hbp_nrp_commons/index
     modules/ExDBackend/hbp_nrp_watchdog/index
-    modules/VirtualCoach/hbp_nrp_virtual_coach/index
+    Virtual Coach <modules/VirtualCoach/hbp_nrp_virtual_coach/developer_manual>
     modules/BrainSimulation/hbp_nrp_distributed_nest/index
     modules/ExperimentControl/hbp_nrp_excontrol/index
+    Backend Proxy <developer_manual/nrpBackendProxy/index>

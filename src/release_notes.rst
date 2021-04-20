@@ -15,7 +15,7 @@ Release 3.1 comes with updated stack of third-party software.
 - Full Python 3 support
 - 3D robotics simulator Gazebo is updated to version 11
 - Robot Operating System (ROS) is updated to release Noetic Ninjemys
-- Stand-alone Virtual Coach
+- Stand-alone :term:`Virtual Coach`
 
 
 
@@ -121,7 +121,7 @@ The new features include:
 - A new brain visualizer, where you can view the neuron populations in various geometrical setups, as well as the spiking neurons in real time
 - A new graphical functions editor, where you can view and manipulate the transfer functions while being able to view all the available ROS topics
 - Support for bigger brain models
-- A new Python API (Virtual Coach) for batch simulations that can be used to launch simulations without a frontend client
+- A new Python API (:term:`Virtual Coach`) for batch simulations that can be used to launch simulations without a frontend client
 - A graphical object scaling capability
 - Streaming of robot camera images 
 - Environment enhancements

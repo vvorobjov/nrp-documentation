@@ -38,8 +38,8 @@ You can expand the robot tree to access the devices of the robot and its ROS top
 
 
 
-  If you select a `ROS topic`_, you can create a transfer function using this topic as a variable by pressing the **Transfer Function** button. This will 
-  direct you to the `transfer functions editor`_.
+If you select a `ROS topic`_, you can create a transfer function using this topic as a variable by pressing the **Transfer Function** button. This will 
+direct you to the `transfer functions editor`_.
 
 
 

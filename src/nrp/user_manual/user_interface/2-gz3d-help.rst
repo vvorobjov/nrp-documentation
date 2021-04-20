@@ -14,7 +14,7 @@ The panel shows the description of the experiment and the **software versions** 
 
 
 
-    Please report **version numbers** whenever you submit a bug report or feature request.
+Please report **version numbers** whenever you submit a bug report or feature request.
 
 
 

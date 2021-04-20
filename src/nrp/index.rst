@@ -14,7 +14,7 @@ This covers exactly what you need to set-up and run a successful in-silico exper
 
 
    user_manual/index
-   tutorials/index
+   tutorials
    developer_manual
    specifications/index
    glossary

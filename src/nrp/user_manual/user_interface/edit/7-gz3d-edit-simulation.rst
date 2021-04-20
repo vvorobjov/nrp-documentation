@@ -6,7 +6,7 @@ Edit the simulation
 Edit experiment flow (State machines)
 -------------------------------------
 
-This tab displays the experiment automation script when available. Experiments' lifecycle can be scripted to force events to occur at given times or in reaction to others. An example experiment implementing a state machine is the Husky Braitenberg with automatically switching screens. But you may add state machines to any experiment. State machines are Python scripts which follow a specific syntax detailed in :ref:`state_machines` and in the link supplied in the editor itself.
+This tab displays the experiment automation script when available. Experiments' lifecycle can be scripted to force events to occur at given times or in reaction to others. An example experiment implementing a state machine is the Husky Braitenberg with automatically switching screens. But you may add state machines to any experiment. State machines are Python scripts which follow a specific syntax detailed in :ref:`state_machines_tutorial` and in the link supplied in the editor itself.
 
 The editor proposes following features:
 

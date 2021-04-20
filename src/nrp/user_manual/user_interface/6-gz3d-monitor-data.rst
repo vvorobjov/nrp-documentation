@@ -62,12 +62,12 @@ It is possible to toggle the display of the different population types.
 
 
 
-  The **Shape**, **Distribution** and **Display** of the neurons can be customized using the available controls.
-  It is possible to toggle the display of the different population types and save your setting by hitting the **Save Settings** button.
-  If you have defined 3D positions and colors for your neuron populations
-  in the file named brainvisualizer.json, you can display them in checking the **custom** radio button. 
-  If you haven't written anything in brainvisualizer.json, you can save the current 3D configuration by selecting the **custom** radio button and pressing 
-  the **save** button beside it.
+The **Shape**, **Distribution** and **Display** of the neurons can be customized using the available controls.
+It is possible to toggle the display of the different population types and save your setting by hitting the **Save Settings** button.
+If you have defined 3D positions and colors for your neuron populations
+in the file named brainvisualizer.json, you can display them in checking the **custom** radio button. 
+If you haven't written anything in brainvisualizer.json, you can save the current 3D configuration by selecting the **custom** radio button and pressing 
+the **save** button beside it.
 
 
 

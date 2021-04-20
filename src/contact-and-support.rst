@@ -26,7 +26,7 @@ For bug reports and feature requests, please email neurorobotics-support@humanbr
 .. _fortiss: http://www.fortiss.org
 .. _TUM: http://www.tum.de
 .. _FZI: http://www.fzi.de
-.. _SSSA: http://sssa.bioroboticsinstitute.it
+.. _SSSA: https://www.santannapisa.it/en/institute/biorobotics/biorobotics-institute
 .. _HBP support portal: https://support.humanbrainproject.eu
 .. _forum: https://forum.humanbrainproject.eu/c/neurorobotics
 .. _contact form: http://www.neurorobotics.net/contact.html

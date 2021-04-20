@@ -54,14 +54,14 @@ of the toolbar.
 
 
 
-  A new widget containing a slider appears. It lets you control the factor by which the magnitude of the force vector 
-  drawn with your mouse is multiplied. In order to apply a force, click on an object and then dragg the mouse. 
-  The force vector is drawn in the plane which is parallel to your screen and which contains the point where you click.
-  The default force amplifier factor is 1 and the largest value that can be set through the slider is 10.
-  If the simulation is paused, the amplifier factor itself is multiplied by 75 and the force will be applied during only one time
-  step when the user resumes to play. The total applied force in Newtons is given by the following formula: 
+A new widget containing a slider appears. It lets you control the factor by which the magnitude of the force vector 
+drawn with your mouse is multiplied. In order to apply a force, click on an object and then dragg the mouse. 
+The force vector is drawn in the plane which is parallel to your screen and which contains the point where you click.
+The default force amplifier factor is 1 and the largest value that can be set through the slider is 10.
+If the simulation is paused, the amplifier factor itself is multiplied by 75 and the force will be applied during only one time
+step when the user resumes to play. The total applied force in Newtons is given by the following formula: 
 
-  **Force = (Force Amplifier Factor) * (length of the vector drawn in the 3D scene)^3 N**.
+**Force = (Force Amplifier Factor) * (length of the vector drawn in the 3D scene)^3 N**.
 
 
 
@@ -77,10 +77,10 @@ the **advanced mode**.
 
 
 
-  Once you have selected the **advanced mode** and clicked on the object where the force will be applied,
-  two new widgets appear and let you specify the magnitude and the direction the force vector. 
-  The first widget lets you enter numbers. The second widget has two colored manipulators that help 
-  you adjust the force direction with the mouse.
+Once you have selected the **advanced mode** and clicked on the object where the force will be applied,
+two new widgets appear and let you specify the magnitude and the direction the force vector. 
+The first widget lets you enter numbers. The second widget has two colored manipulators that help 
+you adjust the force direction with the mouse.
     
   
 
