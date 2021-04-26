@@ -1,3 +1,5 @@
+.. _web-cockpit-manual:
+
 ===========
 Web Cockpit
 ===========

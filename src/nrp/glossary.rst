@@ -30,11 +30,11 @@ NRP Glossary
     
     :abbr:`CLC (Closed Loop Controller)` : Closed Loop Controller
     Closed Loop Controller
-        The Closed Loop Controller, fo reference see :ref:`CLE architecture<cle-architecture>`
+        The Closed Loop Controller, for the reference see :ref:`CLE architecture<cle-architecture>`
 
     :abbr:`CLE (Closed Loop Engine)` : Closed Loop Engine
     Closed Loop Engine
-        The Closed Loop Engine is the middleware putting all the pieces of the Neurorobotics Platofmr together on the server. In particular, it is connecting :term:`Gazebo` and :term:`NEST` through our Transfer Functions mechanism. For more information on CLE, use the dedicated :ref:`tutorials<cle-tutorials>` and :ref:`developer pages<cle-developer-manual>`. The architecture of the CLE can be found :ref:`here<cle-architecture>`.
+        The Closed Loop Engine is the middleware putting all the pieces of the Neurorobotics Platofmr together on the server. In particular, it is connecting :term:`Gazebo` and :term:`NEST` through our Transfer Functions mechanism. For more information on CLE, use the dedicated :ref:`tutorials <cle-tutorial-tf>` and :ref:`developer pages<cle-developer-manual>`. The architecture of the CLE can be found :ref:`here<cle-architecture>`.
 
     Communication Object
         Communication object is the generalization of neuronal network devices and robot publishers and subscribers. Thus, it represents objects that are accessed by the TF framework to connect parameters of a TF with a simulation in either way.
@@ -60,8 +60,8 @@ NRP Glossary
     Robot comm. adapter
         The adapter that is used by the TF framework to connect with the robot simulation, e.g. to create suitable robot subscribers and robot publishers in accordance with the used input.
         
-    Transfer Function : TF
-    TF
+    TF : Transfer Function
+    Transfer Function
         A function that interconnects the neuronal simulator with a (currently simulated) robot. This includes the function itself as well as annotation how to connect its parameters to the neuronal simulation or to the robot simulation. Thus, TFs are end to end and cannot be stacked together. However, their functional specification (the body) can be stacked.
 
     TF node
@@ -90,4 +90,11 @@ NRP Glossary
     Human Brain Project
         The Human Brain Project (HBP) is one of the three FET (Future and Emerging Technology) Flagship projects. Started in 2013, it is one of the largest research projects in the world . More than 500 scientists and engineers at over than 140 universities, teaching hospitals, and research centres across Europe come together to address one of the most challenging research targets – the human brain. `Read more about HBP <https://www.humanbrainproject.eu/en/about/overview/>`_.
 
+    OIDC
+        OpenID Connect is an authentication layer on top of OAuth 2.0, an authorization framework. In the NRP it used to authenticate you through HBP services. About the accessing NRP read :ref:`here <access-nrp>`.
+
+    Web Cockpit : NRP Frontend
+    Frontend : NRP Frontend
+    NRP Frontend
+        The browser-based user interface for interaction with the NRP. Use the :ref:`section in the user manual <web-cockpit-manual>` in order to get familiar with it.
 

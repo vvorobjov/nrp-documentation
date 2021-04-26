@@ -1,7 +1,7 @@
+.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+
 NRP components
 ==========================
-
-.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
 .. _nrp-components-description:
 
@@ -14,11 +14,11 @@ NRP components
     :maxdepth: 1
 
     Closed Loop Engine <modules/CLE/hbp_nrp_cle/developer_manual>
-    modules/ExDBackend/hbp_nrp_backend/index
-    modules/ExDBackend/hbp_nrp_cleserver/index
-    modules/ExDBackend/hbp_nrp_commons/index
-    modules/ExDBackend/hbp_nrp_watchdog/index
+    Backend <modules/ExDBackend/hbp_nrp_backend/developer_manual>
+    CLE Server <modules/ExDBackend/hbp_nrp_cleserver/developer_manual>
+    Backend Commons <modules/ExDBackend/hbp_nrp_commons/developer_manual>
+    NRP Watchdogs <modules/ExDBackend/hbp_nrp_watchdog/developer_manual>
     Virtual Coach <modules/VirtualCoach/hbp_nrp_virtual_coach/developer_manual>
-    modules/BrainSimulation/hbp_nrp_distributed_nest/index
+    Brain Simulation <modules/BrainSimulation/hbp_nrp_distributed_nest/developer_manual>
     modules/ExperimentControl/hbp_nrp_excontrol/index
     Backend Proxy <developer_manual/nrpBackendProxy/index>

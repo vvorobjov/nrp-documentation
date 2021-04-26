@@ -14,5 +14,6 @@ Developer Manual
 
     Install and run NRP (from source)<source_installation>
     Installation troubleshooting<dev_troubleshooting.md>
+    developer_manual/repos
     nrp_modules
     python_api

@@ -45,7 +45,13 @@ master_doc = 'index'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'nrp/developer_manual.bk', 'nrp/README.md']
+exclude_patterns = [
+    '_build', 
+    'nrp/developer_manual.bk', 
+    'nrp/README.md', 
+    #'nrp/modules/**/tutorials.rst',
+    # 'nrp/modules/*/*/index.rst'    
+]
 
 # the following modules are part of CLE and should be mocked
 autodoc_mock_imports = ['SpiNNaker', 'nest']
