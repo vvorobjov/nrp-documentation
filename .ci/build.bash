@@ -85,4 +85,4 @@ make devinstall
 . $VIRTUAL_ENV_PATH/bin/activate \
     && source /opt/ros/noetic/setup.bash \
     && source /home/bbpnrsoa/nrp/src/GazeboRosPackages/devel/setup.bash \
-    && make doc
+    && make "${MAKE_TARGET}"
