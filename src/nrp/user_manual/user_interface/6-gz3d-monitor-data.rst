@@ -1,4 +1,5 @@
-=========================
+.. _web-cockpit-monitor:
+
 Monitoring the simulation
 =========================
 

@@ -1,4 +1,6 @@
-=====================
+.. _web-cockpit-navigate:
+
+
 Navigate in the scene
 =====================
 

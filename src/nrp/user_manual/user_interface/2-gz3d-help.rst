@@ -1,4 +1,5 @@
-=========
+.. _web-cockpit-find-help:
+
 Find help
 =========
 

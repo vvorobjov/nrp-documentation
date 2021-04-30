@@ -1,4 +1,5 @@
-============================
+.. _web-cockpit-interact:
+
 Interact with the simulation
 ============================
 
@@ -6,7 +7,7 @@ Interact with the simulation
 
 
 A core feature of the Web Cockpit is to let you interact with the objects of the scene, in order to see how the robot reacts.
-While doing that, you can view the changes in the brain by monitoring spikes, as explained in `Monitoring the simulation`_.
+While doing that, you can view the changes in the brain by monitoring spikes, as explained in :ref:`web-cockpit-monitor`.
 You can also check what the robot "sees" by displaying its camera view.
 
 
@@ -82,15 +83,3 @@ two new widgets appear and let you specify the magnitude and the direction the f
 The first widget lets you enter numbers. The second widget has two colored manipulators that help 
 you adjust the force direction with the mouse.
     
-  
-
-
-
-It is also possible to edit the environment at run-time by adding, moving or deleting objects.
-This is detailed in the `Edit simulation`_ section.
-
-
-
-.. _Monitoring the simulation: 6-gz3d-monitor-data.html
-.. _Nest: http://www.nest-initiative.org
-.. _Edit simulation: 7-gz3d-edit.html

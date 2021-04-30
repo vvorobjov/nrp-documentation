@@ -1,8 +1,9 @@
-============
+..  sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+
+.. _nrp-glossary:
+
 NRP Glossary
 ============
-
-..  sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
 ..  glossary::
     :sorted:
@@ -93,8 +94,20 @@ NRP Glossary
     OIDC
         OpenID Connect is an authentication layer on top of OAuth 2.0, an authorization framework. In the NRP it used to authenticate you through HBP services. About the accessing NRP read :ref:`here <access-nrp>`.
 
-    Web Cockpit : NRP Frontend
     Frontend : NRP Frontend
+    Web Cockpit : NRP Frontend
     NRP Frontend
-        The browser-based user interface for interaction with the NRP. Use the :ref:`section in the user manual <web-cockpit-manual>` in order to get familiar with it.
+        The browser-based user interface for interaction with the NRP. Use the :ref:`section in the user manual <web-cockpit-manual>` in order to get familiar with it. Developers might look at ``ExDFrontend`` in :ref:`nrp-repos`, which implements the main functionality of the Frontend.
 
+    simulation
+        is an instance of an :term:`experiment`, launched by a particular user, at a certain time, with a predefined.
+
+    experiment
+        is a use case, combining a brain, a robot and an environment.
+
+    Husky robot
+        Popular robot platform, i.e., you can read `ROS wiki <http://wiki.ros.org/Robots/Husky>`_
+
+    Braitenberg Vehicle
+        A Braitenberg vehicle is a concept conceived in a thought experiment by the Italian-Austrian cyberneticist Valentino Braitenberg: `Wikipedia <https://en.wikipedia.org/wiki/Braitenberg_vehicle>`_
+        

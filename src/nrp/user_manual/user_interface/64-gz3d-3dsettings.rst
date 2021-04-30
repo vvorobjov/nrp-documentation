@@ -1,4 +1,5 @@
-===========
+.. _web-cockpit-3d-settings:
+
 3D Settings
 ===========
 

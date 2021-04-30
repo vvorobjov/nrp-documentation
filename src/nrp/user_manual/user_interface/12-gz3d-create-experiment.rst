@@ -1,34 +1,24 @@
-====================
+.. _web-cockpit-create-experiment:
+
 Create an experiment
 ====================
 
 
 
-On the entrance page,  **My Experiments** tab lets you create an experiment 
-by selecting models for the environment, the robot and the brain.
+The **My Experiments** tab lets you create an experiment by selecting models for the environment, the robot and the brain.
 
 
 
-.. image:: images/create-new-experiment.jpg
+.. image:: images/create-new-experiment.png
     :align: center
     :width: 100%
 
 
 
-A model can be selected from the template model library provided with the NRP, from your private storage or from a file
-stored on your computer.
+A model can be selected from the template model library provided with the NRP, from your private storage or from a file stored on your computer.
 
 
-
-.. image:: images/choose-environment.jpg
-    :align: center
-    :width: 100%
-
-
-
-If you select a model located on your computer, it will be added to your private library inside your storage space.
-For environment and robot models, you can select a zip file from your computer. This zip file must be a zipped folder 
-containing a file named model.config at its root. The format of this file is described in the example below. 
+In order to select a model located on your computer, it should be first added to your private library inside your storage space (via :ref:`Models libraries tab <web-cockpit-library>`). For environment and robot models, you can select a zip file from your computer. This zip file must be a zipped folder containing a file named model.config at its root. The format of this file is described in the example below. 
 
 
 
@@ -82,13 +72,7 @@ containing a file named model.config at its root. The format of this file is des
 
 
 
-  The content of model.config will be used to generate the online robot documentation, see `Inspect a robot`_.
-
-
-
+The content of model.config will be used to generate the online robot documentation, see :ref:`web-cockpit-inspect-robot`
 
 When your choice of assembly is made, you can instantiate the experiment in your private storage 
 by pressing the **Clone** button. The new experiment is now available in **My Experiments** tab.
-
-
-.. _Inspect a robot: 36-gz3d-inspect-robot.html

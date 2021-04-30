@@ -1,3 +1,5 @@
+.. _user-manual-vc:
+
 Virtual Coach
 =============
 
