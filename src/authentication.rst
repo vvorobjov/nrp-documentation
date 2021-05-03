@@ -1,10 +1,9 @@
 .. _access-nrp:
 
-===============================
+.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+
 Accessing the NRP
 ===============================
-
-.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
 Online service
 ------------------------------------------

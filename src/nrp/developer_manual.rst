@@ -1,9 +1,9 @@
-Developer Manual
-================
-
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
 .. _developer-manual:
+
+Developer Manual
+================
 
 
 

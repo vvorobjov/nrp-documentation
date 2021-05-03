@@ -1,10 +1,10 @@
+.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+    
 .. _source-installation:
 
 Installation and running NRP from source
 ========================================
 
-
-.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
 
 .. toctree::
