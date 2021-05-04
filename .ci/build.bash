@@ -16,7 +16,7 @@ if [ -z ${PYTHON_VERSION_MAJOR_MINOR} ]; then
 fi
 
 MAKE_TARGET=doc
-if [ $1 -eq "true" ]; then
+if [ $1 == "true" ]; then
     MAKE_TARGET=doc-release
 fi
 
