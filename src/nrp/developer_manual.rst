@@ -16,4 +16,5 @@ Developer Manual
     Installation troubleshooting<dev_troubleshooting.md>
     developer_manual/repos
     nrp_modules
-    python_api
+    code_ref
+    

@@ -1,5 +1,5 @@
-Python developer API
-====================
+Python code reference
+======================
 
 .. toctree::
    :maxdepth: 3
@@ -12,4 +12,6 @@ Python developer API
    modules/VirtualCoach/hbp_nrp_virtual_coach/apidoc/pynrp
    modules/BrainSimulation/hbp_nrp_distributed_nest/apidoc/hbp_nrp_distributed_nest
    modules/ExperimentControl/hbp_nrp_excontrol/apidoc/hbp_nrp_excontrol
+
+   modules/doc/index
    

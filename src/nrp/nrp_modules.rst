@@ -7,13 +7,13 @@ NRP components
 
 .. note::
     Currently, this section represents a collection of documentation gathered from repositories with code. 
-    Along with automatically documentated code API, which is for sure a part of Developer Manual, here are the manually written descriptions that resides in the repositories with the code.
-    These descriptions migth be suitable as for Developer, so as for User manual.
+    Along with automatically documented code API, which is for sure a part of Developer Manual, here are the manually written descriptions that resides in the repositories with the code.
+    These descriptions might be suitable as for Developer, so as for User manual.
 
 .. toctree::
     :maxdepth: 1
 
-    Closed Loop Engine <modules/CLE/hbp_nrp_cle/developer_manual>
+    CLE <modules/CLE/hbp_nrp_cle/developer_manual>
     Backend <modules/ExDBackend/hbp_nrp_backend/developer_manual>
     CLE Server <modules/ExDBackend/hbp_nrp_cleserver/developer_manual>
     Backend Commons <modules/ExDBackend/hbp_nrp_commons/developer_manual>
@@ -22,3 +22,5 @@ NRP components
     Brain Simulation <modules/BrainSimulation/hbp_nrp_distributed_nest/developer_manual>
     modules/ExperimentControl/hbp_nrp_excontrol/index
     Backend Proxy <developer_manual/nrpBackendProxy/index>
+    ExDFrontend <modules/ExDFrontend/developer_manual>
+    
