@@ -18,7 +18,7 @@ NRP Glossary
 
     Gazebo simulator : Gazebo
     `Gazebo <http://gazebosim.org/>`__
-        Gazebo is an open-source 3D robotics simulator. 
+        Gazebo is an open-source 3D robotics simulator. NRP uses a fork of the Gazebo project of version 11. Developers may refer ``Gazebo`` in :ref:`nrp-repos` and also also dedicated :ref:`Gazebo developer page <gazebo-developer-manual>`. 
 
     SMACH
         is a task-level architecture for rapidly creating complex robot behavior. At its core, SMACH is a ROS-independent Python library to build hierarchical state machines. SMACH is a new library that takes advantage of very old concepts in order to quickly create robust robot behavior with maintainable and modular code.
@@ -113,7 +113,7 @@ NRP Glossary
         
     SDF : Simulation Description Format
     Simulation Description Format
-        XML file format that describes environments, objects, and robots in a manner suitable for robotic applications. NRP uses a special :ref:`SDFormat parser <sdformat-developer-manual>` to handle these files.
+        XML file format that describes environments, objects, and robots in a manner suitable for robotic applications. SDF is capable of representing and describing different physic engines, lighting properties, terrain, static or dynamic objects, and articulated robots with various sensors, and acutators. The format of SDF is also described by XML, which facilitates updates and allows conversion from previous versions. A parser is also contained within this package that reads SDF files and returns a C++ interface. NRP uses a special :ref:`SDFormat parser <sdformat-developer-manual>` to handle these files. 
 
     urdfdom
         The URDF (U-Robot Description Format) library provides core data structures and a simple XML parsers for populating the class data structures from an URDF file. Read more on `project pages <https://github.com/ros/urdfdom>`__

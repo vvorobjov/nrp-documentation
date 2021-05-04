@@ -2,7 +2,7 @@
 
 .. _sdformat-developer-manual:
 
-Format Developer pages
+SDFormat Developer pages
 ===========================
 
 SDFormat - :abbr:`SDF (Simulation Description Format)` parser.
@@ -46,7 +46,7 @@ To uninstall the software installed with the previous steps:
 Debian package
 +++++++++++++++++++++++++
 
-For speed-up of the Docker images build and deploy, we pre-build DEB package for SDFormat. These package has limited usage, as soon as we prepare it to be installed into NRP Docker image and consider image's file system structure. You can read :ref:`here <debs-developer-manual>` about the procedure of Debian packages building that we use.
+For speed-up of the Docker images build and deploy, we pre-build DEB package for SDFormat. We do not distribute this package, because it has limited usage, as soon as we prepare it to be installed into NRP Docker image and consider image's file system structure. You can read :ref:`here <debs-developer-manual>` about the procedure of Debian packages building that we use.
 
 You can also create Debian package for your purposes:
 
@@ -58,6 +58,6 @@ You can also create Debian package for your purposes:
     cmake -DCMAKE_INSTALL_PREFIX=$HOME/.local ..
     sudo make package
 
-The resulting DEB package will be created in the build directory. Note, that the further installation path is determined by ``CMAKE_INSTALL_PREFIX```
+The resulting DEB package will be created in the build directory. Note, that the further installation path is determined by ``CMAKE_INSTALL_PREFIX``
 
 .. seealso:: :ref:`NRP Debian packages for C++ projects <debs-developer-manual>`
