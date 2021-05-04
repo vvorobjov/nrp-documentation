@@ -111,3 +111,9 @@ NRP Glossary
     Braitenberg Vehicle
         A Braitenberg vehicle is a concept conceived in a thought experiment by the Italian-Austrian cyberneticist Valentino Braitenberg: `Wikipedia <https://en.wikipedia.org/wiki/Braitenberg_vehicle>`_
         
+    SDF : Simulation Description Format
+    Simulation Description Format
+        XML file format that describes environments, objects, and robots in a manner suitable for robotic applications. NRP uses a special :ref:`SDFormat parser <sdformat-developer-manual>` to handle these files.
+
+    urdfdom
+        The URDF (U-Robot Description Format) library provides core data structures and a simple XML parsers for populating the class data structures from an URDF file. Read more on `project pages <https://github.com/ros/urdfdom>`__

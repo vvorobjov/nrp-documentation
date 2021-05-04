@@ -23,4 +23,5 @@ NRP components
     modules/ExperimentControl/hbp_nrp_excontrol/index
     Backend Proxy <developer_manual/nrpBackendProxy/index>
     ExDFrontend <modules/ExDFrontend/developer_manual>
+    SDFormat <developer_manual/sdformat/index>
     

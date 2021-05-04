@@ -153,7 +153,7 @@ sdformat
 +++++++++++++++++++++++++++++++
 
 `C++ project <https://bitbucket.org/hbpneurorobotics/sdformat>`__.
-Sdformat is the library handling SDF files for Gazebo. This is a modified fork of the official repository.
+SDFormat is the library handling :term:`SDF` files for Gazebo. This is a modified fork of the official repository. Refer to dedicated :ref:`developers page <sdformat-developer-manual>`.
 
 server-scripts
 +++++++++++++++++++++++++++++++
