@@ -9,7 +9,7 @@ The Neurorobotics Platform consists of a web "cockpit", embedded experiment edit
 .. toctree::
    :maxdepth: 1
 
-
+   user_manual/start
    user_manual/index
    tutorials
    developer_manual

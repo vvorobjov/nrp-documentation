@@ -117,3 +117,9 @@ NRP Glossary
 
     urdfdom
         The URDF (U-Robot Description Format) library provides core data structures and a simple XML parsers for populating the class data structures from an URDF file. Read more on `project pages <https://github.com/ros/urdfdom>`__
+
+    OpenSim
+        OpenSim is a freely available, user extensible software system that lets users develop models of musculoskeletal structures and create dynamic simulations of movement. We use a fork of the official repository (look for ``opensim`` in :ref:`nrp-repos`). `The project web-site <https://simtk.org/projects/opensim>`__
+
+    Simbody
+        Simbody is useful for internal coordinate and coarse grained molecule modeling, large scale mechanical models like skeletons, and anything else that can be modeled as bodies interconnected by joints, acted upon by forces, and restricted by constraints. We use a fork of the official repository (look for ``simbody`` in :ref:`nrp-repos`). `The project web-site <https://simtk.org/projects/simbody>`__

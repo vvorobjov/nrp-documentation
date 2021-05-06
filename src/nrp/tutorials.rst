@@ -1,7 +1,11 @@
+
+.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+
+.. _nrp-tutorials:
+
 Tutorials
 =========
 
-.. todo:: Viktor Vorobev <vorobev@in.tum.de>
 
 The following tutorials demonstrate beginner's or original use cases given simple examples.
 
