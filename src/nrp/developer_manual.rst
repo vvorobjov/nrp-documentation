@@ -17,4 +17,3 @@ Developer Manual
     developer_manual/repos
     nrp_modules
     code_ref
-    
