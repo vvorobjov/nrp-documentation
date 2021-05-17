@@ -36,7 +36,7 @@ Microsoft Windows
 ~~~~~~~~~~~~~~~~~
 ..  note:: Linux/Mac users, skip this part.
 
-#. Windows users have to first install :abbr:`WLS (Windows Linux Subsystem)` 2 and Ubuntu 20.04 on top of it from the Windows Store. See `here for instructions <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`__.
+#. Windows users have to first install :abbr:`WLS (Windows Linux Subsystem)` 2 and a brand of Linux on top of it from the Windows Store (we tested WSL with Ubuntu 18.04 and Ubuntu 20.04). See `here for instructions <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`__.
 #. Open an Linux terminal from the Windows start menu (in our case an Ubuntu menu item) and proceed with the next step.
 
 macOS
