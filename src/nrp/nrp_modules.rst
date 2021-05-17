@@ -5,10 +5,8 @@ NRP components
 
 .. _nrp-components-description:
 
-.. note::
-    Currently, this section represents a collection of documentation gathered from repositories with code. 
-    Along with automatically documented code API, which is for sure a part of Developer Manual, here are the manually written descriptions that resides in the repositories with the code.
-    These descriptions might be suitable as for Developer, so as for User manual.
+.. seealso::
+    The list of :ref:`nrp-repos`.
 
 .. toctree::
     :maxdepth: 1
