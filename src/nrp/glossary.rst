@@ -15,6 +15,7 @@ NRP Glossary
 
     Docker
         `Docker <https://docs.docker.com/get-started/overview/>`__ is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels. Because all of the containers share the services of a single operating system kernel, they use fewer resources than virtual machines. 
+        Use the `Docker installation guides<https://docs.docker.com/engine/install/>`__ for your system. If you're using Linux OS, for your convenience, we recommend to `allow the Docker to run as non-root user<https://docs.docker.com/engine/install/linux-postinstall/>`__.
 
     Gazebo simulator : Gazebo
     `Gazebo <http://gazebosim.org/>`__
