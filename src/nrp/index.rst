@@ -13,6 +13,7 @@ The Neurorobotics Platform consists of a web "cockpit", embedded experiment edit
    user_manual/index
    tutorials
    developer_manual
+   troubleshooting
    specifications/index
    glossary
 
