@@ -9,8 +9,8 @@ HBP Neurorobotics guide book
    :maxdepth: 2
 
    welcome
-   before-you-start
-   quick-start
+   Before you start: requirements and installation <before-you-start>
+   Quick start guide: workflow, software architecture and published experiments <quick-start>
    nrp/index
    nrp/tutorials
    nrp/developer_manual

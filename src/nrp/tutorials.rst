@@ -3,8 +3,8 @@
 
 .. _nrp-tutorials:
 
-Tutorials
-=========
+NRP Tutorials
+==============
 
 
 The following tutorials demonstrate beginner's or original use cases given simple examples.

@@ -2,8 +2,8 @@
 
 .. _developer-manual:
 
-Developer Manual
-================
+NRP Developer Manual
+======================
 
 
 

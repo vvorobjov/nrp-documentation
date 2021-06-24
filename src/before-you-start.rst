@@ -3,7 +3,7 @@
 .. _before-you-start:
 
 ===============================================
-Before you start: requirements and installation
+Before you start
 ===============================================
 
 .. todo:: Add separation by types of access

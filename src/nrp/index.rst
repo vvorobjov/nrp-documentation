@@ -1,6 +1,6 @@
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
 
-Neurorobotics Platform Guide Book
+NRP Features
 =================================
 
 The Neurorobotics Platform consists of a web "cockpit", embedded experiment editors and a separate desktop robot designer application. This covers exactly what you need to set-up and run a successful in-silico experiment.

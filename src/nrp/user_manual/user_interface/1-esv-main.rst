@@ -8,7 +8,7 @@ Clone an experiment and start a simulation
 The easiest way to start with the Platform is to clone the ready-to-use template experiment into your private storage and launch it. Follow the **Templates** tab in the user interface, select the desired template and push the **Clone** button.
 
 
-.. image:: images/clone-experiment.jpg
+.. thumbnail:: images/clone-experiment.jpg
     :align: center
     :width: 100%
 
@@ -16,7 +16,7 @@ The easiest way to start with the Platform is to clone the ready-to-use template
 The cloned experiment is displayed automatically in **My Experiments** tab.
 
 
-.. image:: images/launch-simulation.jpg
+.. thumbnail:: images/launch-simulation.jpg
     :align: center
     :width: 100%
 
@@ -35,7 +35,7 @@ You can also **Delete** the cloned experiment or make a new copy of it by pressi
 
 
 
-.. image:: images/my-experiments-tab.jpg
+.. thumbnail:: images/my-experiments-tab.jpg
     :align: center
     :width: 100%
 
@@ -47,7 +47,7 @@ The **Running Simulations** tab displays the list of your running simulations.
 
 
 
-.. image:: images/join-running-simulation.jpg
+.. thumbnail:: images/join-running-simulation.jpg
     :align: center
     :width: 100%
 
