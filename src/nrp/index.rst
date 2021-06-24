@@ -9,13 +9,10 @@ The Neurorobotics Platform consists of a web "cockpit", embedded experiment edit
 .. toctree::
    :maxdepth: 1
 
-   user_manual/start
-   user_manual/index
-   tutorials
-   developer_manual
-   troubleshooting
-   specifications/index
-   glossary
+   user_manual/user_interface/index
+   user_manual/virtual_coach/index
+   user_manual/simulation_setup/index
+   Robot Designer <https://hbpneurorobotics.github.io/BlenderRobotDesigner/>
 
 .. image:: images/nrp.jpg
    :align: center

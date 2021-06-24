@@ -3,13 +3,18 @@
 HBP Neurorobotics guide book
 ============================
 
+.. todo:: Replace images https://pypi.org/project/sphinxcontrib-images/
+
 .. toctree::
    :maxdepth: 2
 
-   introduction
-   authentication
+   welcome
+   before-you-start
+   quick-start
    nrp/index
-   contact-and-support
+   nrp/tutorials
+   nrp/developer_manual
+   nrp/glossary
    license
 
 

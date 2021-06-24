@@ -1,5 +1,5 @@
 ============
-Introduction
+Welcome
 ============
 
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
