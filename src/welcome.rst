@@ -85,9 +85,8 @@ This manual will help the users to get comfortable with the Experiment Simulatio
 
 .. include:: contact-and-support.rst
 
-.. rubric:: Release Notes
-  
-..  toctree::
-    :maxdepth: 1
+.. seealso::
 
-    release_notes.rst
+    :ref:`NRP Glossary<nrp-glossary>` 
+
+:ref:`Release Notes<release-notes>`
