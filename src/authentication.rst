@@ -8,13 +8,14 @@ Accessing the NRP
 Online service
 ------------------------------------------
 
-To access the online :abbr:`NRP (Neurorobotics Platform)`, you need to have an account. There are two types of accounts to choose from:
+In order to access the online :abbr:`NRP (Neurorobotics Platform)`, you need to have the EBRAINS account.
+
 
 +----------------------+-------------------------------------------------------------------+
 |Account Name          |Account Description                                                |
 +======================+===================================================================+
 |Full Access account   |This grants you full access to the HBP collaboratory as well as    |
-|                      |access to our online platform.                                     |                                                                                                                                          
+|                      |access to our online platform.                                     |
 +----------------------+-------------------------------------------------------------------+
 |Project account       |An account lasting 6 months which grants full access to the        |
 |                      |platform, dedicated resources, a dedicated liaison engineer, and   |

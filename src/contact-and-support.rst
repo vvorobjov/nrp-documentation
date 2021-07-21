@@ -1,19 +1,14 @@
 .. _contact:
 
-Contact & Support
-=================
+.. rubric:: Contact & Support
 
-.. todo:: Add author/responsible
-
-Contact
-+++++++
+.. rubric:: Contact
 
 The platform is developed by fortiss_, TUM_, FZI_, SSSA_ and led by Prof. Alois Knoll and Dr. Egidio Falotico. Until May 2019, Dr. Marc-Oliver Gewaltig from EPFL_ was also co-leader of the platform development.
 
 General email contact is available through our `contact form`_.
 
-Support
-+++++++
+.. rubric:: Support
 
 For support, please use our `forum`_.
 For bug reports and feature requests, please email neurorobotics-support@humanbrainproject.eu or, with HBP credentials, connect to the `HBP support portal`_.
