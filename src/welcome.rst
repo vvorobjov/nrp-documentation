@@ -49,6 +49,7 @@ Criteria for version selection:
 +------------------+----------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+-------------------------------------------+
 
 Firefox and Chrome are currently actively supported on Windows, Mac and Linux, for both the Online platform and the local install (Docker). IOS and Android and not officially supported yet, though it mostly works with the online platform.
+
 +----------------------------+---------------+----------------+--------------+--------------+
 |Supported OS\\Browser       |Chrome         |Firefox         |Safari        |IE - Edge     |
 +============================+===============+================+==============+==============+
