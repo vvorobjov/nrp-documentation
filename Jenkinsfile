@@ -59,7 +59,7 @@ pipeline
         docker {
             label 'master'
             // NEXUS_REGISTRY_IP and NEXUS_REGISTRY_PORT are Jenkins global variables
-            image "${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}/nrp:master"
+            image "${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}/nrp:development"
             registryUrl "http://${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}"
             registryCredentialsId 'nexusadmin'
             args '--entrypoint="" -u root --privileged'
