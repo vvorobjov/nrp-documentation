@@ -28,7 +28,8 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = src
 BUILDDIR      = _build
 
-VERSION       = $(shell git -C $(HBP)/ExDBackend describe --tags --abbrev=0)
+VERSION       = $(shell git describe --tags --abbrev=0)
+VERSION_FULL  = $(shell git describe --tags)
 
 ## Include common makefile from adminscripts
 CI_REPO?=git@bitbucket.org:hbpneurorobotics/admin-scripts.git
