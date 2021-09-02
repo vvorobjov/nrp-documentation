@@ -49,4 +49,4 @@
     group: www-data
     force: yes
   become: true
-  when: "{{ link_latest }} is 'true'"
+  when: "link_latest is 'true'"
