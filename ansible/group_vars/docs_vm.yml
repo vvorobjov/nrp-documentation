@@ -1,1 +1,3 @@
 docs_version: "unversioned"
+deploy_dir: "/var/www/html/Documentation/versions"
+latest_dir: "/var/www/html/Documentation/latest"

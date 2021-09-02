@@ -14,12 +14,12 @@
 - name: Clean artifact path
   file:
     state: absent
-    path: "/var/www/html/Documentation/{{ docs_version }}"
+    path: "{{ deploy_dir }}/{{ docs_version }}"
   become: true
 
 - name: Create a directory for docs on host if it does not exist
   ansible.builtin.file:
-    path: "/var/www/html/Documentation/{{ docs_version }}"
+    path: "{{ deploy_dir }}/{{ docs_version }}"
     state: directory
     mode: '0755'
     owner: nrp
@@ -29,7 +29,7 @@
 - name: Extract files to host
   ansible.builtin.unarchive:
     src: "{{ sphinx_build_html }}/src.zip"
-    dest: "/var/www/html/Documentation/{{ docs_version }}"
+    dest: "{{ deploy_dir }}/{{ docs_version }}"
     owner: nrp
     group: www-data
   become: true
@@ -37,5 +37,16 @@
 - name: Clean artifact path
   file:
     state: absent
-    path: "/var/www/html/Documentation/{{ docs_version }}/src.zip"
+    path: "{{ deploy_dir }}/{{ docs_version }}/src.zip"
   become: true
+
+- name: Link latest version
+  file:
+    path: "{{ latest_dir }}"
+    src: "{{ deploy_dir }}/{{ docs_version }}"
+    state: link
+    owner: nrp
+    group: www-data
+    force: yes
+  become: true
+  when: "{{ link_latest }} is 'true'"
