@@ -153,7 +153,8 @@ pipeline
                                         extraVars: [ansible_become_pass :  "${params.DEPLOY_PASS}" , \
                                                     docs_version : "${docs_version}", \
                                                     sphinx_build_html :  '${WORKSPACE}/${DOCS_DIR}/_build/html/', \
-                                                    link_latest : "${params.LATEST}" ] )}
+                                                    link_latest : "${params.LATEST}", \
+                                                    var_release : "${params.RELEASE}" ] )}
                     
                 }
             }

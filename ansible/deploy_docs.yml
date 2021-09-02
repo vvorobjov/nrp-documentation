@@ -1,3 +1,13 @@
 - hosts: docs_vm
   roles:
   - nrp-docs
+  vars:
+    deploy_dir: "{{ release_dir }}"
+  when: var_release|bool == true
+
+- hosts: docs_vm
+  roles:
+  - nrp-docs
+  vars:
+    deploy_dir: "{{ staging_dir }}"
+  when: var_release|bool == false
