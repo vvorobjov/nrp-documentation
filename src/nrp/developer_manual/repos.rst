@@ -91,10 +91,6 @@ gzweb
 `Mixed project <https://bitbucket.org/hbpneurorobotics/gzweb>`__.
 The gzbridge Gazebo-NRP communication layer + frontend assets + frontend :term:`gzweb` code (provided duplicately in `ExDFrontend`_ as a Bower component).
 
-hbpneurorobotics.bitbucket.io
-+++++++++++++++++++++++++++++++
-
-.. todo:: Add description of the repository
 
 Models
 +++++++++++++++++++++++++++++++

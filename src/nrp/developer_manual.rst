@@ -6,9 +6,6 @@ NRP Developer Manual
 ======================
 
 
-
-.. todo:: Separate Developer from User manuals and generic tutorials
-
 .. toctree::
     :maxdepth: 1
 

@@ -3,8 +3,6 @@
 HBP Neurorobotics guide book
 ============================
 
-.. todo:: Replace images https://pypi.org/project/sphinxcontrib-images/
-
 .. toctree::
    :maxdepth: 2
 
