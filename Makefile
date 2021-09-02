@@ -1,22 +1,24 @@
 #documentation to build
-DOC_MODULES=$(HBP)/ExDBackend/hbp_nrp_backend/doc \
+DOC_MODULES=$(HBP)/BrainSimulation/hbp_nrp_distributed_nest/doc \
+$(HBP)/ExperimentControl/hbp_nrp_excontrol/doc \
+$(HBP)/VirtualCoach/hbp_nrp_virtual_coach/doc \
+$(HBP)/ExDBackend/hbp_nrp_backend/doc \
 $(HBP)/ExDBackend/hbp_nrp_cleserver/doc \
 $(HBP)/ExDBackend/hbp_nrp_commons/doc \
 $(HBP)/ExDBackend/hbp_nrp_watchdog/doc \
-$(HBP)/CLE/hbp_nrp_cle/doc \
-$(HBP)/VirtualCoach/hbp_nrp_virtual_coach/doc \
-$(HBP)/BrainSimulation/hbp_nrp_distributed_nest/doc \
-$(HBP)/ExperimentControl/hbp_nrp_excontrol/doc
+$(HBP)/CLE/hbp_nrp_cle/doc
 
-INSTALL_MODULES=$(HBP)/ExDBackend/hbp-flask-restful-swagger-master \
+
+# The installation order is important
+INSTALL_MODULES=$(HBP)/BrainSimulation/hbp_nrp_distributed_nest \
+$(HBP)/ExperimentControl/hbp_nrp_excontrol \
+$(HBP)/VirtualCoach/hbp_nrp_virtual_coach \
+$(HBP)/ExDBackend/hbp-flask-restful-swagger-master \
 $(HBP)/ExDBackend/hbp_nrp_backend \
 $(HBP)/ExDBackend/hbp_nrp_cleserver \
 $(HBP)/ExDBackend/hbp_nrp_commons \
 $(HBP)/ExDBackend/hbp_nrp_watchdog \
-$(HBP)/CLE/hbp_nrp_cle \
-$(HBP)/VirtualCoach/hbp_nrp_virtual_coach \
-$(HBP)/BrainSimulation/hbp_nrp_distributed_nest \
-$(HBP)/ExperimentControl/hbp_nrp_excontrol
+$(HBP)/CLE/hbp_nrp_cle
 
 
 # You can set these variables from the command line, and also
