@@ -28,7 +28,7 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = src
 BUILDDIR      = _build
 
-VERSION  = $(shell git describe --tags --always | sed 's/-[^-]*$//')
+VERSION  = $(shell bash -c "git describe --tags --always | sed 's/-[^-]*$$//'")
 
 ## Include common makefile from adminscripts
 CI_REPO?=git@bitbucket.org:hbpneurorobotics/admin-scripts.git
@@ -50,6 +50,7 @@ COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
 doc: $(DOCS) $(COPY_PY_DOCS) copy-frontend doc-fast
 
 doc-fast: copy-nrp copy-frontend
+	$(info $$VERSION is [${VERSION}])
 	$(file > version,$(VERSION))
 	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -D release=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
 
