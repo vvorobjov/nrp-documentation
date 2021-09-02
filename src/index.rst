@@ -10,7 +10,7 @@ HBP Neurorobotics guide book
 
    welcome
    Before you start <before-you-start>
-   ..Quick start guide: workflow, software architecture and published experiments <quick-start>
+   .. Quick start guide: workflow, software architecture and published experiments <quick-start>
    nrp/index
    nrp/tutorials
    nrp/developer_manual
