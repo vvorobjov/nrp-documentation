@@ -10,7 +10,7 @@ neuronal network, we begin with the explanation of the domain-specific language 
 these essential parts.
 
 .. _closed-loop:
-.. figure:: img/closedLoop.png
+.. image:: img/closedLoop.png
 
    A Closed Loop between Neuronal Networks and Robots
 
@@ -39,7 +39,7 @@ neuronal network or a robot simulation and manage the execution of this
 function.
 
 .. _transfer-functions:
-.. figure:: img/transferFunctions.png
+.. image:: img/transferFunctions.png
 
    The abstract syntax of PyTF
 

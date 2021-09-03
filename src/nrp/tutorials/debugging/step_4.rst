@@ -23,7 +23,7 @@ Select the performance monitor to see which processes consume the most resources
 
 You can also remove your logging line from **linear_twist**. The experiment should now run at full speed!
 
-.. figure:: img/performance_monitor.png
+.. image:: img/performance_monitor.png
     :align: center
     :scale: 50%
 

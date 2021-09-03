@@ -71,7 +71,7 @@ Let's edit the **ExDMyFirstExperiment.exc** to change the name of the experiment
 
 You should have now a new browser window with the following view
 
-.. figure:: ipython_screen.png
+.. image:: ipython_screen.png
     :align: center
     :width: 75%
 

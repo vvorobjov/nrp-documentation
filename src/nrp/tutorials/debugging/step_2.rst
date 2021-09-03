@@ -15,7 +15,7 @@ The Transfer Functions Editor
 
 Open the editors tool and go to the **Transfer Functions** tab. On the left, the transfer functions are listed and we see one that is not activated (**linear twist**). Click to edit the function, and you will see the error **Parameter right_wheel_neuron was not mapped properly**. Indeed, the function **linear_twist** expects an argument **right_wheel_neuron**, but there is only one decorator and it maps **left_wheel_neuron**. 
 
-.. figure:: img/transfer_function_editor.png
+.. image:: img/transfer_function_editor.png
     :align: center
     :scale: 50%
 
