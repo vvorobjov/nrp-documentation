@@ -4,7 +4,7 @@ Scope of this tutorial
 
 .. todo:: Add author/responsible
 
-This tutorial will teach you how to set an experiment and how to use iPythonNotebook to post-process it with the Virtual Coach.
+This tutorial will teach you how to set an experiment and how to use iPythonNotebook to post-process it with the :term:`Virtual Coach`.
 
 1. Create the basic setup of the experiment
 2. Launch the Platform, tune rendering quality
@@ -29,9 +29,7 @@ Be sure to have an up-to-date Platform
     cd $HBP/user-scripts
     ./update_nrp update all
 
-It is assumed that you have a `source installation`_ of the NRP. Unfortunately, this tutorial will not work yet from "local" docker installations since iPythonNotebook would not work.
-All the configuration files and the python scripts specific to an experiment are located in the Experiments folder (except the brain and the robot which are located in Models).
-Let's make a copy of the tutorial:
+It is assumed that you have a :ref:`sourse installation <source-installation>` of the NRP and running . Unfortunately, this tutorial will not work yet from "local" docker installations since iPythonNotebook would not work. All the configuration files and the python scripts specific to an experiment are located in the Experiments folder (except the brain and the robot which are located in Models). Let's make a copy of the tutorial:
 
 .. code-block:: bash
 
@@ -75,7 +73,7 @@ You should have now a new browser window with the following view
 
 .. image:: ipython_screen.png
     :align: center
-    :width: 50%
+    :width: 75%
 
 The tutorial continues in this window. Have fun!
 

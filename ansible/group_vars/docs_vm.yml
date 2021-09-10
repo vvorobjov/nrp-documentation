@@ -1,1 +1,4 @@
 docs_version: "unversioned"
+staging_dir: "/var/www/html/Documentation/versions"
+release_dir: "/var/www/html/Documentation/release"
+latest_dir: "/var/www/html/Documentation/latest"

@@ -5,10 +5,6 @@ import os
 sys.path.insert(0, os.environ.get('HBP') + '/admin-scripts/ContinuousIntegration/python/docs')
 from sphinxconf import *
 
-# create up2date gitversion file (which is included at the top)
-from subprocess import call
-call("git describe --always --tags --dirty > gitversion.rst_tochide", shell=True)
-
 sys.path.append('../../lib')
 
 #from theme.conf import *
@@ -31,6 +27,14 @@ show_authors = True
 #ADDED BY FOM
 html_static_path = ['_static']
 
+html_css_files = [
+    'css/hbpdoc.css',
+]
+
+html_js_files = [
+    'matomo/mt.js'
+]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -45,7 +49,13 @@ master_doc = 'index'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build', 'nrp/developer_manual.bk']
+exclude_patterns = [
+    '_build', 
+    'nrp/developer_manual.bk', 
+    'nrp/README.md', 
+    #'nrp/modules/**/tutorials.rst',
+    # 'nrp/modules/*/*/index.rst'    
+]
 
 # the following modules are part of CLE and should be mocked
 autodoc_mock_imports = ['SpiNNaker', 'nest']
@@ -56,11 +66,14 @@ pygments_style = 'sphinx'
 
 # -- Options for HTML output ----------------------------------------------
 html_theme = "sphinx_rtd_theme" #added by FOM
+html_show_sphinx = False
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = { }
+html_theme_options = { 
+    }
+
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {

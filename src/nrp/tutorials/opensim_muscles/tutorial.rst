@@ -52,7 +52,7 @@ the model.sdf file from the robot folder through the file explorer.
 The muscles tag points to the location where the description of muscles is setup.
 More details on writing this file can be found in the following section.
 
-The plugin is needed to link the necessary libraries that interface NRP with
+The plugin is needed to link the necessary libraries that interface :abbr:`NRP (Neurorobotics Platform)` with
 Opensim functionality.
 
 Opensim Modeling
@@ -134,7 +134,7 @@ Gazebo-ROS-OpenSim Inerface
 ---------------------------
 
 Once you have setup the models using the above described steps, you should be
-able to create new experiments with the usual NRP procedure to create a model.
+able to create new experiments with the usual :abbr:`NRP (Neurorobotics Platform)` procedure to create a model.
 Assuming you are familiar with the process, we continue the tutorial.
 
 If you are in doubt please refer to the following `link <https://developer.humanbrainproject.eu/docs/projects/HBP%20Neurorobotics%20Platform/2.0/index.html>`_.

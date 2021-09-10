@@ -4,13 +4,13 @@ Scope
 
 .. todo:: Add author/responsible
 
-This tutorial will teach you how to install and use TensorFlow within an NRP experiment. Upon completion you will be able to run a "Hello World" level experiment and be able to explore a more advanced experiment distributed with the NRP.
+This tutorial will teach you how to install and use TensorFlow within an :abbr:`NRP (Neurorobotics Platform)` experiment. Upon completion you will be able to run a "Hello World" level experiment and be able to explore a more advanced experiment distributed with the NRP.
 
 ========================================
 Installing TensorFlow for Use in the NRP
 ========================================
 
-The NRP and TensorFlow have slightly different Python dependency versions for core libraries such as Numpy. Unfortunately, this means that TensorFlow cannot be directly installed in the same virtualenv as the NRP, but it can easily be installed separately and used within the platform.
+The :abbr:`NRP (Neurorobotics Platform)` and TensorFlow have slightly different Python dependency versions for core libraries such as Numpy. Unfortunately, this means that TensorFlow cannot be directly installed in the same virtualenv as the NRP, but it can easily be installed separately and used within the platform.
 
 The most convenient way to install TensorFlow is in an isolated virtualenv. Steps are provided below, but for up to date instructions refer to: https://www.tensorflow.org/install/install_linux#installing_with_virtualenv.
 
@@ -61,7 +61,7 @@ Building a "Hello, TensorFlow!" Experiment
 
 Using TensorFlow within an experiment is now fairly straightforward. The structure of the pip installation of TensorFlow is too complex to simply add to your PYTHONPATH as is possible with other libraries. Instead we will need to use Python's own site-package parsing library.
 
-You can easily embed the above "Hello, TensorFlow!" example within the NRP by adding a new Transfer Function:
+You can easily embed the above "Hello, TensorFlow!" example within the :abbr:`NRP (Neurorobotics Platform)` by adding a new Transfer Function:
 
     .. code-block:: python
 
@@ -90,7 +90,7 @@ Now you can easily use TensorFlow to perform any task in the NRP!
 Further Reading: A More Complex TensorFlow Example Experiment
 =============================================================
 
-If you would like to look at a more complex, self-documented example experiment within the NRP - please examine the "
+If you would like to look at a more complex, self-documented example experiment within the :abbr:`NRP (Neurorobotics Platform)` - please examine the "
 CodeJam 2017 Tutorial - TensorFlow Husky Braitenberg Experiment" experiment.
 
 This is a development maturity level experiment that requires additional TensorFlow model dependencies and editing of experiment files. It uses TensorFlow image classification to semantically interact with the environment and may be useful to examine before building your own TensorFlow based experiment.

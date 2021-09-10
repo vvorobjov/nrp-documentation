@@ -28,7 +28,7 @@ Go again to the **linear_twist** transfer function definition. This function rec
 Press **apply** and open the log console and you see that the network outputs only zero's! This means that either it receives no input, or the brain is not configured properly. Note: now that the transfer function is fixed, we can also monitor messages being published using the ROS terminal!
 
 
-.. figure:: img/log_console_output.png
+.. image:: img/log_console_output.png
     :align: center
     :scale: 50%
 
@@ -47,7 +47,7 @@ In the Editors tool, open the **Brain Editor** tab. Take a look at the PYNN scri
 
 Perhaps you noticed a strange value in **SENSORPARAMS**. The spiking threshold ('v_thresh') is set to 9999.0! This threshold is way too high, preventing the sensor neurons from ever firing and thus also preventing the output neurons from ever firing. Change **v_thresh** to a more realistic value (such as -60.0) and press the **apply** button. The robot should now move in circles or towards red screens. You can change the screen color using the right mouse button.
 
-.. figure:: img/brain_editor.png
+.. image:: img/brain_editor.png
     :align: center
     :scale: 50%
 
@@ -55,7 +55,7 @@ Perhaps you noticed a strange value in **SENSORPARAMS**. The spiking threshold (
 
 Check the spike monitor and the joint monitor again to see the activity!
 
-.. figure:: img/spike_joint_monitor_active.png
+.. image:: img/spike_joint_monitor_active.png
     :align: center
     :scale: 50%
 

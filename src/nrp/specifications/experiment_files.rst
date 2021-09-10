@@ -95,7 +95,9 @@ Only the tags that are user definable are described here. The rest of the file s
     
     <rosLaunch> : set the path to a launch file for additional ROS nodes for this experiment in the src field
     
-    <rngSeed> : set an RNG seed to use every experiment launch, if not specified a random RNG seed is used instead 
+    <rngSeed> : set an RNG seed to use every experiment launch, if not specified a random RNG seed is used instead
+    
+    <gazeboLockstep> : boolean, if specified, denotes the activation status of gazebo's "Lockstep of physics and sensors" feature, see https://gazebosim.org/tutorials?tut=lockstep_physics_sensors
 
 |
 
@@ -165,7 +167,7 @@ BIBI file
 
 The Brain and Body Interface (BIBI) file is in the XML format.
 
-An extensive documentation on the BIBI file can be found in :doc:`../tutorials/transfer_function/bibi_config`.
+An extensive documentation on the BIBI file can be found in :ref:`bibi-specification` and :ref:`BIBI Configuration Tutorail <cle-tutorials-bibi-cofig>`.
 
 .. code-block:: xml
     
@@ -193,7 +195,7 @@ Experiment design file
 ----------------------
 The EXD file is a Python file that uses the SMACH state machines framework.
 
-:doc:`../tutorials/experiment/state_machines` describes how to set up these state machines.
+:ref:`state_machines_tutorial` describes how to set up these state machines.
 
 |
 

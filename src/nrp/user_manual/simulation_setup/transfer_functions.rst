@@ -2,7 +2,6 @@ Transfer Functions with PyTF
 ============================
 
 .. todo:: Add author/responsible
-.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/manual/transfer_functions`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
 
 
 Abstraction is about concentrating on the essential parts of a system. To explain what we
@@ -11,7 +10,7 @@ neuronal network, we begin with the explanation of the domain-specific language 
 these essential parts.
 
 .. _closed-loop:
-.. figure:: img/closedLoop.png
+.. image:: img/closedLoop.png
 
    A Closed Loop between Neuronal Networks and Robots
 
@@ -40,7 +39,7 @@ neuronal network or a robot simulation and manage the execution of this
 function.
 
 .. _transfer-functions:
-.. figure:: img/transferFunctions.png
+.. image:: img/transferFunctions.png
 
    The abstract syntax of PyTF
 

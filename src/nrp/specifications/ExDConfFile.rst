@@ -196,7 +196,7 @@ Attribute type
 :Type: ConfType
 :Multiplicity: [1]
 :Documentation: 
-  The type of the configuration entry describes what this entry is used for. The NRP allows both predefined and custom entries.
+  The type of the configuration entry describes what this entry is used for. The :abbr:`NRP (Neurorobotics Platform)` allows both predefined and custom entries.
 
   
 XML Instance Representation
