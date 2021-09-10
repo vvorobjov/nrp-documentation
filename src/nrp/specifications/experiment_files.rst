@@ -95,7 +95,9 @@ Only the tags that are user definable are described here. The rest of the file s
     
     <rosLaunch> : set the path to a launch file for additional ROS nodes for this experiment in the src field
     
-    <rngSeed> : set an RNG seed to use every experiment launch, if not specified a random RNG seed is used instead 
+    <rngSeed> : set an RNG seed to use every experiment launch, if not specified a random RNG seed is used instead
+    
+    <gazeboLockstep> : boolean, if specified, denotes the activation status of gazebo's "Lockstep of physics and sensors" feature, see https://gazebosim.org/tutorials?tut=lockstep_physics_sensors
 
 |
 
