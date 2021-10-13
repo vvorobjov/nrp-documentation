@@ -5,16 +5,18 @@ def cloneRepoTopic(folder, repoUrl, topicBranch, defaultBranch, user) {
 //      3 - name of topic branch
 //      4 - default branch if topic unavailable
 //      5 - username for chown
-    dir(folder) {
-        try {
-            echo "${folder}: Trying to checkout branch ${topicBranch}."
-            git branch: topicBranch, url: repoUrl
+    else {
+        dir(folder) {
+            try {
+                echo "${folder}: Trying to checkout branch ${topicBranch}."
+                git branch: topicBranch, url: repoUrl
+            }
+            catch (e) {
+                echo "${folder}: Branch ${topicBranch} is not available, getting ${defaultBranch} instead."
+                git branch: defaultBranch, url: repoUrl
+            }
+            sh "chown -R ${user} ./"
         }
-        catch (e) {
-            echo "${folder}: Branch ${topicBranch} is not available, getting ${defaultBranch} instead."
-            git branch: defaultBranch, url: repoUrl
-        }
-        sh "chown -R ${user} ./"
     }
 }
 def selectTopicBranch(branch_name, change_branch){
@@ -63,6 +65,7 @@ pipeline
             registryUrl "http://${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}"
             registryCredentialsId 'nexusadmin'
             args '--entrypoint="" -u root --privileged'
+            alwaysPull true
         }
     }
     options { 
@@ -139,6 +142,7 @@ pipeline
                         docs_version = docs_version.trim()
                         
                         sh '''
+                        sudo apt install ca-certificates
                         sudo apt-add-repository --yes --update ppa:ansible/ansible
                         sudo apt update 
                         sudo apt install -y software-properties-common ansible-base
