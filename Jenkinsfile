@@ -143,7 +143,7 @@ pipeline
                         sudo apt install ca-certificates
                         sudo apt-add-repository --yes --update ppa:ansible/ansible
                         sudo apt update 
-                        sudo apt install -y software-properties-common ansible-base
+                        sudo apt install -y software-properties-common ansible-core
                         ansible-galaxy collection install community.general
                         ansible-galaxy collection install ansible.posix
                         '''
