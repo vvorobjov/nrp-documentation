@@ -63,6 +63,7 @@ pipeline
             registryUrl "http://${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}"
             registryCredentialsId 'nexusadmin'
             args '--entrypoint="" -u root --privileged'
+            alwaysPull true
         }
     }
     options { 
@@ -139,9 +140,10 @@ pipeline
                         docs_version = docs_version.trim()
                         
                         sh '''
+                        sudo apt install ca-certificates
                         sudo apt-add-repository --yes --update ppa:ansible/ansible
                         sudo apt update 
-                        sudo apt install -y software-properties-common ansible-base
+                        sudo apt install -y software-properties-common ansible-core
                         ansible-galaxy collection install community.general
                         ansible-galaxy collection install ansible.posix
                         '''
