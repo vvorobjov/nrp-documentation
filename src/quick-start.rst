@@ -1,18 +1,25 @@
-.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
-  
-.. _quick-start:
+.. NRP Quick Start Guide 3.2 documentation master file, created by
+   sphinx-quickstart on Wed Dec  1 20:08:39 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-================================================
-Quick start guide
-================================================
-
-Workflow
-+++++++++++++++++
+A quick Introduction to NRP 3.2
+=====================================================
 
 
-Software architecture
-+++++++++++++++++++++++
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   
+   nrp/quickStartGuide
+   nrp/basicsArchitecture
+   nrp/typicalWorkflow
 
 
-Published experiments
-+++++++++++++++++++++++++
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
