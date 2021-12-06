@@ -41,13 +41,9 @@ control the simulations and display experiment-related data to the users
 through the GUI.
 
 .. image:: images/qsg_14.png
-   :width: 6.47083in
-   :height: 3.29167in
    
    Figure 13: Schematic representation of the various architectural components of the NRP
 
 
 .. |image13| image:: images/qsg_14.png
-   :width: 6.47083in
-   :height: 3.29167in
 

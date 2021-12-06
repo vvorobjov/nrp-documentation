@@ -44,8 +44,7 @@ e. Follow the link and login with your username and password.
 
 
 .. image:: images/qsg_00_login.jpg
-   :width: 2.08611in
-   :height: 2.04653in
+   :width: 200
 
 
 
@@ -54,8 +53,6 @@ overview**\ ” interface.
 
 
 .. image:: images/qsg_01.png
-   :width: 6.49514in
-   :height: 3.28125in
    
    Figure 1: The experiment overview page is the landing page of the NRP. 
    Pop-up tips, like the one shown here, provide users with suggestions and
@@ -109,8 +106,6 @@ d. Click the “Experiment Title” field and enter any name for your
 e. Finally, click the “Launch” button to launch the simulation.
 
 .. image:: images/qsg_02_create_experiment.png
-   :width: 6.50000in
-   :height: 3.44236in
    
    Figure 2: Illustration of the steps to create a new experiment from a given environment.
 
@@ -140,8 +135,6 @@ consoles, etc. can be opened (through the toolbar) and arranged as per
 the user’s wishes and needs.
 
 .. image:: images/qsg_03_empty_world.png
-   :width: 6.50000in
-   :height: 3.27202in
    
    Figure 3: Simulation view, as seen when creating a new experiment from the Empty World Environment. 
    The two areas highlighted in red are: top, (a) - Simulation controls; left, (b) - Toolbar. The yellow window opens up at startup and shows tips.
@@ -168,8 +161,6 @@ d. Hover your mouse on the environment rendering to see the robot. Click
    to place it at any location.
 
 .. image:: images/qsg_04_place_robot_colored_box.png
-   :width: 6.36851in
-   :height: 3.37083in
    
    Figure 4: Placing a robot into the environment.
 
@@ -230,8 +221,6 @@ b. Use the brain editor to implement your NEST network. You can either:
 c. Apply your changes and save them by clicking the “Apply” button.
 
 .. image:: images/qsg_05_create_brain_colored_box.png
-   :width: 6.49930in
-   :height: 3.44514in
    
    Figure 5: Generating a brain for your robot using the brain editor.
 
@@ -413,8 +402,6 @@ a. Give it a meaningful name: for instance, here, we will call it
    list, type in the new name, and click on the green checkmark on the same line.
 
 .. image:: images/qsg_06_create_transfer_function_colored_box.png
-   :width: 6.49861in
-   :height: 3.44236in
    
    Figure 6: Creating a new transfer function using the Transfer Function Editor
 
@@ -467,8 +454,6 @@ d. Give the topic a meaningful name – here we call it “joints” - by
 
 
 .. image:: images/qsg_07_add_subscriber.png
-   :width: 6.50000in
-   :height: 3.50486in
    
    Figure 7: Adding a robot subscriber to the transfer function.
 
@@ -545,8 +530,6 @@ console, as expected. You are all set to go to the next step!
     The names of topics, and the message types and structures are specific to the robot model. They will be different for other robot models.
 
 .. image:: images/qsg_08_log_console_colored_box.png
-   :width: 6.50000in
-   :height: 3.45000in
    
    Figure 8: Opening the "Log Console".
 
@@ -590,8 +573,6 @@ We have now created two *Poisson* *generators*, that are connected to
 our brain circuit.
 
 .. image:: images/qsg_09_create_spike_source.png
-   :width: 6.13279in
-   :height: 4.50000in
    
    Figure 9: Adding a device to feed sensor data into a neuron in NEST.
 
@@ -676,8 +657,6 @@ The robot should now start waving its left arm!
     stop and leave the simulation, and then relaunch it.
 
 .. image:: images/qsg_10_add_act.png
-   :width: 6.50000in
-   :height: 3.47153in
    
    Figure 10: Adding a transfer function connecting the brain activity to the robot’s actuator.
 
@@ -715,8 +694,6 @@ g. Start the simulation ("play" button on the Simulation Controls).
    “Spike Train” tab.
 
 .. image:: images/qsg_11_add_neuron_monitor_colored_box.png
-   :width: 6.49898in
-   :height: 3.47292in
    
    Figure 11: Adding a Spike Train Monitor.
 
@@ -776,8 +753,6 @@ e. Insert this piece of code into the function body:
  headers were defined during step d.iii.
 
 .. image:: images/qsg_12_create_csv_recorder.png
-   :width: 6.50000in
-   :height: 3.07292in
    
    Figure 12 Create a Transfer Function to record experiment data into a CSV file.
 
@@ -817,41 +792,15 @@ f. Apply all changes (green tick mark to the right of the TF name) and run the s
 
 
 .. |image0| image:: images/qsg_00_login.jpg
-   :width: 2.08611in
-   :height: 2.04653in
 .. |image1| image:: images/qsg_01.png
-   :width: 6.49514in
-   :height: 3.28125in
 .. |image2| image:: images/qsg_02_create_experiment.png
-   :width: 6.50000in
-   :height: 3.44236in
 .. |image3| image:: images/qsg_03_empty_world.png
-   :width: 6.50000in
-   :height: 3.27202in
 .. |image4| image:: images/qsg_04_place_robot_colored_box.png
-   :width: 6.36851in
-   :height: 3.37083in
 .. |image5| image:: images/qsg_05_create_brain_colored_box.png
-   :width: 6.49930in
-   :height: 3.44514in
 .. |image6| image:: images/qsg_06_create_transfer_function_colored_box.png
-   :width: 6.49861in
-   :height: 3.44236in
 .. |image7| image:: images/qsg_07_add_subscriber.png
-   :width: 6.50000in
-   :height: 3.50486in
 .. |image8| image:: images/qsg_08_log_console_colored_box.png
-   :width: 6.50000in
-   :height: 3.45000in
 .. |image9| image:: images/qsg_09_create_spike_source.png
-   :width: 6.13279in
-   :height: 4.50000in
 .. |image10| image:: images/qsg_10_add_act.png
-   :width: 6.50000in
-   :height: 3.47153in
 .. |image11| image:: images/qsg_11_add_neuron_monitor_colored_box.png
-   :width: 6.49898in
-   :height: 3.47292in
 .. |image12| image:: images/qsg_12_create_csv_recorder.png
-   :width: 6.50000in
-   :height: 3.07292in

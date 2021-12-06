@@ -16,11 +16,7 @@ Figure 14. It consists in four main steps:
 4) Running the experiment and collecting the data.
 
 .. image:: images/qsg_15.png
-   :width: 6.50000in
-   :height: 3.02500in
    
    Figure 14: Typical workflow on the NRP for a neuroscience experiment.
  
 .. |image14| image:: images/qsg_15.png
-   :width: 6.50000in
-   :height: 3.02500in
