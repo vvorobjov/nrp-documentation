@@ -15,11 +15,3 @@ A quick Introduction to NRP 3.2
    nrp/basicsArchitecture
    nrp/typicalWorkflow
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

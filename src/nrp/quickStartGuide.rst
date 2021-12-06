@@ -43,7 +43,7 @@ d. Choose between versions 3.05 and 3.2.
 e. Follow the link and login with your username and password.
 
 
-.. image:: images/qsg_00_login.jpg
+.. image:: images/qsg_00_login.png
    :width: 200
 
 
@@ -51,14 +51,19 @@ e. Follow the link and login with your username and password.
 Congratulations! You can now start using the NRP via its “\ **Experiment 
 overview**\ ” interface.
 
+.. _qsg-fig1:
 
-.. image:: images/qsg_01.png
+   .. image:: images/qsg_01.png
+      :title:
+      :show_caption: True
    
-   Figure 1: The experiment overview page is the landing page of the NRP. 
-   Pop-up tips, like the one shown here, provide users with suggestions and
-   highlight functions. You can turn these tips on and off.
+      Figure 1: The experiment overview page is the landing page of the NRP. 
+      Pop-up tips, like the one shown here, provide users with suggestions and
+      highlight functions. You can turn these tips on and off.
 
-In the **EXPERIMENT OVERVIEW** (see Figure 1), the following multiple
+
+
+In the **EXPERIMENT OVERVIEW** (see :numref:`Figure 1<qsg-fig1>`), the following multiple
 tabs offer different functionalities to control your simulation
 experience:
 
@@ -791,7 +796,7 @@ f. Apply all changes (green tick mark to the right of the TF name) and run the s
    processing.
 
 
-.. |image0| image:: images/qsg_00_login.jpg
+.. |image0| image:: images/qsg_00_login.png
 .. |image1| image:: images/qsg_01.png
 .. |image2| image:: images/qsg_02_create_experiment.png
 .. |image3| image:: images/qsg_03_empty_world.png
