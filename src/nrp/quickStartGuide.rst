@@ -9,8 +9,7 @@ silico* brain simulation experiments. An experiment typically includes a
 virtual agent or “body” performing a specific task using a dedicated
 brain model in a simulated environment. While brain models can be
 implemented through a variety of simulators, the simulated environment
-is always provided by the simulator called Gazebo
-(http://gazebosim.org/)
+is always provided by the simulator called :term:`Gazebo`.
 
 Our community of users mostly includes roboticists, computational
 neuroscientists and engineers working on applications of neuromorphic
@@ -20,8 +19,7 @@ learn how to use our platform.
 This quick start guide shows you how to set up and run a simple
 experiment - connecting a robot’s control command to two oscillating
 neurons so that the robot will start waving its arm – by using a network
-of spiking neurons created with the simulator called NEST
-(https://www.nest-simulator.org/)
+of spiking neurons created with the simulator called :term:`NEST`.
 
 Step 1. Access the NRP
 ------------------------------------
@@ -30,7 +28,7 @@ You can access the NRP either online with your EBRAINS account or
 locally, after installation on your machine (see:
 https://neurorobotics.net/access-the-nrp.html). Regardless of how you
 log in to the NRP, you will have access to the same GUI (displayed below
-in fig.1, the “Experiment overview”).
+in :ref:`Figure 1<qsg-fig1>`, the “Experiment overview”).
 
 First-time users must accept EBRAINS Terms and Conditions before
 accessing our software.
@@ -46,6 +44,8 @@ e. Follow the link and login with your username and password.
 .. image:: images/qsg_00_login.png
    :width: 200
 
+   EBRAINS Login page.
+
 
 
 Congratulations! You can now start using the NRP via its “\ **Experiment 
@@ -54,8 +54,6 @@ overview**\ ” interface.
 .. _qsg-fig1:
 
    .. image:: images/qsg_01.png
-      :title:
-      :show_caption: True
    
       Figure 1: The experiment overview page is the landing page of the NRP. 
       Pop-up tips, like the one shown here, provide users with suggestions and
@@ -63,7 +61,7 @@ overview**\ ” interface.
 
 
 
-In the **EXPERIMENT OVERVIEW** (see :numref:`Figure 1<qsg-fig1>`), the following multiple
+In the **EXPERIMENT OVERVIEW** (see :ref:`Figure 1<qsg-fig1>`), the following multiple
 tabs offer different functionalities to control your simulation
 experience:
 
@@ -85,8 +83,7 @@ experience:
 -  **Running simulations:** An overview of all simulations that are
    currently running.
 
-Detailed information on each of these tabs can be found at:
-https://neurorobotics.net/Documentation/nrp/user_manual/index.html.
+Detailed information on each of these tabs can be found at :ref:`UI manual<web-cockpit-manual>`.
 
 Step 2. Set up a new experiment with tab “New experiment”
 -----------------------------------------------------------------------------------
@@ -110,12 +107,15 @@ d. Click the “Experiment Title” field and enter any name for your
 
 e. Finally, click the “Launch” button to launch the simulation.
 
-.. image:: images/qsg_02_create_experiment.png
-   
-   Figure 2: Illustration of the steps to create a new experiment from a given environment.
+
+.. _qsg-fig2:
+
+   .. image:: images/qsg_02_create_experiment.png
+      
+      Figure 2: Illustration of the steps to create a new experiment from a given environment.
 
 Once the simulation is launched, a new view, referred to as the
-**SIMULATION VIEW**, is displayed (see Figure 3). It comprises several
+**SIMULATION VIEW**, is displayed (see :ref:`Figure 3<qsg-fig3>`). It comprises several
 features and functionally relevant areas. These are:
 
 -  the toolbar,
@@ -139,10 +139,15 @@ recording, and access additional settings of the environment rendering.
 consoles, etc. can be opened (through the toolbar) and arranged as per
 the user’s wishes and needs.
 
-.. image:: images/qsg_03_empty_world.png
-   
-   Figure 3: Simulation view, as seen when creating a new experiment from the Empty World Environment. 
-   The two areas highlighted in red are: top, (a) - Simulation controls; left, (b) - Toolbar. The yellow window opens up at startup and shows tips.
+
+.. _qsg-fig3:
+
+   .. image:: images/qsg_03_empty_world.png
+      
+      Figure 3: Simulation view, as seen when creating a new experiment from the Empty World Environment. 
+      The two areas highlighted in red are: top, (a) - Simulation controls; left, (b) - Toolbar. The yellow window opens up at startup and shows tips.
+
+
 
 Step 3. Add a robot to your experiment
 --------------------------------------------------------
@@ -152,7 +157,7 @@ latter with an agent. You can choose the body for this agent by
 searching the **object library**, which is located at the top of the
 toolbar in the simulation view and denoted by a green “mountain” icon.
 
-The following steps, illustrated in Figure 4,describe the procedure:
+The following steps, illustrated in :ref:`Figure 4<qsg-fig4>`, describe the procedure:
 
 a. Click on the “Object library” in the menu bar. This will open the
    object library in a new tab next to the environment rendering.
@@ -165,9 +170,11 @@ c. Select any robot you wish to use. In this example we use the “iCub
 d. Hover your mouse on the environment rendering to see the robot. Click
    to place it at any location.
 
-.. image:: images/qsg_04_place_robot_colored_box.png
+.. _qsg-fig4:
+
+   .. image:: images/qsg_04_place_robot_colored_box.png
    
-   Figure 4: Placing a robot into the environment.
+      Figure 4: Placing a robot into the environment.
 
 
 Placing the robot into the environment will automatically open the
@@ -206,10 +213,10 @@ graphically using the convenient “NEST Desktop” application, which is
 accessible through EBRAINS (https://ebrains.eu/service/nest-desktop/).
 The resulting PyNEST code can easily be transferred to the NRP.
 
-To add a brain to the experiment, proceed as follows (illustration in Figure 5):
+To add a brain to the experiment, proceed as follows (illustration in :ref:`Figure 5<qsg-fig5>`):
 
 a. Select the “Brain Editor” from the menu bar. It is denoted by the
-   green icon with the brain symbol in Figure 5).
+   green icon with the brain symbol in :ref:`Figure 5<qsg-fig5>`).
 
 b. Use the brain editor to implement your NEST network. You can either:
 
@@ -225,9 +232,11 @@ b. Use the brain editor to implement your NEST network. You can either:
 
 c. Apply your changes and save them by clicking the “Apply” button.
 
-.. image:: images/qsg_05_create_brain_colored_box.png
+.. _qsg-fig5:
+
+   .. image:: images/qsg_05_create_brain_colored_box.png
    
-   Figure 5: Generating a brain for your robot using the brain editor.
+      Figure 5: Generating a brain for your robot using the brain editor.
 
 All neuron populations that are created in the brain script will be
 displayed in the **transfer function editor** (more on that later).
@@ -372,8 +381,7 @@ After setting up our “brain”, we now want to use it to control our
 robot. Therefore, the sensor outputs of the robot must be made available
 to the brain, and neurons have to be connected to the robot’s actuators.
 This can be achieved using so-called **TRANSFER FUNCTIONS**. For further
-information on Transfer Functions, see:
-https://neurorobotics.net/Documentation/nrp/user_manual/simulation_setup/transfer_functions.html
+information on Transfer Functions, see :ref:`the dedicated manual<transfer-functions-manual>`.
 
 Please note that this step involves many ROS concepts (e.g.
 publish/subscribe semantics, messages, topics, etc.) that it is better
@@ -385,7 +393,7 @@ to be familiar with (see for example: http://wiki.ros.org/ROS/Concepts).
 A transfer function (**TF** for brevity) is, first and foremost, a python
 function. As such, all pythonic concepts and quirks (decorators,
 indentation, etc.) apply to TFs. First, let’s create a transfer function
-that feeds sensor data from the robot into the brain [Figure 6]:
+that feeds sensor data from the robot into the brain [:ref:`Figure 6<qsg-fig6>`]:
 
 a. Open the “Transfer Function Editor” found in the menu bar as the
    green button with the “plugs” icon. In this editor, the populations
@@ -406,9 +414,11 @@ a. Give it a meaningful name: for instance, here, we will call it
    “sense”. To do so, click the default name "transferFunction" in the Transfer Function 
    list, type in the new name, and click on the green checkmark on the same line.
 
-.. image:: images/qsg_06_create_transfer_function_colored_box.png
+.. _qsg-fig6:
+
+   .. image:: images/qsg_06_create_transfer_function_colored_box.png
    
-   Figure 6: Creating a new transfer function using the Transfer Function Editor
+      Figure 6: Creating a new transfer function using the Transfer Function Editor
 
 In this guide, we follow option b.ii. and create a new transfer function
 that we call “sense” using the “Create New FT” button.
@@ -458,9 +468,11 @@ d. Give the topic a meaningful name – here we call it “joints” - by
        the function argument to match the new name of the topic.
 
 
-.. image:: images/qsg_07_add_subscriber.png
+.. _qsg-fig7:
+
+   .. image:: images/qsg_07_add_subscriber.png
    
-   Figure 7: Adding a robot subscriber to the transfer function.
+      Figure 7: Adding a robot subscriber to the transfer function.
 
 5.3 Perform some basic testing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -487,7 +499,7 @@ a. Include the following line in the template function body to log our new messa
    variable “joints”) into the Log Console at every time step. 
    **NB**: Pay attention to pythonic indentation rules! 
 
-b. Press the button designated by the red arrow in Figure 8 to open this 
+b. Press the button designated by the red arrow in :ref:`Figure 8<qsg-fig8>` to open this 
    Log Console – note that, depending on the size of your screen, you may 
    have to expand the blue section of the toolbar to find this button. 
    We can now apply the changes to the transfer function (green 
@@ -509,7 +521,7 @@ joint-names and three arrays containing position, velocity, and effort
 values.
 
 You can pause the simulation to inspect the console outputs by pressing the large "pause" button 
-in the "Simulation controls" (see Figure 3).
+in the "Simulation controls" (see :ref:`Figure 3<qsg-fig3>`).
 
 When testing the experimental setup, it is often useful to check that
 some values correspond to expectations for which we possess a high
@@ -534,9 +546,11 @@ console, as expected. You are all set to go to the next step!
 .. note::
     The names of topics, and the message types and structures are specific to the robot model. They will be different for other robot models.
 
-.. image:: images/qsg_08_log_console_colored_box.png
+.. _qsg-fig8:
+
+   .. image:: images/qsg_08_log_console_colored_box.png
    
-   Figure 8: Opening the "Log Console".
+      Figure 8: Opening the "Log Console".
 
 5.4 Create a device to drive brain activity with sensor output:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -551,7 +565,7 @@ Concretely, in the following we will create such devices and will define thresho
 sensor signals as input that, when crossed, trigger the devices to 
 send spikes to neurons into the NEST “brain”.
 
-To create a device, follow the instructions below and refer to Figure 9:
+To create a device, follow the instructions below and refer to :ref:`Figure 9<qsg-fig9>`:
 
 a. Click the “+” sign next to the “Connect to brain” section in the
    Transfer Function Editor. The available neuron populations are
@@ -577,9 +591,11 @@ g. Click the green tick mark that sits beside the name of the TF
 We have now created two *Poisson* *generators*, that are connected to
 our brain circuit.
 
-.. image:: images/qsg_09_create_spike_source.png
+.. _qsg-fig9:
+
+   .. image:: images/qsg_09_create_spike_source.png
    
-   Figure 9: Adding a device to feed sensor data into a neuron in NEST.
+      Figure 9: Adding a device to feed sensor data into a neuron in NEST.
 
 5.5 Configuring the Poisson generators
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -610,11 +626,11 @@ actuators. This will allow us to control the robot’s movements using the
 brain’s activity.
 
 To do this, we create another transfer function, this time mapping
-neuron activity to the robot. The following steps along with Figure 10
+neuron activity to the robot. The following steps along with :ref:`Figure 10<qsg-fig10>`
 describe how to achieve this.
  
 a. Add a new transfer function in the Transfer Function Editor (use the
-   “Create new TF” button illustrated in Figure 6, as described in section 5.1). 
+   “Create new TF” button illustrated in :ref:`Figure 6<qsg-fig6>`, as described in section 5.1). 
    We will call it “act”.
 
 b. Change the decorator of the template function from
@@ -661,9 +677,11 @@ The robot should now start waving its left arm!
     especially if the scripts are changed on the fly. If that happens, it may help to 
     stop and leave the simulation, and then relaunch it.
 
-.. image:: images/qsg_10_add_act.png
+.. _qsg-fig10:
+
+   .. image:: images/qsg_10_add_act.png
    
-   Figure 10: Adding a transfer function connecting the brain activity to the robot’s actuator.
+      Figure 10: Adding a transfer function connecting the brain activity to the robot’s actuator.
 
 Step 7. Monitor neuronal activity during the simulation with the 'Spiketrain Monitor'
 -----------------------------------------------------------------------------------------------------------------
@@ -672,7 +690,7 @@ After setting up all functional parts of the experiment, we might want
 to observe the underlying neuronal activity, therefore we are going to
 add a so-called **NEURON MONITOR**.
 
-The following steps (illustrated in Figure 11) show how to add a neuron
+The following steps (illustrated in :ref:`Figure 11<qsg-fig11>`) show how to add a neuron
 monitor and observe the activity using the “Spiketrain” monitor tool.
 
 a. Open the Menu Bar, select and launch the 
@@ -698,9 +716,11 @@ g. Start the simulation ("play" button on the Simulation Controls).
    The spike trains should now be displayed in the
    “Spike Train” tab.
 
-.. image:: images/qsg_11_add_neuron_monitor_colored_box.png
+.. _qsg-fig11:
    
-   Figure 11: Adding a Spike Train Monitor.
+   .. image:: images/qsg_11_add_neuron_monitor_colored_box.png
+   
+      Figure 11: Adding a Spike Train Monitor.
 
 
 Step 8. Postprocessing: record data into CSV files. 
@@ -757,9 +777,11 @@ e. Insert this piece of code into the function body:
  to the “record\_entry” method should match the order in which the
  headers were defined during step d.iii.
 
-.. image:: images/qsg_12_create_csv_recorder.png
+.. _qsg-fig12:
+
+   .. image:: images/qsg_12_create_csv_recorder.png
    
-   Figure 12 Create a Transfer Function to record experiment data into a CSV file.
+      Figure 12: Create a Transfer Function to record experiment data into a CSV file.
 
 If you wish to add another recorder for the left shoulder roll position
 of the robot, repeat steps a-d with the following modifications:

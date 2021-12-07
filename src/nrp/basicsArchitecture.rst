@@ -31,7 +31,7 @@ The main use of the NRP 3.2 is to provide simulated brain models with
 embodiment into a simulated, physically realistic world. To this end,
 the backend is comprised of a “brain simulation”, a world simulation and
 an orchestration mechanism that makes sure these two simulations and the
-Transfer Function framework are properly synchronized (see Figure 13).
+Transfer Function framework are properly synchronized (see :ref:`Figure 13<qsg-fig13>`).
 In NRP v3.2, this component is referred to as the Closed-Loop Engine
 (CLE), and runs in the same process as the brain simulator (NEST or
 NENGO). The “world simulation” engine is an integral part of the NRP,
@@ -40,9 +40,11 @@ the CLE through ROS, thus providing a communications mechanism to e.g.,
 control the simulations and display experiment-related data to the users
 through the GUI.
 
-.. image:: images/qsg_14.png
+.. _qsg-fig13:
+
+   .. image:: images/qsg_14.png
    
-   Figure 13: Schematic representation of the various architectural components of the NRP
+      Figure 13: Schematic representation of the various architectural components of the NRP
 
 
 .. |image13| image:: images/qsg_14.png
