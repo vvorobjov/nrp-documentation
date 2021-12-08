@@ -2,7 +2,7 @@ Typical workflow with the NRP
 =============================
 
 The general workflow that one follows with the NRP looks is described in
-:ref:`Figure 14<qsg-fig14>`. It consists in four main steps:
+:numref:`qsg-fig14`. It consists in four main steps:
 
 1) Designing the experimental setup, including the body to be
    controlled.
@@ -16,9 +16,8 @@ The general workflow that one follows with the NRP looks is described in
 4) Running the experiment and collecting the data.
 
 .. _qsg-fig14:
+.. figure:: images/qsg_15.png
 
-   .. image:: images/qsg_15.png
-   
-      Figure 14: Typical workflow on the NRP for a neuroscience experiment.
+   Typical workflow on the NRP for a neuroscience experiment.
  
 .. |image14| image:: images/qsg_15.png
