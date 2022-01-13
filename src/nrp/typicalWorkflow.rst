@@ -17,7 +17,6 @@ The general workflow that one follows with the NRP looks is described in
 
 .. _qsg-fig14:
 .. figure:: images/qsg_15.png
+   :width: 200
 
    Typical workflow on the NRP for a neuroscience experiment.
- 
-.. |image14| image:: images/qsg_15.png
