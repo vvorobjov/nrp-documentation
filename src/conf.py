@@ -28,10 +28,10 @@ images_config = {
     "override_image_directive": True
 }
 
-todo_include_todos = True
+todo_include_todos = False
 todo_emit_warnings = True
 
-show_authors = True
+show_authors = False
 
 #ADDED BY FOM
 html_static_path = ['_static']
