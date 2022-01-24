@@ -1,0 +1,20 @@
+.. include:: page_index.rst
+
+.. toctree::
+	:hidden:
+
+
+.. rubric:: Related Pages:
+
+
+
+.. rubric:: Reference and Index:
+
+.. toctree::
+	:hidden:
+
+	global.rst
+
+|	:doc:`global`
+|	:ref:`genindex`
+

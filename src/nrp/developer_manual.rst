@@ -13,5 +13,6 @@ NRP Developer Manual
     Installation troubleshooting<dev_troubleshooting.md>
     developer_manual/repos
     nrp_modules
+    NRP-core <nrp-core/index>
     code_ref
     specifications/index
