@@ -5,8 +5,8 @@
 
 - name: Archive the files
   archive:
-    path: "{{ sphinx_build_html }}"
-    dest: "{{ sphinx_build_html }}/src.zip"
+    path: "{{ sphinx_build_dir }}/html/"
+    dest: "{{ sphinx_build_dir }}/src.zip"
     format: zip
   delegate_to: localhost
   become: false
@@ -28,7 +28,7 @@
 
 - name: Extract files to host
   ansible.builtin.unarchive:
-    src: "{{ sphinx_build_html }}/src.zip"
+    src: "{{ sphinx_build_dir }}/src.zip"
     dest: "{{ deploy_dir }}/{{ docs_version }}"
     owner: nrp
     group: www-data

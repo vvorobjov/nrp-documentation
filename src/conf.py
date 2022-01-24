@@ -19,6 +19,10 @@ description = u'HBP Neurorobotics Platform user manual'
 
 # -- General configuration ------------------------------------------------
 
+images_config = {
+    "override_image_directive": True
+}
+
 todo_include_todos = True
 todo_emit_warnings = True
 

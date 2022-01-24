@@ -73,3 +73,5 @@ The local installation will require at least 8GB of RAM and a large drive space 
     :ref:`NRP Glossary<nrp-glossary>` 
 
 :ref:`Release Notes<release-notes>`
+
+.. _account page: https://neurorobotics.net/access-the-nrp.html

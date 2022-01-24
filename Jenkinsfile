@@ -8,11 +8,27 @@ def cloneRepoTopic(folder, repoUrl, topicBranch, defaultBranch, user) {
     dir(folder) {
         try {
             echo "${folder}: Trying to checkout branch ${topicBranch}."
-            git branch: topicBranch, url: repoUrl
+            checkout([
+                $class: "GitSCM",
+                branches: [[name: topicBranch]], 
+                extensions: [], 
+                userRemoteConfigs: [[
+                    credentialsId: "${GIT_SSH_KEY}", 
+                    url: repoUrl
+                ]]
+            ])
         }
         catch (e) {
             echo "${folder}: Branch ${topicBranch} is not available, getting ${defaultBranch} instead."
-            git branch: defaultBranch, url: repoUrl
+            checkout([
+                $class: "GitSCM",
+                branches: [[name: defaultBranch]], 
+                extensions: [], 
+                userRemoteConfigs: [[
+                    credentialsId: "${GIT_SSH_KEY}", 
+                    url: repoUrl
+                ]]
+            ])
         }
         sh "chown -R ${user} ./"
     }
@@ -57,7 +73,7 @@ pipeline
     }
     agent {
         docker {
-            label 'master'
+            label 'cd_label'
             // NEXUS_REGISTRY_IP and NEXUS_REGISTRY_PORT are Jenkins global variables
             image "${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}/nrp:development"
             registryUrl "http://${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}"
@@ -154,7 +170,7 @@ pipeline
                                         become : true ,  \
                                         extraVars: [ansible_become_pass :  "${params.DEPLOY_PASS}" , \
                                                     docs_version : "${docs_version}", \
-                                                    sphinx_build_html :  '${WORKSPACE}/${DOCS_DIR}/_build/html/', \
+                                                    sphinx_build_dir :  '${WORKSPACE}/${DOCS_DIR}/_build/', \
                                                     link_latest : "${params.LATEST}", \
                                                     var_release : "${params.RELEASE}" ] )}
                     

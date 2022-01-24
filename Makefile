@@ -52,9 +52,9 @@ doc: $(DOCS) $(COPY_PY_DOCS) copy-frontend doc-fast
 doc-fast: copy-nrp copy-frontend
 	$(info $$VERSION is [${VERSION}])
 	$(file > version,$(VERSION))
-	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -D release=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
+	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -D todo_include_todos=0 -D release=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
 
-doc-release: SPHINXOPTS += -D todo_include_todos=0 -D show_authors=0
+doc-release: SPHINXOPTS += -D show_authors=0
 doc-release: VERSION = $(shell git describe --tags --always --abbrev=0)
 doc-release: doc;
 

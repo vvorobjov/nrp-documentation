@@ -43,7 +43,7 @@ CPack includes into the archive all the files copied by ``install`` target.
 
 The description of the resulting package is defined by corresponding variables inside CMake (see `official documentation <https://cmake.org/cmake/help/latest/module/CPack.html>`__).
 
-.. warn:: the destination of the files inside the DEB package is the same as specified in ``install`` target, i.e. determined by ``CMAKE_INSTALL_PREFIX`` parameter.
+.. warning:: the destination of the files inside the DEB package is the same as specified in ``install`` target, i.e. determined by ``CMAKE_INSTALL_PREFIX`` parameter.
 
 
 

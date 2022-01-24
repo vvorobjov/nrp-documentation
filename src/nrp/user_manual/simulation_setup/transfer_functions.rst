@@ -1,3 +1,5 @@
+.. _transfer-functions-manual:
+
 Transfer Functions with PyTF
 ============================
 
@@ -10,7 +12,7 @@ neuronal network, we begin with the explanation of the domain-specific language 
 these essential parts.
 
 .. _closed-loop:
-.. image:: img/closedLoop.png
+.. figure:: img/closedLoop.png
 
    A Closed Loop between Neuronal Networks and Robots
 
@@ -39,7 +41,7 @@ neuronal network or a robot simulation and manage the execution of this
 function.
 
 .. _transfer-functions:
-.. image:: img/transferFunctions.png
+.. figure:: img/transferFunctions.png
 
    The abstract syntax of PyTF
 

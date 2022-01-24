@@ -8,6 +8,7 @@ HBP Neurorobotics guide book
 
    welcome
    Before you start <before-you-start>
+   quick-start
    nrp/index
    nrp/tutorials
    nrp/developer_manual
