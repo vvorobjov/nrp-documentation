@@ -5,11 +5,16 @@ import os
 sys.path.insert(0, os.environ.get('HBP') + '/admin-scripts/ContinuousIntegration/python/docs')
 from sphinxconf import *
 
+# TODO: install doxyrest properly
+# Needed by Doxygen -> rST generated docs
+# https://github.com/vovkos/doxyrest
+sys.path.insert(1, os.path.abspath('../.ci/doxyrest/sphinx'))
+
 sys.path.append('../../lib')
 
 #from theme.conf import *
 
-extensions += ['recommonmark', 'sphinx_copybutton']
+extensions += ['recommonmark', 'sphinx_copybutton', 'doxyrest', 'cpplexer']
 
 authors = u'TBD'
 latex_authors = authors.replace(',', r'\and')
@@ -59,6 +64,7 @@ exclude_patterns = [
     'nrp/README.md', 
     #'nrp/modules/**/tutorials.rst',
     # 'nrp/modules/*/*/index.rst'    
+    'nrp/nrp-core/page_index.rst'
 ]
 
 # the following modules are part of CLE and should be mocked

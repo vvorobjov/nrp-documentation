@@ -13,7 +13,6 @@ If you launch and press play, you can see that the physics are working but the w
 
 .. image:: img/Start_screen.png
     :align: center
-    :scale: 50%
 
     The Husky Braitenberg experiment
 
@@ -26,7 +25,6 @@ As we don't know what is going wrong, we can use both the joint monitor tool and
 
 .. image:: img/spike_and_joint_monitor.png
     :align: center
-    :scale: 50%
     
     The spike and joint monitor
 
@@ -38,7 +36,6 @@ Using the ROS terminal tool, we can see if and what communication is taking plac
 
 .. image:: img/ROS_terminal.png
     :align: center
-    :scale: 50%
 
     The ROS terminal
 

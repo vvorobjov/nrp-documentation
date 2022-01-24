@@ -5,3 +5,5 @@ src/nrp/modules/*/**
 sphinx_w.txt
 version
 src/nrp/*.md
+
+.ci/doxyrest/sphinx/__pycache__

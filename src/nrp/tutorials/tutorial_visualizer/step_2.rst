@@ -19,7 +19,6 @@ To change the brain of the robot, open the brain editor by clicking on the green
 
 .. image:: img/visual_hierarchy.png
     :align: center
-    :scale: 50%
 
     Schematic structure of the visual system defined by the new brain file. The first layer (LGN) encodes the light coming to the visual system in terms of spiking rates (1 neuron per pixel). Then, V1 and V2 detect local oriented edges (1 neuron per orientation and pixel). Finally, V4 encodes surface signals that spread from the egdes signals (surface filling-in).
 

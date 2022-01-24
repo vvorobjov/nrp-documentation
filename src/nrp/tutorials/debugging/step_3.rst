@@ -1,8 +1,6 @@
 Step 3: fixing the brain file
 =============================
 
-.. todo:: Add author/responsible
-
 
 Context
 ^^^^^^^
@@ -30,7 +28,6 @@ Press **apply** and open the log console and you see that the network outputs on
 
 .. image:: img/log_console_output.png
     :align: center
-    :scale: 50%
 
     Output is printed in the log console.
 
@@ -49,7 +46,6 @@ Perhaps you noticed a strange value in **SENSORPARAMS**. The spiking threshold (
 
 .. image:: img/brain_editor.png
     :align: center
-    :scale: 50%
 
     The brain editor
 
@@ -57,6 +53,5 @@ Check the spike monitor and the joint monitor again to see the activity!
 
 .. image:: img/spike_joint_monitor_active.png
     :align: center
-    :scale: 50%
 
     The spike and joint monitors

@@ -25,6 +25,5 @@ You can also remove your logging line from **linear_twist**. The experiment shou
 
 .. image:: img/performance_monitor.png
     :align: center
-    :scale: 50%
 
     The performance monitor

@@ -17,7 +17,6 @@ Open the editors tool and go to the **Transfer Functions** tab. On the left, the
 
 .. image:: img/transfer_function_editor.png
     :align: center
-    :scale: 50%
 
     The transfer function editor
 

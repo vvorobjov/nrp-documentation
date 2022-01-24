@@ -37,7 +37,7 @@ NRP-core only supports **NEST 3**.
 
 As part of the installation process NEST 3 is built and installed. If you have an existing installation of NEST we recommend you to uninstall it before installing NRP-core. In case you still want to use your installed version, you can avoid the installation process to build and install NEST by changing the value of *ENABLE_NEST* from *FULL* to *CLIENT* in the root CMakeLists.txt file:
 
-.. ref-code-block:: cpp
+.. ref-code-block:: bash
 
 	set(ENABLE_NEST CLIENT)
 
@@ -54,7 +54,7 @@ In any case, be aware that NEST 2.x is incompatible with NRP-core.
 Dependency Installation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. ref-code-block:: cpp
+.. ref-code-block:: bash
 
 	# Pistache REST Server
 	sudo add-apt-repository ppa:pistache+team/unstable
@@ -92,7 +92,20 @@ Dependency Installation
 Installation
 ~~~~~~~~~~~~
 
-.. ref-code-block:: cpp
+.. ref-code-block:: bash
+
+	git clone https://bitbucket.org/hbpneurorobotics/nrp-core.git
+	cd nrp-core
+	mkdir build
+	cd build
+	export CC=/usr/bin/gcc-10; export CXX=/usr/bin/g++-10
+	cmake .. -DCMAKE_INSTALL_PREFIX=/home/${USER}/.local/nrp
+	mkdir -p /home/${USER}/.local/nrp
+	# the installation process might take some time, as it downloads and compiles Nest as well. Also, Ubuntu has an outdated version of nlohman_json. CMake will download a newer version, which takes time as well
+	make
+	make install
+	# just in case of wanting to build the documentation. Documentation can then be found in a new doxygen folder
+	make nrp_doxygen
 
 
 
@@ -105,7 +118,16 @@ Setting the enviroment
 
 In order to properly set the environment to run experiments with NRP-core, please make sure to add the lines below to your ~/.bashrc file
 
-.. ref-code-block:: cpp
+.. ref-code-block:: bash
+
+	export NRP=/home/${USER}/.local/nrp
+	export PYTHONPATH=${NRP}/lib/python3.8/site-packages:$PYTHONPATH
+	export LD_LIBRARY_PATH=${NRP}/lib:$LD_LIBRARY_PATH
+	export PATH=$PATH:${NRP}/bin
+	export ROS_PACKAGE_PATH=/<prefix-to-nrp-core>/nrp-core:$ROS_PACKAGE_PATH
+	. /usr/share/gazebo-11/setup.sh
+	. /opt/ros/noetic/setup.bash
+	. ${CATKIN_WS}/devel/setup.bash
 
 
 
@@ -118,7 +140,7 @@ Special steps for installing OpenSim
 
 Installation of the OpenSim engine requires some modification over the instructions found at `https://github.com/opensim-org/opensim-core <https://github.com/opensim-org/opensim-core>`__. The procedure below should therefore be followed.
 
-.. ref-code-block:: cpp
+.. ref-code-block:: bash
 
 	sudo apt-get update
 	# For ipopt
