@@ -3,6 +3,6 @@ _build
 
 sphinx_w.txt
 version
-
+src/nrp-core
 
 .ci/doxyrest/sphinx/__pycache__
