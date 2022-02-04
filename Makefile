@@ -29,7 +29,6 @@ doc: nrp-core-unzip doc_dep
 	$(file > version,$(VERSION))
 	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -D release=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
 
-doc-release: SPHINXOPTS += -D
 doc-release: VERSION = $(shell git describe --tags --always --abbrev=0)
 doc-release: doc;
 
