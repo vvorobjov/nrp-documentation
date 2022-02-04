@@ -120,7 +120,7 @@ pipeline
                         usernamePassword(credentialsId: 'nexusadmin', usernameVariable: 'USER', passwordVariable: 'PASSWORD')
                     ])
                     {
-                        sh 'python3 ./.ci/get-nrp-core-docs.py ${env.TOPIC_BRANCH} ${env.DEFAULT_BRANCH} $USER $PASSWORD'
+                        sh 'python3 ./.ci/get-nrp-core-docs.py $TOPIC_BRANCH $DEFAULT_BRANCH $USER $PASSWORD'
                     }
                     
                     sh "bash ./.ci/build.bash ${params.RELEASE}"
