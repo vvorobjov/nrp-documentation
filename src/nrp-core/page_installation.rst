@@ -1,0 +1,231 @@
+.. index:: pair: page; Installation Instructions
+.. _doxid-installation:
+
+Installation Instructions
+=========================
+
+The instructions required to install NRP-core from the source (the only option currently available) are listed below.
+
+
+
+.. _doxid-installation_1installation_requirements:
+
+Requirements
+~~~~~~~~~~~~
+
+**WARNING:** Previous versions of the NRP install forked versions of several libraries, particularly NEST and Gazebo. Installing NRP-core in a system where a previous version of NRP is installed is known to cause conflicts. We strongly recommend not to do it.
+
+
+
+.. _doxid-installation_1os:
+
+Operative System
+----------------
+
+NRP-core has only been tested on **Ubuntu 20.04** at the moment, and therefore this OS and version are recommended. Installation in other environments might be possible but has not been tested yet.
+
+
+
+
+
+.. _doxid-installation_1nest_version:
+
+NEST
+----
+
+NRP-core only supports **NEST 3**.
+
+As part of the installation process NEST 3 is built and installed. If you have an existing installation of NEST we recommend you to uninstall it before installing NRP-core. In case you still want to use your installed version, you can avoid the installation process to build and install NEST by changing the value of *ENABLE_NEST* from *FULL* to *CLIENT* in the root CMakeLists.txt file:
+
+.. ref-code-block:: bash
+
+	set(ENABLE_NEST CLIENT)
+
+In any case, be aware that NEST 2.x is incompatible with NRP-core.
+
+
+
+
+
+
+
+.. _doxid-installation_1installation_dependencies:
+
+Dependency Installation
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. ref-code-block:: bash
+
+	# Start of dependencies installation
+	# Pistache REST Server
+	sudo add-apt-repository ppa:pistache+team/unstable
+	    
+	# Gazebo
+	sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+	wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+	    
+	sudo apt update
+	sudo apt install git cmake libpistache-dev g++-10 libboost-python-dev libboost-filesystem-dev libboost-numpy-dev libcurl4-openssl-dev nlohmann-json3-dev libzip-dev cython3 python3-numpy libgrpc++-dev protobuf-compiler-grpc libprotobuf-dev doxygen libgsl-dev libopencv-dev python3-opencv python3-pil python3-pip
+	
+	# required by gazebo engine
+	sudo apt install libgazebo11-dev gazebo11 gazebo11-plugin-base
+	
+	# required by nest-server (which is built and installed along with nrp-core)
+	sudo apt install python3-flask python3-flask-cors python3-restrictedpython uwsgi-core uwsgi-plugin-python3 
+	
+	# required by nrp-server, which uses gRPC python bindings and mpi
+	pip install grpcio-tools pytest docopt mpi4py
+	   
+	# ROS
+	Install ROS: follow the installation instructions: http://wiki.ros.org/noetic/Installation/Ubuntu. To enable ros support in nrp on `ros-noetic-ros-base` is required.
+	
+	Tell nrp-core where your catkin workspace is located: export a variable CATKIN_WS pointing to an existing catkin workspace root folder. If the variable does not exist, a new catkin workspace will be created at `${HOME}/catkin_ws`.
+	    
+	# Fix deprecated type in OGRE (std::allocator<void>::const_pointer has been deprecated with glibc-10). Until the upstream libs are updated, use this workaround. It changes nothing, the types are the same
+	sudo sed -i "s/typename std::allocator<void>::const_pointer/const void*/g" /usr/include/OGRE/OgreMemorySTLAllocator.h
+	
+	# MQTT Paho library, required by datatransfer engine for streaming data over network
+	# More information on the project web site https://github.com/eclipse/paho.mqtt.cpp
+	# If you do not want to add network data streaming feature, you can skip this step.
+	# MQTT Paho C library
+	git clone https://github.com/eclipse/paho.mqtt.c.git \
+	cd paho.mqtt.c \
+	git checkout v1.3.8 \
+	cmake -Bbuild -H. -DPAHO_ENABLE_TESTING=OFF -DPAHO_BUILD_STATIC=OFF -DPAHO_BUILD_SHARED=ON -DPAHO_WITH_SSL=ON -DPAHO_HIGH_PERFORMANCE=ON -DCMAKE_INSTALL_PREFIX="${NRP_INSTALL_DIR}"\
+	cmake --build build/ --target install \
+	sudo ldconfig && cd ..
+	
+	# MQTT Paho CPP
+	git clone https://github.com/eclipse/paho.mqtt.cpp \
+	cd paho.mqtt.cpp \
+	git checkout v1.2.0 \
+	cmake -Bbuild -H. -DPAHO_BUILD_STATIC=OFF -DPAHO_BUILD_SHARED=ON -DCMAKE_INSTALL_PREFIX="${NRP_INSTALL_DIR}" -DCMAKE_PREFIX_PATH="${NRP_INSTALL_DIR}"\
+	cmake --build build/ --target install \
+	sudo ldconfig && cd ..
+	
+	# End of dependencies installation
+
+
+
+
+
+.. _doxid-installation_1installation_procedure:
+
+Installation
+~~~~~~~~~~~~
+
+.. ref-code-block:: bash
+
+	# Start of installation
+	git clone https://bitbucket.org/hbpneurorobotics/nrp-core.git
+	cd nrp-core
+	mkdir build
+	cd build
+	export CC=/usr/bin/gcc-10; export CXX=/usr/bin/g++-10
+	cmake .. -DCMAKE_INSTALL_PREFIX="${NRP_INSTALL_DIR}"
+	mkdir -p "${NRP_INSTALL_DIR}"
+	# the installation process might take some time, as it downloads and compiles Nest as well. Also, Ubuntu has an outdated version of nlohman_json. CMake will download a newer version, which takes time as well
+	# If you haven't installed MQTT libraries, add ENABLE_MQTT=OFF definition to cmake (-DENABLE_MQTT=OFF).
+	make
+	make install
+	# just in case of wanting to build the documentation. Documentation can then be found in a new doxygen folder
+	make nrp_doxygen
+	
+	# End of installation
+
+
+
+
+
+.. _doxid-installation_1installation_environment:
+
+Setting the environment
+~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to properly set the environment to run experiments with NRP-core, please make sure to add the lines below to your ~/.bashrc file
+
+.. ref-code-block:: bash
+
+	# Start of setting environment
+	export NRP_INSTALL_DIR="/home/${USER}/.local/nrp" # The installation directory, which was given before
+	export PYTHONPATH="${NRP_INSTALL_DIR}"/lib/python3.8/site-packages:$PYTHONPATH
+	export LD_LIBRARY_PATH="${NRP_INSTALL_DIR}"/lib:$LD_LIBRARY_PATH
+	export PATH=$PATH:"${NRP_INSTALL_DIR}"/bin
+	export ROS_PACKAGE_PATH=/<prefix-to-nrp-core>/nrp-core:$ROS_PACKAGE_PATH
+	. /usr/share/gazebo-11/setup.sh
+	. /opt/ros/noetic/setup.bash
+	. ${CATKIN_WS}/devel/setup.bash
+
+	# End of setting environment
+
+
+
+
+
+.. _doxid-installation_1installation_opensim:
+
+Special steps for installing OpenSim
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Installation of the OpenSim engine requires some modification over the instructions found at `https://github.com/opensim-org/opensim-core <https://github.com/opensim-org/opensim-core>`__. The procedure below should therefore be followed.
+
+.. ref-code-block:: bash
+
+	sudo apt-get update
+	# For ipopt
+	sudo apt-get install -y libblas-dev libatlas-base-dev
+	sudo apt-get install -y gcc g++ gfortran patch libmetis-dev
+	sudo apt-get install -y coinor-libipopt-dev
+	# For adolc
+	sudo apt-get install -y libtool libtool-bin
+	sudo apt-get install -y autoconf
+	sudo apt-get install -y libadolc-dev
+	
+	sudo apt-get --yes install  cmake cmake-curses-gui \
+	                           freeglut3-dev libxi-dev libxmu-dev \
+	                           liblapack-dev swig python-dev \
+	                           openjdk-8-jdk
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+	
+	# Install PATH
+	OPENSIM_PATH=$HOME/Documents/OpenSim
+	mkdir -p $OPENSIM_PATH
+	cd $OPENSIM_PATH
+	
+	# Build Opensim dependencies
+	git clone https://github.com/opensim-org/opensim-core.git
+	mkdir opensim_dependencies_build
+	cd opensim_dependencies_build
+	cmake ../opensim-core/dependencies/ \
+	      -DCMAKE_INSTALL_PREFIX='../opensim_dependencies_install' \
+	      -DCMAKE_BUILD_TYPE=RelWithDebInfo
+	make -j4
+	
+	# Environments for opensim
+	sudo alias python=python3
+	sudo apt-get install -y python3-pip
+	sudo pip3 install numpy    
+	
+	cd $OPENSIM_PATH
+	mkdir opensim_build
+	cd opensim_build
+	JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
+	cmake ../opensim-core \
+	      -DCMAKE_INSTALL_PREFIX="../opensim_install" \
+	      -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	      -DOPENSIM_DEPENDENCIES_DIR="../opensim_dependencies_install" \
+	      -DBUILD_PYTHON_WRAPPING=ON \
+	      -DBUILD_JAVA_WRAPPING=ON \
+	      -DWITH_BTK=ON
+	make -j4
+	make -j4 install
+	
+	cd $OPENSIM_PATH
+	cd opensim_install/lib/python3.8/site-packages
+	python3 setup.py install
+	
+	cd $HOME
+	echo 'export LD_LIBRARY_PATH='$OPENSIM_PATH'/opensim_install/lib:$LD_LIBRARY_PATH' >> $HOME/.bashrc
+	echo 'export PYTHONPATH='$OPENSIM_PATH'/opensim_install/lib/python3.8/site-packages:$PYTHONPATH' >> $HOME/.bashrc
+	source $HOME/.bashrc
+

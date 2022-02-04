@@ -47,16 +47,8 @@ pipeline
 {
     environment
     {
-        GAZEBO_ROS_DIR = "GazeboRosPackages"
-        EXP_CONTROL_DIR = "ExperimentControl"
-        BRAIN_SIMULATION_DIR = "BrainSimulation"
-        CLE_DIR = "CLE"
-        EXDBACKEND_DIR = "ExDBackend"
-        VC_DIR = "VirtualCoach"
         ADMIN_SCRIPTS_DIR = "admin-scripts"
-        USER_SCRIPTS_DIR = "user-scripts"
         DOCS_DIR = "nrp-documentation"
-        NRP_DIR = "neurorobotics-platform"
         GIT_CHECKOUT_DIR = "${env.DOCS_DIR}"
 
         // If parameter BRANCH_NAME is set, use it as topic,
@@ -108,35 +100,31 @@ pipeline
                 dir(env.GIT_CHECKOUT_DIR) {
                     checkout scm
                 }
-
-                cloneRepoTopic(env.GAZEBO_ROS_DIR,          'git@bitbucket.org:hbpneurorobotics/gazeborospackages.git',   env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}') 
                 
-                cloneRepoTopic(env.BRAIN_SIMULATION_DIR,    'git@bitbucket.org:hbpneurorobotics/brainsimulation.git',     env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.EXDBACKEND_DIR,          'git@bitbucket.org:hbpneurorobotics/exdbackend.git',          env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.EXP_CONTROL_DIR,         'git@bitbucket.org:hbpneurorobotics/experimentcontrol.git',   env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.CLE_DIR,                 'git@bitbucket.org:hbpneurorobotics/cle.git',                 env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.VC_DIR,                  'git@bitbucket.org:hbpneurorobotics/virtualcoach.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-
-                cloneRepoTopic(env.NRP_DIR,                 'git@bitbucket.org:hbpneurorobotics/neurorobotics-platform.git',env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
-
                 cloneRepoTopic(env.USER_SCRIPTS_DIR,        'git@bitbucket.org:hbpneurorobotics/user-scripts.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
                 cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
-                
             }
         }
         stage('Gathering Docs')
         {
-          when
-          {
+            when
+            {
                 expression {  true }
-          }
+            }
             steps
             {
                 dir(env.DOCS_DIR)
                 {
-                  sh "bash ./.ci/build.bash ${params.RELEASE}"
-                  archiveArtifacts artifacts: "_build/html/**/*"
-                  recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
+                    withCredentials([ \
+                        usernamePassword(credentialsId: 'nexusadmin', usernameVariable: 'USER', passwordVariable: 'PASSWORD')
+                    ])
+                    {
+                        sh 'python3 ./.ci/get-nrp-core-docs.py ${env.TOPIC_BRANCH} ${env.DEFAULT_BRANCH} $USER $PASSWORD'
+                    }
+                    
+                    sh "bash ./.ci/build.bash ${params.RELEASE}"
+                    archiveArtifacts artifacts: "_build/html/**/*"
+                    recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
                 }
             }
         }
@@ -177,6 +165,6 @@ pipeline
                 }
             }
         }
-     }
+    }
 
 }

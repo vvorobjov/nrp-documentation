@@ -54,21 +54,17 @@ source_suffix = {
 }
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'nrp-core/index'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 exclude_patterns = [
     '_build', 
-    'nrp/developer_manual.bk', 
-    'nrp/README.md', 
-    #'nrp/modules/**/tutorials.rst',
-    # 'nrp/modules/*/*/index.rst'    
-    'nrp/nrp-core/page_index.rst'
+    'nrp-core/page_index.rst'
 ]
 
 # the following modules are part of CLE and should be mocked
-autodoc_mock_imports = ['SpiNNaker', 'nest']
+autodoc_mock_imports = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
