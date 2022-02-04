@@ -34,6 +34,7 @@ doc-release: doc;
 
 nrp-core-unzip:
 	unzip -o -q nrp-core-docs.zip -d src/nrp-core/
+	sed -i 's/ref-code-block/code-block/' src/nrp-core/*.rst
 
 	
 doc-clean-full: doc-clean
