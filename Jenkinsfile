@@ -52,6 +52,8 @@ pipeline
         DOCS_DIR = "nrp-documentation"
         GIT_CHECKOUT_DIR = "${env.DOCS_DIR}"
 
+        NexusRegistry = "https://${env.NEXUS_REGISTRY_IP}/"
+
         // If parameter BRANCH_NAME is set, use it as topic,
         // otherwise, use env.BRANCH_NAME or env.CHANGE_BRANCH (if it's PR)
         TOPIC_BRANCH = selectTopicBranch(selectTopicBranch(env.BRANCH_NAME, env.CHANGE_BRANCH), params.BRANCH_NAME)
@@ -120,7 +122,7 @@ pipeline
                         usernamePassword(credentialsId: 'nexusadmin', usernameVariable: 'USER', passwordVariable: 'PASSWORD')
                     ])
                     {
-                        sh 'python3 ./.ci/get-nrp-core-docs.py $TOPIC_BRANCH $DEFAULT_BRANCH $USER $PASSWORD'
+                        sh 'python3 ./.ci/get-nrp-core-docs.py $TOPIC_BRANCH $DEFAULT_BRANCH $NexusRegistry $USER $PASSWORD'
                     }
                     
                     sh "bash ./.ci/build.bash ${params.RELEASE}"

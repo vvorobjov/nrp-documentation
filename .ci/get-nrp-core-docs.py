@@ -4,19 +4,20 @@ import sys
 import json
 import re
 
-RepositoryLocation = "https://nexus.neurorobotics.ebrains.eu/"
-RepositoryAPI = RepositoryLocation + "service/rest/v1/"
-RepositoryName = "nrp-storage"
-
 parser = argparse.ArgumentParser()
 parser.add_argument("topic_branch", help="TOPIC_BRANCH from Jenkinsfile: feature branch name")
 parser.add_argument("default_branch", help="DEFAULT_BRANCH from Jenkinsfile: the name of the branch to use if TOPIC_BRANCH is unavailable")
+parser.add_argument("repo", help="Nexus repository URL (ending with /)")
 parser.add_argument("username", help="Repository username")
 parser.add_argument("password", help="Repository password")
 
 ## Input arguments parser
 
 args = parser.parse_args()
+
+RepositoryLocation = args.repo
+RepositoryAPI = RepositoryLocation + "service/rest/v1/"
+RepositoryName = "nrp-storage"
 
 def download_file(url, local_filename):
     with requests.get(url, stream=True, auth=(args.username, args.password)) as r:
