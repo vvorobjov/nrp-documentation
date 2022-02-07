@@ -161,8 +161,9 @@ pipeline
                                                     docs_version : "${docs_version}", \
                                                     sphinx_build_dir :  '${WORKSPACE}/${DOCS_DIR}/_build/', \
                                                     link_latest : "${params.LATEST}", \
-                                                    var_release : "${params.RELEASE}" ] )}
-                    
+                                                    var_release : "${params.RELEASE}" ] )
+                        currentBuild.description = readFile "ansible/destination.txt"
+                    }
                 }
             }
         }

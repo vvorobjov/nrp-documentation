@@ -34,9 +34,10 @@
     group: www-data
   become: true
 
-- local_action: 
+- name: Give link to the location of the pages
+  local_action: 
     module: copy 
-    content: "{{ docs_url }}/{{ deploy_dir }}/{{ docs_version }}/index.html"
+    content: "{{ docs_url }}/{{ deploy_dir }}/{{ docs_version }}/nrp-core/index.html"
     dest: destination.txt
 
 - name: Clean artifact path
