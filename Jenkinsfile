@@ -127,7 +127,7 @@ pipeline
                     
                     sh "bash ./.ci/build.bash ${params.RELEASE}"
                     archiveArtifacts artifacts: "_build/html/**/*"
-                    recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
+                    recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 8, type: 'TOTAL', unstable: true]]
                 }
             }
         }
