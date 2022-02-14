@@ -79,15 +79,17 @@ You can easily embed the above "Hello, TensorFlow!" example within the :abbr:`NR
 
     .. code-block:: python
 
+        # make TensorFlow available from home directory installation
+        import site, os
+        site.addsitedir(os.path.expanduser('~/.opt/tensorflow_venv/lib/python3.8/site-packages'))
+
+        import tensorflow
+
+        @nrp.MapVariable("tensorflow_var", initial_value=tensorflow)
         @nrp.Robot2Neuron()
-        def hello_tensorflow(t):
-
-            # make TensorFlow available from home directory installation
-            import site, os
-            site.addsitedir(os.path.expanduser('~/.opt/tensorflow_venv/lib/python3.8/site-packages'))
-
-            # output "Hello, TensorFlow!" to the graphical logger
-            import tensorflow as tf
+        def hello_tensorflow(t, tensorflow_var):
+            tf = tensorflow_var.value
+            
             hello = tf.constant('Hello, TensorFlow!')
             clientLogger.info(hello)
 
