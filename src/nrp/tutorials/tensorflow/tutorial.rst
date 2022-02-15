@@ -1,11 +1,11 @@
+.. _latest_tensorflow:
+
 TensorFlow and NRP v3.2
 =======================
 
 =====
 Scope
 =====
-
-.. _latest_tensorflow:
 
 .. todo:: Add author/responsible
 

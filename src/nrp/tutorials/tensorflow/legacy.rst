@@ -1,13 +1,11 @@
+.. _legacy_tensorflow:
+
 TensorFlow and NRP v3.0.5
 =========================
 
 =====
 Scope
 =====
-
-.. _legacy_tensorflow:
-
-.. todo:: Add author/responsible
 
 This tutorial will teach you how to install and use TensorFlow within an experiment in the NRP version 3.0.5. Upon completion you will be able to run a "Hello World" level experiment and be able to explore a more advanced experiment distributed with the NRP.
 
