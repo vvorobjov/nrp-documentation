@@ -18,28 +18,28 @@ This tutorial will teach you how to install and use TensorFlow within an experim
 Installing TensorFlow for Use in the NRP
 ========================================
 
-The :abbr:`NRP (Neurorobotics Platform)` and TensorFlow have slightly different Python dependency versions for core libraries such as Numpy. Unfortunately, this means that TensorFlow cannot be directly installed in the same virtualenv as the NRP, but it can easily be installed separately and used within the platform.
+The :abbr:`NRP (Neurorobotics Platform)` and TensorFlow have slightly different Python dependency versions for core libraries such as Numpy. Unfortunately, this means that TensorFlow cannot be directly installed in the same virtual environment as the NRP, but it can easily be installed separately and used within the platform.
 
-The most convenient way to install TensorFlow is in an isolated virtualenv. Steps are provided below, but for up-to-date instructions refer to: https://www.tensorflow.org/install/pip#2.-create-a-virtual-environment-recommended.
+The most convenient way to install TensorFlow is in an isolated virtual environment. Steps are provided below, but for up-to-date instructions refer to: https://www.tensorflow.org/install/pip#2.-create-a-virtual-environment-recommended.
 
-1. Ensure you have Python 3.8 pip, dev, and virtualenv libraries installed.
-
-.. code-block:: bash
-
-    sudo apt-get install python3-pip python3-dev python3-virtualenv
-
-2. Create and activate a virtualenv for TensorFlow, the steps below will assume installation into your ~/.opt directory used by the NRP. If you change this location, you will need to modify later steps.
+1. Ensure you have Python 3.8 pip and dev libraries installed.
 
 .. code-block:: bash
 
-    virtualenv ~/.opt/tensorflow_venv
+    sudo apt-get install python3-pip python3-dev
+
+2. Create and activate a virtual environment for TensorFlow, the steps below will assume installation into your ~/.opt directory used by the NRP. If you change this location, you will need to modify later steps.
+
+.. code-block:: bash
+
+    python3 -m venv ~/.opt/tensorflow_venv
     source ~/.opt/tensorflow_venv/bin/activate
 
-3. Upgrade pip within your virtualenv, this is required by TensorFlow.
+3. Upgrade pip within your virtual environment, this is required by TensorFlow.
 
 .. code-block:: bash
 
-    easy_install -U pip
+    pip install --upgrade pip
 
 4. Install TensorFlow version 2.3, select one of the options below depending on your GPU configuration.
 
@@ -48,11 +48,10 @@ The most convenient way to install TensorFlow is in an isolated virtualenv. Step
     pip install tensorflow==2.3       # select this option if you have no or a non-Nvidia GPU
     pip install tensorflow-gpu==2.3   # select this option if you have an Nvidia GPU with proper drivers
 
-5. Uninstall protobuf, and reinstall it at version 3.9.2:
+5. Install protobuf version 3.9.2:
 
 .. code-block:: bash
 
-    pip uninstall protobuf
     pip install protobuf==3.9.2
 
 6. Test your TensorFlow installation.
