@@ -18,48 +18,48 @@ Installing TensorFlow for Use in the NRP
 
 The NRP and TensorFlow have slightly different Python dependency versions for core libraries such as Numpy. Unfortunately, this means that TensorFlow cannot be directly installed in the same virtualenv as the NRP, but it can easily be installed separately and used within the platform.
 
-The most convenient way to install TensorFlow is in an isolated virtualenv. Steps are provided below, but for up-to-date instructions refer to: https://www.tensorflow.org/install/install_linux#installing_with_virtualenv.
+The most convenient way to install TensorFlow is in an isolated virtualenv. Steps are provided below, but for up-to-date instructions refer to: https://www.tensorflow.org/install/pip#2.-create-a-virtual-environment-recommended.
 
 1. Ensure you have Python 2.7 pip, dev, and virtualenv libraries installed.
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        sudo apt-get install python-pip python-dev python-virtualenv
+    sudo apt-get install python-pip python-dev python-virtualenv
 
 2. Create and activate a virtualenv for TensorFlow, the steps below will assume installation into your ~/.opt directory used by the NRP. If you change this location, you will need to modify later steps.
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        virtualenv ~/.opt/tensorflow_venv
-        source ~/.opt/tensorflow_venv/bin/activate
+    virtualenv ~/.opt/tensorflow_venv
+    source ~/.opt/tensorflow_venv/bin/activate
 
 3. Upgrade pip within your virtualenv, this is required by TensorFlow.
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        easy_install -U pip
+    easy_install -U pip
 
 4. Install TensorFlow, select one of the options below depending on your GPU configuration.
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        pip install --upgrade tensorflow       # select this option if you have no or a non-Nvidia GPU
-        pip install --upgrade tensorflow-gpu   # select this option if you have an Nvidia GPU with proper drivers
+    pip install --upgrade tensorflow       # select this option if you have no or a non-Nvidia GPU
+    pip install --upgrade tensorflow-gpu   # select this option if you have an Nvidia GPU with proper drivers
 
 5. Test your TensorFlow installation.
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        python - << _EOF
-        import tensorflow as tf
-        hello = tf.constant('Hello, TensorFlow!')
-        sess = tf.Session()
-        print(sess.run(hello))
-        _EOF
+    python - << _EOF
+    import tensorflow as tf
+    hello = tf.constant('Hello, TensorFlow!')
+    sess = tf.Session()
+    print(sess.run(hello))
+    _EOF
 
-    .. note::
+.. note::
 
-        Installing TensorFlow using the pip library will not include all CPU optimizations that may be possible if compiled natively. If performance is an issue, you may want to explore this option separately.
+    Installing TensorFlow using the pip library will not include all CPU optimizations that may be possible if compiled natively. If performance is an issue, you may want to explore this option separately.
 
 ==========================================
 Building a "Hello, TensorFlow!" Experiment
@@ -69,26 +69,26 @@ Using TensorFlow within an experiment is now fairly straightforward. The structu
 
 You can easily embed the above "Hello, TensorFlow!" example within the NRP by adding a new Transfer Function:
 
-    .. code-block:: python
+.. code-block:: python
 
-        @nrp.Robot2Neuron()
-        def hello_tensorflow(t):
+    @nrp.Robot2Neuron()
+    def hello_tensorflow(t):
 
-            # make TensorFlow available from home directory installation
-            import site, os
-            site.addsitedir(os.path.expanduser('~/.opt/tensorflow_venv/lib/python2.7/site-packages'))
+        # make TensorFlow available from home directory installation
+        import site, os
+        site.addsitedir(os.path.expanduser('~/.opt/tensorflow_venv/lib/python2.7/site-packages'))
 
-            # output "Hello, TensorFlow!" to the graphical logger
-            import tensorflow as tf
-            hello = tf.constant('Hello, TensorFlow!')
-            sess = tf.Session()
-            clientLogger.info(sess.run(hello))
+        # output "Hello, TensorFlow!" to the graphical logger
+        import tensorflow as tf
+        hello = tf.constant('Hello, TensorFlow!')
+        sess = tf.Session()
+        clientLogger.info(sess.run(hello))
 
 This can be added to any of the templated experiments and starting the experiment will produce continuous "Hello, TensorFlow!" messages within the graphical client logger.
 
-    .. image:: hello_tensorflow.png
-        :align: center
-        :width: 75%
+.. image:: hello_tensorflow.png
+    :align: center
+    :width: 75%
 
 Now you can easily use TensorFlow to perform any task in the NRP v3.0.5!
 
@@ -103,6 +103,6 @@ This is a development maturity level experiment that requires additional TensorF
 
 Please refer to the README documentation:
 
-    .. code-block:: bash
+.. code-block:: bash
 
-        $HBP/Experiments/tutorial_tensorflow_husky/README.txt
+    $HBP/Experiments/tutorial_tensorflow_husky/README.txt
