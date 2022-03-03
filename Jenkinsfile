@@ -125,7 +125,7 @@ pipeline
                         sh 'python3 ./.ci/get-nrp-core-docs.py $TOPIC_BRANCH $DEFAULT_BRANCH $NexusRegistry $USER $PASSWORD'
                     }
                     
-                    sh "bash ./.ci/build.bash ${params.RELEASE}"
+                    sh "export BUILD_NUMBER; bash ./.ci/build.bash ${params.RELEASE}"
                     archiveArtifacts artifacts: "_build/html/**/*"
                     recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 8, type: 'TOTAL', unstable: true]]
                 }

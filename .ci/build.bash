@@ -14,6 +14,8 @@ export NRP_INSTALL_MODE=dev
 source ${USER_SCRIPTS_DIR}/nrp_variables
 export HBP=${WORKSPACE}
 
+export BUILD_NUMBER
+
 # VIRTUAL_ENV is a variable with path to virtualenv
 export VIRTUAL_ENV_PATH=$VIRTUAL_ENV
 
