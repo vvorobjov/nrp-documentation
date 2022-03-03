@@ -5,7 +5,7 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = src
 BUILDDIR      = _build
 
-VERSION  = $(shell bash -c "git describe --tags --always  --abbrev=0)-$(BUILD_NUMBER)
+VERSION  = $(shell git describe --tags --always --abbrev=0)-$(BUILD_NUMBER)
 
 ## Include common makefile from adminscripts
 CI_REPO?=git@bitbucket.org:hbpneurorobotics/admin-scripts.git
