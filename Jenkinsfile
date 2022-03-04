@@ -165,6 +165,7 @@ pipeline
                                                     link_latest : "${params.LATEST}", \
                                                     var_release : "${params.RELEASE}" ] )
                         currentBuild.description = readFile "ansible/destination.txt"
+                        currentBuild.description = "${env.TOPIC_BRANCH}: " + currentBuild.description
                     }
                 }
             }
