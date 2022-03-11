@@ -74,7 +74,7 @@ In order to install the latest release of the :abbr:`NRP (Neurorobotics Platform
 
 .. note:: In case for security reasons you do not want to grant the Docker privileges to be run as a non-root user, add ``-s`` option for the ``nrp_installer.sh`` after the command, i.e.: ``./nrp_installer.sh install latest -s``. This option runs the installation with required ``sudo`` privileges. 
 
-.. _Download the installation script: https://neurorobotics-files.net/index.php/s/83zqkdp5PXQXMzz/download
+.. _Download the installation script: https://neurorobotics.net/downloads/nrp_installer.sh
 
 Postliminary steps
 +++++++++++++++++++++++
