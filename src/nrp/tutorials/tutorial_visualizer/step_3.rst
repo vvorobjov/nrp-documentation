@@ -16,6 +16,7 @@ Defining new transfer functions to record some spikes
 In the transfer function editor, we already have one transfer functions that you can leave it as is. The first thing we want to do is to upload a transfer function that feeds the network with the image that is recorded by the camera of the robot. Click on the "upload" button and upload the file: 3_grab_image.py. Every time the message appears on the screen, click on "add" and never on "replace".
 
 .. note::
+    
     Be careful to only press the upload button once (if you accidentally press it twice, it's necessary to go into the experiment files and delete the duplicate transfer function, otherwise it won't work).
 
 This transfer function feeds the first layers of the network (LGN layers) with the camera output. Click on apply to take the change into account. Still no spike? That's ok. What we need to do next is to record the spikes of the populations. So click on the "upload" button again to upload the transfer functions numbered from 4a to 4e. Each transfer function records the spikes occurring in a specific layer of the network.

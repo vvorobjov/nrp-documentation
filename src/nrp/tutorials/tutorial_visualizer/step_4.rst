@@ -23,7 +23,7 @@ The second thing we need to do is to make the reference to the custom configurat
 
 .. code-block::html
 
-<configuration type="brainvisualizer" src="5_neuron_positions.json">
+    <configuration type="brainvisualizer" src="5_neuron_positions.json">
 
 Then upload this modified file just as you did for the .json configuration file. When the dialog box appears, choose "yes", as it will update the already existing .exc file. Then, you can go back to the experiment list by clicking on the tab "My experiments" and launch the experiment again. This might take a while this time, because all the neurons and spike recorders have to be created.
 
