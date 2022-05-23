@@ -120,7 +120,7 @@ pipeline
                 cloneRepoTopic(env.NRP_DIR,                 'git@bitbucket.org:hbpneurorobotics/neurorobotics-platform.git',env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
 
                 cloneRepoTopic(env.USER_SCRIPTS_DIR,        'git@bitbucket.org:hbpneurorobotics/user-scripts.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
+                cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'development',       '${USER}')
                 
             }
         }
