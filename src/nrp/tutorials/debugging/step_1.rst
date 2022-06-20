@@ -7,11 +7,11 @@ Step 1: using monitoring tools
 Context
 ^^^^^^^
 
-This is the husky braitenberg experiment, but it has some bugs that we will hunt down with the NRP tools.
+This is the husky braitenberg experiment, but it has some bugs that we will hunt down with the :abbr:`NRP (Neurorobotics Platform)` tools.
 
 If you launch and press play, you can see that the physics are working but the wheels of the robot are not moving, in this tutorial we want to use the monitoring tools to observe the data flows and find possible reasons for this issue.
 
-.. figure:: img/Start_screen.png
+.. image:: img/Start_screen.png
     :align: center
     :scale: 50%
 
@@ -24,7 +24,7 @@ The spike monitor and the joint monitor
 Without bugs, we would expect Husky to drive towards red screens and drive in circles if there is no red screen.
 As we don't know what is going wrong, we can use both the joint monitor tool and the spike monitor tool to screen for activity. We see that indeed the output neurons are not spiking as expected (only one neuron is).
 
-.. figure:: img/spike_and_joint_monitor.png
+.. image:: img/spike_and_joint_monitor.png
     :align: center
     :scale: 50%
     
@@ -36,7 +36,7 @@ The ROS terminal
 
 Using the ROS terminal tool, we can see if and what communication is taking place between the robot and the brain. First run 'rostopic list' to list all available topics. Then run 'rostopic echo topic_name' to monitor what's being published to a topic. We see that nothing is published, there is definitely something wrong here! 
 
-.. figure:: img/ROS_terminal.png
+.. image:: img/ROS_terminal.png
     :align: center
     :scale: 50%
 

@@ -2,4 +2,12 @@ Using Tensorflow in your experiment Tutorial
 ============================================
 
 .. toctree::
-    tutorial
+   :maxdepth: 2
+
+   tutorial
+
+
+.. toctree::
+   :maxdepth: 1
+
+   legacy

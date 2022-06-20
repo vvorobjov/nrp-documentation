@@ -1,3 +1,5 @@
+.. _bibi-specification:
+
 BIBI Model Specification
 ========================
 

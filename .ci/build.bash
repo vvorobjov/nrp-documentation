@@ -16,7 +16,7 @@ if [ -z ${PYTHON_VERSION_MAJOR_MINOR} ]; then
 fi
 
 MAKE_TARGET=doc
-if [ $1 -eq "true" ]; then
+if [ $1 == "true" ]; then
     MAKE_TARGET=doc-release
 fi
 
@@ -47,29 +47,10 @@ cp ${HBP}/${USER_SCRIPTS_DIR}/config_files/CLE/config.ini.sample ${HBP}/${CLE_DI
 cd ${EXDBACKEND_DIR}
 env | sort
 # Obtain schemas
-REPOSITORY=experiments
-[ -z "$(git ls-remote --heads  https://bitbucket.org/hbpneurorobotics/${REPOSITORY}.git ${TOPIC_BRANCH})" ] \
-        && CO_BRANCH="${DEFAULT_BRANCH}" \
-        || CO_BRANCH="${TOPIC_BRANCH}"
-bash ./.ci/bitbucket_api_get.bash "${REPOSITORY}" bibi_configuration.xsd "${CO_BRANCH}" 
-bash ./.ci/bitbucket_api_get.bash "${REPOSITORY}" ExDConfFile.xsd "${CO_BRANCH}"
-
-REPOSITORY=models
-[ -z "$(git ls-remote --heads  https://bitbucket.org/hbpneurorobotics/${REPOSITORY}.git ${TOPIC_BRANCH})" ] \
-        && CO_BRANCH="${DEFAULT_BRANCH}" \
-        || CO_BRANCH="${TOPIC_BRANCH}"
-bash ./.ci/bitbucket_api_get.bash "${REPOSITORY}" robot_model_configuration.xsd "${CO_BRANCH}"
-bash ./.ci/bitbucket_api_get.bash "${REPOSITORY}" environment_model_configuration.xsd "${CO_BRANCH}"
-
-# Generate schemas
-make devinstall # Otherwise it can't find pyxbgen
-. $VIRTUAL_ENV_PATH/bin/activate \
-        && pyxbgen -u bibi_configuration.xsd -m bibi_api_gen \
-        && pyxbgen -u ExDConfFile.xsd -m exp_conf_api_gen \
-        && pyxbgen -u robot_model_configuration.xsd -m robot_conf_api_gen \
-        && pyxbgen -u environment_model_configuration.xsd -m environment_conf_api_gen
-mv bibi_api_gen.py exp_conf_api_gen.py  robot_conf_api_gen.py environment_conf_api_gen.py hbp_nrp_commons/hbp_nrp_commons/generated
-touch hbp_nrp_commons/hbp_nrp_commons/generated/__init__.py
+# This variable is needed for common_makefile during schemas generation
+export DEFAULT_CO_BRANCH=${DEFAULT_BRANCH}
+export TOPIC_BRANCH
+make schemas-install
 
 # return to Jenkins workspace
 cd ${WORKSPACE}
@@ -85,4 +66,4 @@ make devinstall
 . $VIRTUAL_ENV_PATH/bin/activate \
     && source /opt/ros/noetic/setup.bash \
     && source /home/bbpnrsoa/nrp/src/GazeboRosPackages/devel/setup.bash \
-    && make doc
+    && make "${MAKE_TARGET}"

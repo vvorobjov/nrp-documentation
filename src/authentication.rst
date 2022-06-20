@@ -1,16 +1,21 @@
-===============================
+.. _access-nrp:
+
+.. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+
 Accessing the NRP
 ===============================
 
-.. todo:: Add author/responsible
+Online service
+------------------------------------------
 
-To access the online :abbr:`NRP (Neurorobotics Platform)`, you need to have an account. There are two types of accounts to choose from:
+In order to access the online :abbr:`NRP (Neurorobotics Platform)`, you need to have the EBRAINS account.
+
 
 +----------------------+-------------------------------------------------------------------+
 |Account Name          |Account Description                                                |
 +======================+===================================================================+
 |Full Access account   |This grants you full access to the HBP collaboratory as well as    |
-|                      |access to our online platform.                                     |                                                                                                                                          
+|                      |access to our online platform.                                     |
 +----------------------+-------------------------------------------------------------------+
 |Project account       |An account lasting 6 months which grants full access to the        |
 |                      |platform, dedicated resources, a dedicated liaison engineer, and   |
@@ -19,7 +24,11 @@ To access the online :abbr:`NRP (Neurorobotics Platform)`, you need to have an a
 
 These accounts can be requested on the `account page`_ on our website.
 
-If you have installed the NRP **on your computer** using :ref:`Docker containers <docker-installation>` or :ref:`installation from source <source-installation>`, as indicated in our guides, the default credentials to run 
+
+Local usage
+------------------------------------------
+
+If you have installed the :abbr:`NRP (Neurorobotics Platform)` **on your computer** using :ref:`Docker containers <docker-installation>` or :ref:`installation from source <source-installation>`, as indicated in our guides, the default credentials to run 
 simulations and store data locally are:
 
   - **username**: nrpuser

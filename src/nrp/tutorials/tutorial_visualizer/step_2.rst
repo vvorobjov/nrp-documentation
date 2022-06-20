@@ -17,7 +17,7 @@ To see the robot's brain spiking, open the brain visualizer by clicking on the b
 
 To change the brain of the robot, open the brain editor by clicking on the green brain-shaped button. As you can see, the definition of the brain is quite simple. Let us upload a nicer brain, composed of the first steps of the visual system (see figure below).
 
-.. figure:: img/visual_hierarchy.png
+.. image:: img/visual_hierarchy.png
     :align: center
     :scale: 50%
 

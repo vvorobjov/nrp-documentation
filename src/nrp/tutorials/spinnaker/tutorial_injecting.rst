@@ -177,7 +177,7 @@ The following decorator adds 10 spike injectors with the default weight 2.0 and 
 The idea of this very simplistic first tutorial is to perform the data transmission in the Transfer Function and then
 stimulate the *left* and *right* population whose integrated spikes are then transferred back to robot commands.
 
-For that, we use a library function that is integrated in the NRP to analyze an image for its redness. This
+For that, we use a library function that is integrated in the :abbr:`NRP (Neurorobotics Platform)` to analyze an image for its redness. This
 function is available in the *hbp_nrp_cle.tf_framework.tf_lib* module.
 
 Finally, we arrive at the following Transfer Function:
@@ -216,7 +216,7 @@ Monitoring Spikes
 -----------------
 
 Of course, we would like to monitor the spiking activity of the neural network in the running simulation.
-Unfortunately, at the time of writing, the monitoring system of the NRP is still used synchronously. That means,
+Unfortunately, at the time of writing, the monitoring system of the :abbr:`NRP (Neurorobotics Platform)` is still used synchronously. That means,
 monitoring information that is used in the NRP, e.g. through the spike train widget, is only sent out at the
 rate of the CLE timestep. If you set this timestep to minutes or even hours, then monitoring information is only sent
 out at this interval. This is highly problematic as the monitoring tools currently also only use the time resolution of the CLE

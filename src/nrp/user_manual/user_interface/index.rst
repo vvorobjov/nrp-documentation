@@ -1,13 +1,19 @@
-===========
+.. _web-cockpit-manual:
+
 Web Cockpit
 ===========
+
+.. seealso::
+
+    Developers might refer to ``ExDFrontend`` in :ref:`nrp-repos`
 
 .. todo:: Add author/responsible
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    introduction
+   templates-models
    1-esv-main
    12-gz3d-create-experiment
    2-gz3d-help

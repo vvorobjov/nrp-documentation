@@ -39,7 +39,7 @@ syntax and of the brain spike and robot interfaces.
 
   .. warning::
 
-    Currently, the NRP does not perform a *semantic* validation of modified and/or uploaded transfer functions.
+    Currently, the :abbr:`NRP (Neurorobotics Platform)` does not perform a *semantic* validation of modified and/or uploaded transfer functions.
     That means that if the transfer function tries to address neurons that are not present in the currently selected
     brain model, this semantic error cannot be processed and will cause the simulation to stop. Note that the same
     accounts also for modifications to the brain model.
@@ -57,7 +57,7 @@ Overview
 The transfer functions editor splits into three main views. 
 The view on the left allows you to select transfer functions while
 the view in the middle allows you to edit transfer functions body. 
-If the **Script** tab is active, the NRP python decorators are hidden and a third view 
+If the **Script** tab is active, the :abbr:`NRP (Neurorobotics Platform)` python decorators are hidden and a third view 
 is displayed. This third view shows the list of neuron populations and 
 three other widgets that help you create devices, monitors, ROS publishers and subscribers.
 
@@ -71,7 +71,7 @@ three other widgets that help you create devices, monitors, ROS publishers and s
 
 |
 
-  If the **Raw Script** tab is active, the NRP python decorators are displayed and 
+  If the **Raw Script** tab is active, the :abbr:`NRP (Neurorobotics Platform)` python decorators are displayed and 
   you have full control of the python code.
 
 |

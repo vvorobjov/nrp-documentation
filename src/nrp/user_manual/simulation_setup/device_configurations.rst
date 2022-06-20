@@ -2,8 +2,6 @@ Configuration parameters of devices
 ===================================
 
 .. todo:: Add author/responsible
-.. todo:: Consider duplication :doc:`/nrp/modules/CLE/hbp_nrp_cle/manual/device_configurations`, https://hbpneurorobotics.atlassian.net/l/c/iHd8of31
-
 
 
 In this section, we list the parameters of all device types

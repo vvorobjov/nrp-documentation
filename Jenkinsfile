@@ -8,11 +8,27 @@ def cloneRepoTopic(folder, repoUrl, topicBranch, defaultBranch, user) {
     dir(folder) {
         try {
             echo "${folder}: Trying to checkout branch ${topicBranch}."
-            git branch: topicBranch, url: repoUrl
+            checkout([
+                $class: "GitSCM",
+                branches: [[name: topicBranch]], 
+                extensions: [], 
+                userRemoteConfigs: [[
+                    credentialsId: "${GIT_SSH_KEY}", 
+                    url: repoUrl
+                ]]
+            ])
         }
         catch (e) {
             echo "${folder}: Branch ${topicBranch} is not available, getting ${defaultBranch} instead."
-            git branch: defaultBranch, url: repoUrl
+            checkout([
+                $class: "GitSCM",
+                branches: [[name: defaultBranch]], 
+                extensions: [], 
+                userRemoteConfigs: [[
+                    credentialsId: "${GIT_SSH_KEY}", 
+                    url: repoUrl
+                ]]
+            ])
         }
         sh "chown -R ${user} ./"
     }
@@ -57,12 +73,13 @@ pipeline
     }
     agent {
         docker {
-            label 'master'
+            label 'cd_label'
             // NEXUS_REGISTRY_IP and NEXUS_REGISTRY_PORT are Jenkins global variables
-            image "${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}/nrp:master"
+            image "${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}/nrp:development"
             registryUrl "http://${env.NEXUS_REGISTRY_IP}:${env.NEXUS_REGISTRY_PORT}"
             registryCredentialsId 'nexusadmin'
             args '--entrypoint="" -u root --privileged'
+            alwaysPull true
         }
     }
     options { 
@@ -103,7 +120,7 @@ pipeline
                 cloneRepoTopic(env.NRP_DIR,                 'git@bitbucket.org:hbpneurorobotics/neurorobotics-platform.git',env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
 
                 cloneRepoTopic(env.USER_SCRIPTS_DIR,        'git@bitbucket.org:hbpneurorobotics/user-scripts.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
+                cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'development',       '${USER}')
                 
             }
         }
@@ -139,9 +156,10 @@ pipeline
                         docs_version = docs_version.trim()
                         
                         sh '''
+                        sudo apt install ca-certificates
                         sudo apt-add-repository --yes --update ppa:ansible/ansible
                         sudo apt update 
-                        sudo apt install -y software-properties-common ansible-base
+                        sudo apt install -y software-properties-common ansible-core
                         ansible-galaxy collection install community.general
                         ansible-galaxy collection install ansible.posix
                         '''
@@ -152,7 +170,9 @@ pipeline
                                         become : true ,  \
                                         extraVars: [ansible_become_pass :  "${params.DEPLOY_PASS}" , \
                                                     docs_version : "${docs_version}", \
-                                                    sphinx_build_html :  '${WORKSPACE}/${DOCS_DIR}/_build/html/' ] )}
+                                                    sphinx_build_dir :  '${WORKSPACE}/${DOCS_DIR}/_build/', \
+                                                    link_latest : "${params.LATEST}", \
+                                                    var_release : "${params.RELEASE}" ] )}
                     
                 }
             }

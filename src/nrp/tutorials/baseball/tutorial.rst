@@ -2,9 +2,7 @@
 Scope of this tutorial
 ======================
 
-.. todo:: Add author/responsible
-
-This tutorial will teach you how to set an experiment and how to use iPythonNotebook to post-process it with the Virtual Coach.
+This tutorial will teach you how to set up an experiment and how to use iPython (Jupyter) Notebook to post-process it with the :term:`Virtual Coach`.
 
 1. Create the basic setup of the experiment
 2. Launch the Platform, tune rendering quality
@@ -20,18 +18,36 @@ This tutorial will teach you how to set an experiment and how to use iPythonNote
 Get started
 ===========
 
-This tutorial is actually documented in an iPython Notebook script. Let us first get it running.
+This tutorial is actually documented in an iPython (Jupyter) Notebook script. Let us first get it running (for more information about running the experiments in the :term:`Virtual Coach` see the :ref:`corresponding tutorial <virtual-coach-tutorial>`). 
 
-Be sure to have an up-to-date Platform
+Local source installation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Be sure to have an up-to-date :abbr:`NRP` in case you are using :ref:`the source installation <source-installation>`.
 
 .. code-block:: bash
 
     cd $HBP/user-scripts
     ./update_nrp update all
 
-It is assumed that you have a `source installation`_ of the NRP. Unfortunately, this tutorial will not work yet from "local" docker installations since iPythonNotebook would not work.
-All the configuration files and the python scripts specific to an experiment are located in the Experiments folder (except the brain and the robot which are located in Models).
-Let's make a copy of the tutorial:
+    
+Local Docker installation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Make sure you have the latest Docker installation of the NRP and attach the terminal to the backend containers in order to have access to the Virtual Coach and NRP environment (use the script provided in :ref:`the Docker installation instructions <docker-installation>`).
+
+.. code-block:: bash
+
+    ./nrp_installer.sh install latest
+    ./nrp_installer.sh connect_backend
+
+The terminal is attached to the backend container now.
+
+==============================
+Preparation for the experiment
+==============================
+
+All the configuration files and the python scripts specific to an experiment are located in the Experiments folder (except the brain and the robot which are located in Models). Let's make a copy of the tutorial:
 
 .. code-block:: bash
 
@@ -65,18 +81,16 @@ Let's edit the **ExDMyFirstExperiment.exc** to change the name of the experiment
     cd $HBP/Experiments/my_first_experiment
     cle-virtual-coach ipython notebook tutorial_baseball.ipynb
 
-- If you miss ipython notebook, install it
+- If you have not yet installed the iPython notebook, install it now
 
 .. code-block:: bash
 
     sudo apt-get install ipython-notebook
 
-You should have now a new browser window with the following view
+You should now have a new browser window with the following view (in case you are using the Docker installation, by default the page should be available at :code:`http://localhost:8888`, see :ref:`this tutorial <virtual-coach-tutorials-launch>` for details).
 
 .. image:: ipython_screen.png
     :align: center
-    :width: 50%
+    :width: 75%
 
 The tutorial continues in this window. Have fun!
-
-.. _`source installation`: https://bitbucket.org/hbpneurorobotics/neurorobotics-platform
