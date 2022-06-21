@@ -107,6 +107,7 @@ pipeline
                 // Checkout main project to GIT_CHECKOUT_DIR
                 dir(env.GIT_CHECKOUT_DIR) {
                     checkout scm
+                    sh 'git config --global --add safe.directory $PWD'
                 }
 
                 cloneRepoTopic(env.GAZEBO_ROS_DIR,          'git@bitbucket.org:hbpneurorobotics/gazeborospackages.git',   env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}') 
