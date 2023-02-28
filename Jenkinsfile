@@ -48,6 +48,7 @@ pipeline
     environment
     {
         USER_SCRIPTS_DIR = "nrp-user-scripts"
+        NRP_BACKEND_DIR = "nrp-backend"
         DOCS_DIR = "nrp-documentation"
         GIT_CHECKOUT_DIR = "${env.DOCS_DIR}"
 
@@ -100,6 +101,7 @@ pipeline
                 }
 
                 cloneRepoTopic(env.USER_SCRIPTS_DIR, 'git@bitbucket.org:hbpneurorobotics/nrp-user-scripts.git', env.TOPIC_BRANCH, env.DEFAULT_BRANCH, '${USER}')
+                cloneRepoTopic(env.NRP_BACKEND_DIR, 'git@bitbucket.org:hbpneurorobotics/nrp-backend.git', env.TOPIC_BRANCH, env.DEFAULT_BRANCH, '${USER}')
             }
         }
         stage('Gathering Docs')
