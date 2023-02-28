@@ -25,7 +25,7 @@ include $(COMMON_PY_MAKEFILE)
 
 COPY_PY_DOCS=$(addprefix cp_, $(DOC_MODULES))
 
-doc: nrp-core-unzip doc_dep $(COPY_PY_DOCS)
+doc: nrp-core-unzip doc_dep $(DOCS) $(COPY_PY_DOCS)
 	$(info $$VERSION is [${VERSION}])
 	$(file > version,$(VERSION))
 	. $(PLATFORM_VENV)/bin/activate; $(SPHINXBUILD) -b html -D version=$(VERSION) -D release=$(VERSION) $(SPHINXOPTS) -d "$(BUILDDIR)/doctrees" -w sphinx_w.txt  "$(SOURCEDIR)" "$(BUILDDIR)/html" $(O)
