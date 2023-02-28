@@ -2,7 +2,7 @@
 Contact & Support
 =================
 
-The platform is developed by fortiss_, TUM_, FZI_, SSSA_ and led by Prof. Alois Knoll and Dr. Egidio Falotico. Until May 2019, Dr. Marc-Oliver Gewaltig from EPFL_ was also co-leader of the platform development.
+The platform is developed by TUM_, SSSA_, UGR_ fortiss_, FZI_ and led by Prof. Alois Knoll and Dr. Egidio Falotico.
 
 General email contact is available through our `contact form`_.
 
@@ -14,6 +14,7 @@ For bug reports and feature requests, please email neurorobotics-support@humanbr
 .. _TUM: http://www.tum.de
 .. _FZI: http://www.fzi.de
 .. _SSSA: https://www.santannapisa.it/en/institute/biorobotics/biorobotics-institute
+.. _UGR: https://www.ugr.es
 .. _HBP support portal: https://support.humanbrainproject.eu
 .. _forum: https://forum.humanbrainproject.eu/c/neurorobotics
 .. _contact form: http://www.neurorobotics.net/contact.html

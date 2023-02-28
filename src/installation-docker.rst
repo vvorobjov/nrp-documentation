@@ -1,4 +1,4 @@
-
+..  _docker-installation:
 
 Installation with Docker
 ========================

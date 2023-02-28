@@ -1,4 +1,4 @@
-
+..  _source-installation:
 
 Installation from source
 ========================

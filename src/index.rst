@@ -10,5 +10,5 @@ Neurorobotics Platform
 
    welcome
    before-you-start
-   nrp-core/index
-   nrp-backend
+   NPR-Core<nrp-core/index>
+   NRP-Backend<nrp-backend>

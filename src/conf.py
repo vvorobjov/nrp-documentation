@@ -12,15 +12,18 @@ sys.path.insert(1, os.path.abspath('../.ci/doxyrest/sphinx'))
 sys.path.append('../../lib')
 
 #from theme.conf import *
-extensions = ['sphinx.ext.viewcode',
-              'sphinxcontrib.images',
-              'sphinx.ext.coverage',
-              'sphinx.ext.autosummary',
-              'sphinx.ext.todo',
-              'recommonmark',
-              'sphinx_copybutton',
-              'doxyrest',
-              'cpplexer']
+extensions = [  'sphinx.ext.viewcode',
+                'sphinx.ext.autodoc',
+                'sphinxcontrib.httpdomain',
+                'sphinxcontrib.autohttp.flask',
+                'sphinxcontrib.images',
+                'sphinx.ext.coverage',
+                'sphinx.ext.autosummary',
+                'sphinx.ext.todo',
+                'recommonmark',
+                'sphinx_copybutton',
+                'doxyrest',
+                'cpplexer']
 
 authors = u'TBD'
 latex_authors = authors.replace(',', r'\and')
@@ -125,3 +128,8 @@ texinfo_documents = [
    authors, basename, title,
    'Miscellaneous'),
 ]
+
+# Mock for autoflask
+MOCK_MODULES = ['nrp_core', 'nrp_core.client']
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = mock.Mock()

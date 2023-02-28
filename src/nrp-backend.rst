@@ -1,4 +1,6 @@
 .. sectionauthor:: Viktor Vorobev <vorobev@in.tum.de>
+
+.. _nrp-backend-index:
    
 NRP-Backend
 ======================

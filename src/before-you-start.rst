@@ -8,9 +8,9 @@ Components
 
 The main part of the NRP is the :doc:`NRP-Core <nrp-core/index>`, which represents a stand-alone application, managing the simulation and binding different simulators together. It determines the workflow of the NRP. For a better user experience, there are other components, which bind NRP-Core with a broser-based application, providing a user-friendly access to simulation workflow and simulation files:
 
-    *   **NRP-Core**, the heart of the NRP.
+    *   **:ref:`NRP-Core <doxid-indexpage>`**, the heart of the NRP.
     *   **NRP-Frontend**, the web application.
-    *   **NRP-Backend**, the server, managing the simulations.
+    *   **:ref:`NRP-Backend <nrp-backend-index>`**, the server, managing the simulations.
     *   **NRP-Proxy**, the component, binding frontend. backend and storage.
 
 The main view of the NRP-Frontend application for managing the experiments:
