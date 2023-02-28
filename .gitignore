@@ -1,7 +1,12 @@
 _build
-src/nrp/modules/*/**
 .vscode
 
 sphinx_w.txt
 version
-src/nrp/*.md
+src/nrp-core
+
+.ci/doxyrest/sphinx/__pycache__
+
+platform_venv
+
+src/nrp-backend

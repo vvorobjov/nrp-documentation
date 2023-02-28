@@ -1,4 +1,4 @@
-def cloneRepoTopic(folder, repoUrl, topicBranch, defaultBranch, user) {
+def cloneRepoTopic(folder, repoUrl, topicBranch, defaultBranch) {
 // cloneRepoTopic: 
 //      1 - directory to checkout
 //      2 - repo
@@ -30,7 +30,6 @@ def cloneRepoTopic(folder, repoUrl, topicBranch, defaultBranch, user) {
                 ]]
             ])
         }
-        sh "chown -R ${user} ./"
     }
 }
 def selectTopicBranch(branch_name, change_branch){
@@ -47,17 +46,12 @@ pipeline
 {
     environment
     {
-        GAZEBO_ROS_DIR = "GazeboRosPackages"
-        EXP_CONTROL_DIR = "ExperimentControl"
-        BRAIN_SIMULATION_DIR = "BrainSimulation"
-        CLE_DIR = "CLE"
-        EXDBACKEND_DIR = "ExDBackend"
-        VC_DIR = "VirtualCoach"
-        ADMIN_SCRIPTS_DIR = "admin-scripts"
-        USER_SCRIPTS_DIR = "user-scripts"
+        USER_SCRIPTS_DIR = "nrp-user-scripts"
+        NRP_BACKEND_DIR = "nrp-backend"
         DOCS_DIR = "nrp-documentation"
-        NRP_DIR = "neurorobotics-platform"
         GIT_CHECKOUT_DIR = "${env.DOCS_DIR}"
+
+        NexusRegistry = "https://${env.NEXUS_REGISTRY_IP}/"
 
         // If parameter BRANCH_NAME is set, use it as topic,
         // otherwise, use env.BRANCH_NAME or env.CHANGE_BRANCH (if it's PR)
@@ -66,10 +60,6 @@ pipeline
         // If parameter BASE_BRANCH_NAME is set, use it as default branch
         // otherwise, use development
         DEFAULT_BRANCH = selectTopicBranch('development', params.BASE_BRANCH_NAME)
-
-        // If parameter ADMIN_SCRIPT_BRANCH is set, use it to try to checkout admin-scripts
-        // otherwise, try to checkout TOPIC_BRANCH
-        ADMIN_SCRIPT_BRANCH = selectTopicBranch(env.TOPIC_BRANCH, params.ADMIN_SCRIPT_BRANCH)
     }
     agent {
         docker {
@@ -102,41 +92,39 @@ pipeline
 
                 sh "echo TOPIC_BRANCH: ${env.TOPIC_BRANCH}"
                 sh "echo DEFAULT_BRANCH: ${env.DEFAULT_BRANCH}"
-                sh "echo ADMIN_SCRIPT_BRANCH: ${env.ADMIN_SCRIPT_BRANCH}"
 
                 // Checkout main project to GIT_CHECKOUT_DIR
                 dir(env.GIT_CHECKOUT_DIR) {
                     checkout scm
                 }
 
-                cloneRepoTopic(env.GAZEBO_ROS_DIR,          'git@bitbucket.org:hbpneurorobotics/gazeborospackages.git',   env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}') 
-                
-                cloneRepoTopic(env.BRAIN_SIMULATION_DIR,    'git@bitbucket.org:hbpneurorobotics/brainsimulation.git',     env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.EXDBACKEND_DIR,          'git@bitbucket.org:hbpneurorobotics/exdbackend.git',          env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.EXP_CONTROL_DIR,         'git@bitbucket.org:hbpneurorobotics/experimentcontrol.git',   env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.CLE_DIR,                 'git@bitbucket.org:hbpneurorobotics/cle.git',                 env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.VC_DIR,                  'git@bitbucket.org:hbpneurorobotics/virtualcoach.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
+                cloneRepoTopic(env.USER_SCRIPTS_DIR, 'git@bitbucket.org:hbpneurorobotics/nrp-user-scripts.git', env.TOPIC_BRANCH, env.DEFAULT_BRANCH)
+                cloneRepoTopic(env.NRP_BACKEND_DIR, 'git@bitbucket.org:hbpneurorobotics/nrp-backend.git', env.TOPIC_BRANCH, env.DEFAULT_BRANCH)
 
-                cloneRepoTopic(env.NRP_DIR,                 'git@bitbucket.org:hbpneurorobotics/neurorobotics-platform.git',env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
-
-                cloneRepoTopic(env.USER_SCRIPTS_DIR,        'git@bitbucket.org:hbpneurorobotics/user-scripts.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
-                
+                sh "git config --global --add safe.directory '*'"
             }
         }
         stage('Gathering Docs')
         {
-          when
-          {
+            when
+            {
                 expression {  true }
-          }
+            }
             steps
             {
                 dir(env.DOCS_DIR)
                 {
-                  sh "bash ./.ci/build.bash ${params.RELEASE}"
-                  archiveArtifacts artifacts: "_build/html/**/*"
-                  recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
+                    withCredentials([ \
+                        usernamePassword(credentialsId: 'nexusadmin', usernameVariable: 'USER', passwordVariable: 'PASSWORD')
+                    ])
+                    {
+                        sh 'python3 ./.ci/get-nrp-core-docs.py $TOPIC_BRANCH $DEFAULT_BRANCH $NexusRegistry $USER $PASSWORD'
+                    }
+                    
+                    sh "rm -rf /home/bbpnrsoa/.opt/platform_venv"
+                    sh "export BUILD_NUMBER; bash ./.ci/build.bash ${params.RELEASE}"
+                    archiveArtifacts artifacts: "_build/html/**/*"
+                    recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 8, type: 'TOTAL', unstable: true]]
                 }
             }
         }
@@ -172,11 +160,13 @@ pipeline
                                                     docs_version : "${docs_version}", \
                                                     sphinx_build_dir :  '${WORKSPACE}/${DOCS_DIR}/_build/', \
                                                     link_latest : "${params.LATEST}", \
-                                                    var_release : "${params.RELEASE}" ] )}
-                    
+                                                    var_release : "${params.RELEASE}" ] )
+                        currentBuild.description = readFile "ansible/destination.txt"
+                        currentBuild.description = "${env.TOPIC_BRANCH}: " + currentBuild.description
+                    }
                 }
             }
         }
-     }
+    }
 
 }

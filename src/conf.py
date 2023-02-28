@@ -1,32 +1,54 @@
 import sys
 import os
+from unittest import mock
 
-# import conf.py from admin-scripts
-sys.path.insert(0, os.environ.get('HBP') + '/admin-scripts/ContinuousIntegration/python/docs')
-from sphinxconf import *
+
+
+# TODO: install doxyrest properly
+# Needed by Doxygen -> rST generated docs
+# https://github.com/vovkos/doxyrest
+sys.path.insert(1, os.path.abspath('../.ci/doxyrest/sphinx'))
 
 sys.path.append('../../lib')
 
 #from theme.conf import *
-
-extensions += ['recommonmark', 'sphinx_copybutton']
+extensions = [  'sphinx.ext.viewcode',
+                'sphinx.ext.autodoc',
+                'sphinxcontrib.httpdomain',
+                'sphinxcontrib.autohttp.flask',
+                'sphinxcontrib.images',
+                'sphinx.ext.coverage',
+                'sphinx.ext.autosummary',
+                'sphinx.ext.todo',
+                'recommonmark',
+                'sphinx_copybutton',
+                'doxyrest',
+                'cpplexer']
 
 authors = u'TBD'
 latex_authors = authors.replace(',', r'\and')
 project = title = u'HBP Neurorobotics Platform'
 basename = u'HBPNeuroroboticsPlatformDocumentation'
 description = u'HBP Neurorobotics Platform user manual'
+copyright = u'2023, Human Brain Project'
 
 # -- General configuration ------------------------------------------------
+
+# This values are to be overwritten by projects
+version = "undefined"
+release = "undefined"
+
 
 images_config = {
     "override_image_directive": True
 }
 
-todo_include_todos = True
+numfig = True
+
+todo_include_todos = False
 todo_emit_warnings = True
 
-show_authors = True
+show_authors = False
 
 #ADDED BY FOM
 html_static_path = ['_static']
@@ -55,14 +77,11 @@ master_doc = 'index'
 # directories to ignore when looking for source files.
 exclude_patterns = [
     '_build', 
-    'nrp/developer_manual.bk', 
-    'nrp/README.md', 
-    #'nrp/modules/**/tutorials.rst',
-    # 'nrp/modules/*/*/index.rst'    
+    'nrp-core/page_index.rst'
 ]
 
 # the following modules are part of CLE and should be mocked
-autodoc_mock_imports = ['SpiNNaker', 'nest']
+autodoc_mock_imports = ['nrp_core']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -109,3 +128,8 @@ texinfo_documents = [
    authors, basename, title,
    'Miscellaneous'),
 ]
+
+# Mock for autoflask
+MOCK_MODULES = ['nrp_core', 'nrp_core.client']
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = mock.Mock()
