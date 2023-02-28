@@ -11,7 +11,7 @@ The main part of the NRP is the :doc:`NRP-Core <nrp-core/index>`, which represen
     *   **NRP-Core**, the heart of the NRP.
     *   **NRP-Frontend**, the web application.
     *   **NRP-Backend**, the server, managing the simulations.
-    *   **MRP-Proxy**, the component, binding frontend. backend and storage.
+    *   **NRP-Proxy**, the component, binding frontend. backend and storage.
 
 The main view of the NRP-Frontend application for managing the experiments:
 

@@ -11,3 +11,4 @@ Neurorobotics Platform
    welcome
    before-you-start
    nrp-core/index
+   nrp-backend/hbp_nrp_backend/index.rst

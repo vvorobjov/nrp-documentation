@@ -8,3 +8,5 @@ src/nrp-core
 .ci/doxyrest/sphinx/__pycache__
 
 platform_venv
+
+src/nrp-backend

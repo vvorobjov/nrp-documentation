@@ -1,9 +1,8 @@
 import sys
 import os
+from unittest import mock
 
-# import conf.py from admin-scripts
-sys.path.insert(0, os.environ.get('HBP') + '/admin-scripts/ContinuousIntegration/python/docs')
-from sphinxconf import *
+
 
 # TODO: install doxyrest properly
 # Needed by Doxygen -> rST generated docs
@@ -13,20 +12,36 @@ sys.path.insert(1, os.path.abspath('../.ci/doxyrest/sphinx'))
 sys.path.append('../../lib')
 
 #from theme.conf import *
-
-extensions += ['recommonmark', 'sphinx_copybutton', 'doxyrest', 'cpplexer']
+extensions = ['sphinx.ext.viewcode',
+              'sphinxcontrib.autohttp.flask',
+              'sphinxcontrib.images',
+              'sphinx.ext.coverage',
+              'sphinx.ext.autosummary',
+              'sphinx.ext.todo',
+              'recommonmark',
+              'sphinx_copybutton',
+              'doxyrest',
+              'cpplexer']
 
 authors = u'TBD'
 latex_authors = authors.replace(',', r'\and')
 project = title = u'HBP Neurorobotics Platform'
 basename = u'HBPNeuroroboticsPlatformDocumentation'
 description = u'HBP Neurorobotics Platform user manual'
+copyright = u'2023, Human Brain Project'
 
 # -- General configuration ------------------------------------------------
+
+# This values are to be overwritten by projects
+version = "undefined"
+release = "undefined"
+
 
 images_config = {
     "override_image_directive": True
 }
+
+numfig = True
 
 todo_include_todos = False
 todo_emit_warnings = True

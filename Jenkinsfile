@@ -47,8 +47,7 @@ pipeline
 {
     environment
     {
-        ADMIN_SCRIPTS_DIR = "admin-scripts"
-        USER_SCRIPTS_DIR = "user-scripts"
+        USER_SCRIPTS_DIR = "nrp-user-scripts"
         DOCS_DIR = "nrp-documentation"
         GIT_CHECKOUT_DIR = "${env.DOCS_DIR}"
 
@@ -61,10 +60,6 @@ pipeline
         // If parameter BASE_BRANCH_NAME is set, use it as default branch
         // otherwise, use development
         DEFAULT_BRANCH = selectTopicBranch('development', params.BASE_BRANCH_NAME)
-
-        // If parameter ADMIN_SCRIPT_BRANCH is set, use it to try to checkout admin-scripts
-        // otherwise, try to checkout TOPIC_BRANCH
-        ADMIN_SCRIPT_BRANCH = selectTopicBranch(env.TOPIC_BRANCH, params.ADMIN_SCRIPT_BRANCH)
     }
     agent {
         docker {
@@ -97,7 +92,6 @@ pipeline
 
                 sh "echo TOPIC_BRANCH: ${env.TOPIC_BRANCH}"
                 sh "echo DEFAULT_BRANCH: ${env.DEFAULT_BRANCH}"
-                sh "echo ADMIN_SCRIPT_BRANCH: ${env.ADMIN_SCRIPT_BRANCH}"
 
                 // Checkout main project to GIT_CHECKOUT_DIR
                 dir(env.GIT_CHECKOUT_DIR) {
@@ -105,8 +99,7 @@ pipeline
                     sh 'git config --global --add safe.directory $PWD'
                 }
 
-                cloneRepoTopic(env.USER_SCRIPTS_DIR,        'git@bitbucket.org:hbpneurorobotics/user-scripts.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
-                cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'master',       '${USER}')
+                cloneRepoTopic(env.USER_SCRIPTS_DIR, 'git@bitbucket.org:hbpneurorobotics/nrp-user-scripts.git', env.TOPIC_BRANCH, env.DEFAULT_BRANCH, '${USER}')
             }
         }
         stage('Gathering Docs')
