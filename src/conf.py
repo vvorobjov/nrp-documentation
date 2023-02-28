@@ -13,7 +13,6 @@ sys.path.append('../../lib')
 
 #from theme.conf import *
 extensions = ['sphinx.ext.viewcode',
-              'sphinxcontrib.autohttp.flask',
               'sphinxcontrib.images',
               'sphinx.ext.coverage',
               'sphinx.ext.autosummary',
