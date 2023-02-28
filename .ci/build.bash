@@ -11,6 +11,7 @@ fi
 
 # Set dev mode and switch HBP to Jenkins workspace
 export NRP_INSTALL_MODE=dev
+export PYTHONPATH=""
 source ${USER_SCRIPTS_DIR}/nrp_variables
 export HBP=${WORKSPACE}
 
@@ -23,5 +24,4 @@ export VIRTUAL_ENV_PATH=$VIRTUAL_ENV
 cd ${GIT_CHECKOUT_DIR}
 
 # create docs
-. $VIRTUAL_ENV_PATH/bin/activate \
-    && make "${MAKE_TARGET}"
+make "${MAKE_TARGET}"
