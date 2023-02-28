@@ -1,7 +1,10 @@
 #documentation to build
 DOC_MODULES=$(HBP)/nrp-backend/hbp_nrp_backend/doc
 
-INSTALL_MODULES=$(HBP)/nrp-backend/hbp_nrp_backend
+INSTALL_MODULES=$(HBP)/nrp-backend/hbp_nrp_commons \
+$(HBP)/nrp-backend/hbp_nrp_backend \
+$(HBP)/nrp-backend/hbp_nrp_simserver
+
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
