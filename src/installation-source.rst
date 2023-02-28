@@ -103,7 +103,7 @@ Installation from source
 
     ..  code-block:: shell
 
-        docker run -d -p 1883:1883 -p 9001:9001 -p 8883:8883 -v $HBP/nrp-user-scripts/config_files/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto\
+        docker run -d -p 1883:1883 -p 9001:9001 -p 8883:8883 -v $HBP/nrp-user-scripts/config_files/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
 
 *   run :code:`nrp-start`
 

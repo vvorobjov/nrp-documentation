@@ -1,5 +1,7 @@
 #documentation to build
-DOC_MODULES=$(HBP)/nrp-backend/hbp_nrp_backend/doc
+DOC_MODULES=$(HBP)/nrp-backend/hbp_nrp_commons/doc \
+$(HBP)/nrp-backend/hbp_nrp_backend/doc \
+$(HBP)/nrp-backend/hbp_nrp_simserver/doc
 
 INSTALL_MODULES=$(HBP)/nrp-backend/hbp_nrp_commons \
 $(HBP)/nrp-backend/hbp_nrp_backend \
