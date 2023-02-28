@@ -79,7 +79,7 @@ exclude_patterns = [
 ]
 
 # the following modules are part of CLE and should be mocked
-autodoc_mock_imports = []
+autodoc_mock_imports = ['nrp_core']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'

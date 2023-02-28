@@ -23,5 +23,8 @@ export VIRTUAL_ENV_PATH=$VIRTUAL_ENV
 # install modules listed in nrp-documentation Makefile
 cd ${GIT_CHECKOUT_DIR}
 
+# mock nrp_core python module
+echo "autodoc_mock_imports = ['nrp_core']" >> ${WORKSPACE}/nrp-backend/hbp_nrp_backend/doc/source/conf.py
+
 # create docs
 make "${MAKE_TARGET}"
