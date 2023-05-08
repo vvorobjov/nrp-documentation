@@ -12,6 +12,7 @@ The Neurorobotics Platform consists of a web "cockpit", embedded experiment edit
    user_manual/user_interface/index
    user_manual/virtual_coach/index
    user_manual/simulation_setup/index
+   user_manual/nest_desktop/index.rst
    Robot Designer <https://hbpneurorobotics.github.io/BlenderRobotDesigner/>
 
 .. image:: images/nrp.jpg
