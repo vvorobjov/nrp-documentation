@@ -1,63 +1,69 @@
 Usage of the NRP with NEST Desktop
 ==================================
 
-When using the NRP with the :term:`NEST` Simulator server, one can utilize convenient GUI called `NEST Desktop <https://nest-desktop.readthedocs.io/en/latest/>`__.
-In this case both the NRP and the NEST Desktop act as clients to the NEST Simulator.
+When using the Neurorobotics Platform (NRP) in conjunction with the :term:`NEST` Simulator server, you have the option to utilize a powerful and user-friendly graphical user interface (GUI) known as `NEST Desktop <https://nest-desktop.readthedocs.io/en/latest/>`__. Here, both the NRP and NEST Desktop act as clients communicating with the NEST Simulator server.
 
-.. note::   The joint usage of the NRP and NEST Desktop is currently available only for the special local docker installation.
-
+.. note:: The integration of NRP with NEST Desktop is currently supported only through a specialized local Docker installation.
 
 Installation
 ++++++++++++
 
-#.  The first step is to **install Docker with Docker Compose** on your system (on Windows, install it in Windows, not in the WSL Ubuntu). 
+Follow these steps to set up the environment for NRP with NEST Desktop:
 
-    * Use the `Docker installation guides <https://docs.docker.com/engine/install/>`__ for your system. 
-    * If you're using Linux OS, for your convenience, we recommend to `allow the Docker to run as non-root user <https://docs.docker.com/engine/install/linux-postinstall/>`__, otherwise put an eye on using **sudo** rights when needed.
+#. **Install Docker and Docker Compose**: Start by installing Docker along with Docker Compose on your system. On Windows, make sure to install it natively and not inside WSL Ubuntu. 
 
-#.  Download the **Docker Compose** configuration file for the NRP with NEST Desktop.
+    * Refer to the official `Docker installation guides <https://docs.docker.com/engine/install/>`__ for detailed instructions.
+    * If you are on a Linux OS, consider `configuring Docker to run as a non-root user <https://docs.docker.com/engine/install/linux-postinstall/>`__. This eliminates the need to use **sudo** rights for every command.
 
-    * The latest version is in the NRP Bitbucket `here <https://bitbucket.org/hbpneurorobotics/user-scripts/src/development/docker-compose_nrp-nest-desktop-insite.yml>`__.
+#. **Download Docker Compose Configuration File**: Obtain the Docker Compose configuration file which contains settings for integrating NRP with NEST Desktop.
 
-#.  Run Docker Compose, providing the path to the downloaded file:
+    * You can download the latest version from the NRP Bitbucket repository `here <https://bitbucket.org/hbpneurorobotics/user-scripts/src/development/docker-compose_nrp-nest-desktop-insite.yml>`__.
+
+#. **Run Docker Compose**: Execute Docker Compose with the path to the configuration file you downloaded.
 
     ..  code-block:: bash
 
         docker compose -f docker-compose_nrp-nest-desktop-insite.yml up
 
-    The proper Docker images should be downloaded and the containers started.
+    Docker will then download the necessary images and initiate the containers.
 
-#.  Open the URL `localhost:9200/#/esv-private <http://localhost:9200/#/esv-private>`__ in the browser to access the NRP with the credentials :code:`nrpdemo:nestdesktop`.
+#. **Access the NRP Interface**: Open your web browser and navigate to `localhost:9200/#/esv-private <http://localhost:9200/#/esv-private>`__. Log in with the credentials :code:`nrpdemo:nestdesktop`.
 
-
-
-Usage example 
+Usage Example
 +++++++++++++
 
-#.  Open the NRP `localhost:9200/#/esv-private <http://localhost:9200/#/esv-private>`__ and log in.
-#.  Select the *Templates* tab and clone **Holodeck Husky Braitenberg experiment with NEST-Desktop 3.2** experiment.
+Follow these steps for a smooth experiment using NRP with NEST Desktop:
 
-..  thumbnail:: img/nest-desktop-1.png
-    :align: center
-    :width: 100%
+1. Navigate to the NRP at `localhost:9200/#/esv-private <http://localhost:9200/#/esv-private>`__ and log in.
 
-#.  Select the cloned experiment in the *My experiments* tab and click **Open NEST-Desktop** button.
-#.  In the setting of the NEST Desktop check that the proper URLs for NEST and Insite are set.
+2. Select the *Templates* tab, then clone the **Holodeck Husky Braitenberg experiment with NEST-Desktop 3.2**.
 
-..  thumbnail:: img/nest-desktop-2.png
-    :align: center
-    :width: 100%
+    .. thumbnail:: nest-desktop-1.png
+       :align: center
+       :width: 100%
 
-#.  Download the NEST Desktop project :download:`configuration file <files/nest-desktop-project.json>` and import it into the NEST Desktop.
-#.  Modify the configuration of the neural network, if you want to, but take into account that it should be in line with the configuration of the experiment in the NRP, because there is no check that the loaded NEST network is compatible with the experiment configuration (the number and the role of the nodes). Check that all the stages except **Simulate** are selected and press the **PREPARE** button, this will configure the NEST neurons.
+3. Under the *My Experiments* tab, select the cloned experiment and click the **Open NEST-Desktop** button.
 
-..  thumbnail:: img/nest-desktop-3.png
-    :align: center
-    :width: 100%
+4. In NEST Desktop settings, verify that the appropriate URLs for NEST and Insite are configured correctly.
 
-.. note::   The configuration of the NEST should happen before launching of the simulation in the NRP.
+    .. thumbnail:: nest-desktop-2.png
+       :align: center
+       :width: 100%
 
-#.  Launch the simulation in the NRP and press the **Launch** button there. The Husky Braitenberg vehicle should react to the red screen now and NEST Desktop should display the spikes activity.
-#.  In order to further modify the network, **Pause** the simulation in the NRP, modify the network in the NEST Desktop, press **PREPARE** button in the NEST Desktop again, reload the brain in the NRP (*Brain Editor*) and then continue the simulation.
+5. Download the NEST Desktop project :download:`configuration file <nest-desktop-project.json>` and import it into NEST Desktop.
 
-.. note::   Once again, the configuring the network in the NEST Desktop should be done before launching/resuming the simulation in the NRP.
+6. Optionally, modify the neural network configuration. Ensure that any modifications are compatible with the experiment settings in NRP. When ready, select all stages except **Simulate** and press the **PREPARE** button to configure the NEST neurons.
+
+    .. thumbnail:: nest-desktop-3.png
+       :align: center
+       :width: 100%
+
+    .. note:: Configuring NEST should be completed prior to launching the simulation in the NRP.
+
+7. Return to the NRP and initiate the simulation by pressing the **Launch** button. Observe the Husky Braitenberg vehicle's reaction to the red screen while NEST Desktop displays the spike activity.
+
+8. To make further modifications to the network during simulation, first **Pause** the simulation in NRP. Then, alter the network in NEST Desktop and press the **PREPARE** button. Next, reload the brain configuration in NRP through the *Brain Editor* and resume the simulation.
+
+    .. note:: Remember, network configuration in NEST Desktop should always be completed before launching or resuming the simulation in the NRP.
+
+Happy experimenting! Utilize the combined power of the NRP and NEST Desktop for immersive neural network simulations.

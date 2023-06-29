@@ -107,7 +107,6 @@ pipeline
                 // Checkout main project to GIT_CHECKOUT_DIR
                 dir(env.GIT_CHECKOUT_DIR) {
                     checkout scm
-                    sh 'git config --global --add safe.directory $PWD'
                 }
 
                 cloneRepoTopic(env.GAZEBO_ROS_DIR,          'git@bitbucket.org:hbpneurorobotics/gazeborospackages.git',   env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}') 
@@ -122,6 +121,8 @@ pipeline
 
                 cloneRepoTopic(env.USER_SCRIPTS_DIR,        'git@bitbucket.org:hbpneurorobotics/user-scripts.git',        env.TOPIC_BRANCH, env.DEFAULT_BRANCH,     '${USER}')
                 cloneRepoTopic(env.ADMIN_SCRIPTS_DIR,       'git@bitbucket.org:hbpneurorobotics/admin-scripts.git',       env.ADMIN_SCRIPT_BRANCH, 'development',       '${USER}')
+
+                sh "git config --global --add safe.directory '*'"
                 
             }
         }
