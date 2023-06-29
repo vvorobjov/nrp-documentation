@@ -34,3 +34,4 @@ Currently, you can either use the NRP installed from the source, or running in D
 
    installation-docker.rst
    installation-source.rst
+   installation-implementations.rst
