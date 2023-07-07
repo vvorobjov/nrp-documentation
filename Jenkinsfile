@@ -122,7 +122,7 @@ pipeline
                     }
                     
                     sh "rm -rf /home/bbpnrsoa/.opt/platform_venv"
-                    sh "export BUILD_NUMBER; bash ./.ci/build.bash ${params.RELEASE}"
+                    sh "export BUILD_NUMBER; export HBP=$WORKSPACE; bash ./.ci/build.bash ${params.RELEASE}"
                     archiveArtifacts artifacts: "_build/html/**/*"
                     recordIssues enabledForFailure: true, tools: [sphinxBuild(pattern: 'sphinx_w.txt')], qualityGates: [[threshold: 8, type: 'TOTAL', unstable: true]]
                 }

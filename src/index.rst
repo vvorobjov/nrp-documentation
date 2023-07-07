@@ -12,3 +12,5 @@ Neurorobotics Platform
    before-you-start
    NPR-Core<nrp-core/index>
    NRP-Backend<nrp-backend>
+   Tutorials<tutorials/index>
+   glossary
