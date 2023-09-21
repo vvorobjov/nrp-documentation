@@ -1,114 +1,139 @@
 ..  _source-installation:
 
-Installation from source
-========================
+=========================
+Installation from Source
+=========================
 
-..  note:: Currently, only Ubuntu 20.04 is officially supported for the NRP installation from source.
+.. note:: Currently, only Ubuntu 20.04 is officially supported for the NRP installation from source.
 
+Pre-installation Steps
+----------------------
 
-*   Set HBP folder, i.e.
+1. **Set the HBP folder**:
 
-    ..  code-block:: shell
+.. code-block:: bash
 
-        export HBP=~/NRP4
+    export HBP=~/NRP4
 
-    You can add this variable to your :code:`~/.bashrc` so that it is always available: 
+Add this variable to your `.bashrc` for persistence:
 
-    ..  code-block:: shell
+.. code-block:: bash
 
-        echo "export HBP=~/NRP4" >> ~/.bashrc
+    echo "export HBP=~/NRP4" >> ~/.bashrc
 
+2. **Ensure the HBP folder exists**:
 
-*   Make sure, that the $HBP folder exists
+.. code-block:: bash
 
-    ..  code-block:: shell
-
-        mkdir -p "${HBP}"
-
-*   clone/checkout there nrp-user-scripts repository 
-
-    ..  code-block:: shell
-
-        cd "${HBP}"
-        git clone -b master https://bitbucket.org/hbpneurorobotics/nrp-user-scripts.git
+    mkdir -p "${HBP}"
 
 
+3. **Install Nginx and HAProxy**:
 
-*   clone/checkout **nrp-backend**, **nrp-proxy**, **nrp-frontend**, **nrp-core** repositories. This can be done with help of script from **nrp-user-scripts** (or manually)
+.. code-block:: bash
 
-    ..  code-block:: shell
+    sudo apt-get install nginx-extras lua-cjson haproxy
+    sudo systemctl disable haproxy.service
+    sudo service haproxy stop
+    sudo service nginx stop
 
-        cd ${HBP}/nrp-user-scripts
-        ./clone-all-repos
+4. **Install nvm and Node** versions 8 & 14:
 
-*   install **nrp-core** as usual and as desired, see :doc:`NRP-Core Installation instructions <nrp-core/page_installation>`.
+.. code-block:: bash
 
-*   add :code:`${NRP_INSTALL_DIR}/lib/python3.8/site-packages` and :code:`${NRP_DEPS_INSTALL_DIR}/lib/python3.8/site-packages` to :code:`PYTHONPATH`
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    source ~/.bashrc
+    nvm install 8
+    nvm install 14
 
-    ..  code-block:: shell
 
-        export PYTHONPATH="${NRP_INSTALL_DIR}"/lib/python3.8/site-packages:"${PYTHONPATH}"
-        export PYTHONPATH="${NRP_DEPS_INSTALL_DIR}"/lib/python3.8/site-packages:"${PYTHONPATH}"
+5. **Clone** `nrp-user-scripts` repository (for the last stable version use `master` branch, for the development version use `development` branch):
 
-    You can also add it to :code:`~/.bashrc`.
+.. code-block:: bash
 
-*   clean old :code:`~/.opt/nrpStorage` (or set non-default :code:`STORAGE_PATH` in :code:`${HBP}/nrp-user-scripts/nrp_variables`)
+    cd "${HBP}"
+    git clone -b master https://bitbucket.org/hbpneurorobotics/nrp-user-scripts.git
 
-*   install nvm and then two versions of node 8 & 14
+6. **Clone** `nrp-backend`, `nrp-proxy`, `nrp-frontend`, `nrp-core` repositories using `nrp-user-scripts` or do it manually:
 
-    ..  code-block:: shell
+.. code-block:: bash
 
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-        source ~/.bashrc
-        nvm install 8
-        nvm install 14
+    cd ${HBP}/nrp-user-scripts
+    ./clone-all-repos
 
-*   in **nrp-user-scripts** source :code:`nrp_variables`
+7. **Install NRP-Core**. Refer to the :doc:`NRP-Core Installation instructions <nrp-core/page_installation>`.
 
-    ..  code-block:: shell
+.. warning:: The proper installation of the NRP-Core is essential for the functioning of the NRP source installation.
 
-        cd "${HBP}"/nrp-user-scripts
-        source nrp_variables
 
-*   run :code:`./configure_nrp`
+Configuration and Building
+--------------------------
 
-    ..  code-block:: shell
+8. **Add required paths to PYTHONPATH**:
 
-        cd "${HBP}"/nrp-user-scripts
-        ./configure_nrp
+.. code-block:: bash
 
-*   run :code:`./update_nrp build`
+    export PYTHONPATH="${NRP_INSTALL_DIR}"/lib/python3.8/site-packages:"${PYTHONPATH}"
+    export PYTHONPATH="${NRP_DEPS_INSTALL_DIR}"/lib/python3.8/site-packages:"${PYTHONPATH}"
 
-    ..  code-block:: shell
+For persistence, you can also add it to `.bashrc`.
 
-        cd "${HBP}"/nrp-user-scripts
-        ./update_nrp build
+9. **Clean old storage** or set a non-default `STORAGE_PATH` in `${HBP}/nrp-user-scripts/nrp_variables`.
 
-*   run :code:`./configure_nrp`
+10. **Source** `nrp_variables` from `nrp-user-scripts`:
 
-*   source :code:`nrp_aliases`
+.. code-block:: bash
 
-    ..  code-block:: shell
+    cd "${HBP}"/nrp-user-scripts
+    source nrp_variables
 
-        cd "${HBP}"/nrp-user-scripts
-        source nrp_aliases
+.. warning:: Temporarily remove it when the need of rebuilding nrp-core arises (e.g. when developing the latter).
 
-*   run nrp-reverse-proxies
+11. **Configure NRP**:
 
-    ..  code-block:: shell
+.. code-block:: bash
 
-        nrp-reverse-proxies
+    ./configure_nrp
 
-*   start MQTT broker. You can use mosquitto Docker broker, or any other on your choice (but make sure the proper ports are open)
 
-    ..  code-block:: shell
+12. **Update NRP with build option**:
 
-        docker run -d -p 1883:1883 -p 9001:9001 -p 8883:8883 -v $HBP/nrp-user-scripts/config_files/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
+.. code-block:: bash
 
-*   run :code:`nrp-start`
+    ./update_nrp build
 
-    ..  code-block:: shell
+13. **Add default user to the database** (if not added before):
 
-        nrp-start
+.. code-block:: bash
 
-*   The frontend should be available at http://localhost:9000
+    bash ./configure_storage_database
+
+14. **Source** `nrp_aliases`:
+
+.. code-block:: bash
+
+    source nrp_aliases
+
+15. **Run NRP reverse proxies**:
+
+.. code-block:: bash
+
+    nrp-reverse-proxies
+
+16. **Start the MQTT broker** (using the mosquitto Docker broker or another of your choice, ensuring the proper ports are open):
+
+.. code-block:: bash
+
+    docker run -d -p 1883:1883 -p 9001:9001 -p 8883:8883 -v $HBP/nrp-user-scripts/config_files/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
+
+17. **Start NRP**:
+
+.. code-block:: bash
+
+    nrp-start
+
+
+Access
+------
+
+- Once everything is set up, the frontend should be accessible at `http://localhost:9000`.
