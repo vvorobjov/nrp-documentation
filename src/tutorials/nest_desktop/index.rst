@@ -52,7 +52,13 @@ Follow these steps for a smooth experiment using NRP with NEST Desktop:
        :align: center
        :width: 100%
 
-5. Download the NEST Desktop project :download:`configuration file <nest-desktop-project.json>` and import it into NEST Desktop
+5. Download the NEST Desktop project :download:`configuration file <nest-desktop-project.json>` and import it into NEST Desktop.
+
+6. Ensure that both NEST Desktop and the NRP simulation configuration file use port **52425** for the NEST server connection and port **52056** for the Insite connection. NEST Desktop will verify the availability of these ports.
+
+    .. thumbnail:: nest-desktop-4-1.png
+       :align: center
+       :width: 100%
 
 6. Optionally, modify the neural network configuration. Ensure that any modifications are compatible with the experiment settings in NRP. When ready, select all stages except **Simulate** and press the **PREPARE** button to configure the NEST neurons. The NEST Desktop will become ready to receive spikes signals.
 
@@ -73,5 +79,16 @@ Follow these steps for a smooth experiment using NRP with NEST Desktop:
        
 
     .. note:: Remember, network configuration in NEST Desktop should always be completed before launching in the NRP.
+
+8. In case the XPRA is activated for the Simulation, you can observe the robot simulation as well.
+
+    .. thumbnail:: nest-desktop-7.png
+       :align: center
+       :width: 100%
+
+    .. thumbnail:: nest-desktop-8.png
+       :align: center
+       :width: 100%
+
 
 Happy experimenting! Utilize the combined power of the NRP and NEST Desktop for immersive neural network simulations.
