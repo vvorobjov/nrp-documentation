@@ -4,26 +4,53 @@ from unittest import mock
 
 
 
-# TODO: install doxyrest properly
-# Needed by Doxygen -> rST generated docs
-# https://github.com/vovkos/doxyrest
-sys.path.insert(1, os.path.abspath('../.ci/doxyrest/sphinx'))
+# doxyrest + cpplexer ship in-tree under ../.ci/doxyrest/sphinx/. They
+# are required to render the C++ API pages produced from nrp-core's
+# Doxygen output (see EBR2-50 for how the rendered zip is fetched).
+# When the local checkout doesn't include them — or doxyrest's deps
+# are not installed — fall back to a build without those extensions
+# so contributors can still preview the rest of the docs.
+DOXYREST_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.ci', 'doxyrest', 'sphinx'))
+sys.path.insert(1, DOXYREST_DIR)
+
+try:
+    import doxyrest  # noqa: F401
+    import cpplexer  # noqa: F401
+    _doxyrest_available = True
+except Exception as exc:  # pragma: no cover
+    print(f'[nrp-docs] doxyrest/cpplexer not loadable, dropping the C++ API extensions: {exc}')
+    _doxyrest_available = False
 
 sys.path.append('../../lib')
 
-#from theme.conf import *
-extensions = [  'sphinx.ext.viewcode',
-                'sphinx.ext.autodoc',
-                'sphinxcontrib.httpdomain',
-                'sphinxcontrib.autohttp.flask',
-                'sphinxcontrib.images',
-                'sphinx.ext.coverage',
-                'sphinx.ext.autosummary',
-                'sphinx.ext.todo',
-                'recommonmark',
-                'sphinx_copybutton',
-                'doxyrest',
-                'cpplexer']
+# Extensions. Markdown support comes from MyST-Parser (replaces the
+# unmaintained recommonmark; EBR2-49). doxyrest + cpplexer are optional.
+extensions = [
+    'sphinx.ext.viewcode',
+    'sphinx.ext.autodoc',
+    'sphinxcontrib.httpdomain',
+    'sphinxcontrib.autohttp.flask',
+    'sphinxcontrib.images',
+    'sphinx.ext.coverage',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.todo',
+    'myst_parser',
+    'sphinx_copybutton',
+]
+if _doxyrest_available:
+    extensions += ['doxyrest', 'cpplexer']
+
+# MyST options.
+myst_enable_extensions = [
+    'colon_fence',
+    'deflist',
+    'dollarmath',
+    'linkify',
+    'replacements',
+    'smartquotes',
+    'substitution',
+]
+myst_heading_anchors = 3
 
 authors = u'TBD'
 latex_authors = authors.replace(',', r'\and')
@@ -64,7 +91,9 @@ html_js_files = [
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
-# The suffix of source filenames.
+# The suffix of source filenames. With MyST-Parser, .md is associated
+# automatically; we still register it explicitly so the previous build
+# behaviour (recommonmark also handled .md) is preserved.
 source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
@@ -76,7 +105,7 @@ master_doc = 'index'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 exclude_patterns = [
-    '_build', 
+    '_build',
     'nrp-core/page_index.rst'
 ]
 
@@ -94,7 +123,7 @@ html_show_sphinx = False
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = { 
+html_theme_options = {
     }
 
 
