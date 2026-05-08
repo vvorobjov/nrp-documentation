@@ -37,7 +37,14 @@ $(COPY_PY_DOCS): cp_$(HBP)/%:
 	mkdir -p $(SOURCEDIR)/$*/../../
 	cp -rf $(HBP)/$*/source/* $(SOURCEDIR)/$*/../
 
-nrp-core-unzip:
+nrp-core-fetch:
+	@if [ -f nrp-core-docs.zip ]; then \
+	    echo "[Makefile] nrp-core-docs.zip already present; skipping fetch"; \
+	else \
+	    python3 .ci/get-nrp-core-docs.py; \
+	fi
+
+nrp-core-unzip: nrp-core-fetch
 	unzip -o -q nrp-core-docs.zip -d src/nrp-core/
 
 	
