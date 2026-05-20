@@ -1,0 +1,126 @@
+# EBR2-52 — docs CI on GitHub Actions.
+#
+# Replaces the Jenkins/Nexus pipeline (see Jenkinsfile, kept as a
+# reference for the upstream Bitbucket-side deploy) with a workflow
+# that builds the Sphinx HTML and publishes it to GitHub Pages on
+# the vvorobjov/nrp-documentation mirror.
+#
+# Build path:
+#   1. .ci/get-nrp-core-docs.py  — pulls nrp-core-docs.zip from the
+#      GitHub Release configured in the script (EBR2-50).
+#   2. unzip into src/nrp-core/  — same target as the Makefile's
+#      ``nrp-core-unzip`` recipe.
+#   3. sphinx-build -b html src _build/html — runs the same builder
+#      the Makefile's ``doc`` target invokes, just without the HBP-
+#      shaped wrapper (user_makefile, platform_venv, nrp-backend doc
+#      copy). Missing nrp-backend toctree entries surface as warnings
+#      but do not fail the build; the upstream Bitbucket Jenkins job
+#      still produces the canonical multi-repo docs.
+#
+# After the first successful run the user must set the Pages source
+# in the GitHub repo settings to "GitHub Actions".
+
+name: docs
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+# Allow only one concurrent Pages deployment; do not cancel in-progress
+# runs so a queued deploy still publishes.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0   # `git describe --tags` in the Makefile's VERSION
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: .ci/requirements_docs.txt
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .ci/requirements_docs.txt
+
+      - name: Install system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends unzip
+
+      - name: Fetch nrp-core API docs zip
+        env:
+          # Leave unset to use DEFAULT_URL inside the script. Override
+          # via the repo's Actions variables if the source-of-truth
+          # moves before the script default is updated.
+          NRP_CORE_DOCS_URL: ${{ vars.NRP_CORE_DOCS_URL }}
+        run: python3 .ci/get-nrp-core-docs.py
+
+      - name: Unpack nrp-core docs
+        run: |
+          mkdir -p src/nrp-core
+          unzip -o -q nrp-core-docs.zip -d src/nrp-core/
+
+      - name: Compute version string
+        id: version
+        run: |
+          v="$(git describe --tags --always --abbrev=0 2>/dev/null || echo 0.0.0)-${GITHUB_RUN_NUMBER}"
+          echo "version=${v}" >> "${GITHUB_OUTPUT}"
+          echo "${v}" > version
+
+      - name: Build HTML with Sphinx
+        run: |
+          sphinx-build -b html \
+            -t fulldocs \
+            -D version="${{ steps.version.outputs.version }}" \
+            -D release="${{ steps.version.outputs.version }}" \
+            -d _build/doctrees \
+            -w sphinx_w.txt \
+            src _build/html
+
+      - name: Surface Sphinx warnings
+        if: always()
+        run: |
+          if [ -s sphinx_w.txt ]; then
+            echo "::group::sphinx_w.txt"
+            cat sphinx_w.txt
+            echo "::endgroup::"
+          else
+            echo "no sphinx warnings"
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _build/html
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-22.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
