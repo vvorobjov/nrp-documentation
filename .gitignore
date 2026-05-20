@@ -10,3 +10,7 @@ src/nrp-core
 platform_venv
 
 src/nrp-backend
+
+# nrp-core API docs zip is fetched by .ci/get-nrp-core-docs.py
+# (see EBR2-50). Do not commit it.
+nrp-core-docs.zip
