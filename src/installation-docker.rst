@@ -65,11 +65,15 @@ Steps:
 
 Once the setup is complete, access the frontend at `http://localhost:9000`.
 
-..  note:: The default Docker configuration is optimized for using NRP with Gazebo and NEST. To utilize opensim and TVB, a different backend image is necessary. Refer to the **nrp-backend-service** in :code:`"${HBP}"/nrp-user-scripts/docker-compose.yaml`. 
+..  note:: The default Docker configuration uses the :code:`nest-gazebo` backend image variant, which bundles Gazebo and NEST and is required by most simulation templates. To select a different variant, set the :code:`NRP_BACKEND_TAG` environment variable **before** running :code:`start_nrp_docker.sh` — there is no need to edit the compose file:
 
     ..  code-block:: shell
 
-        # image: docker-registry.ebrains.eu/nrp/nrp-core/backend-nrp-opensim-tvb-ubuntu20${NRP_IMAGE_TAG}
-        image: docker-registry.ebrains.eu/nrp/nrp-core/backend-nrp-gazebo-nest-ubuntu20${NRP_IMAGE_TAG}
+        # nest-gazebo (default): Gazebo + NEST, needed by most templates
+        # vanilla: slim image without simulators (only the exchange_tf template is compatible)
+        export NRP_BACKEND_TAG=vanilla
 
-    To switch between images, uncomment the desired image and comment out the other. Another option is the **backend-nrp-vanilla-ubuntu20** image, which excludes both Gazebo and opensim. The only compatible template with this is *exchange_tf*.
+        cd "${HBP}"/nrp-user-scripts
+        ./start_nrp_docker.sh
+
+    :code:`NRP_BACKEND_TAG` accepts :code:`nest-gazebo` (default) or :code:`vanilla`, and its value is used verbatim as the published backend image tag :code:`hbpneurorobotics/nrp-backend:<tag>` (i.e. :code:`hbpneurorobotics/nrp-backend:nest-gazebo` or :code:`hbpneurorobotics/nrp-backend:vanilla`). When it is left unset, :code:`start_nrp_docker.sh` defaults it to :code:`nest-gazebo`, so the export is only needed to switch to the slim :code:`vanilla` image.
