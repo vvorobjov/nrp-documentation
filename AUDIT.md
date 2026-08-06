@@ -130,6 +130,14 @@ The EBRAINS registry's status is unconfirmed; the revival baseline
 moves images to **Docker Hub** (`hbpneurorobotics/nrp-*`, see EBR2-35).
 Page must be rewritten when EBR2-35 lands.
 
+**Resolved (EBR2-116):** the backend-variant selection in
+`installation-docker.rst` no longer references `NRP_IMAGE_TAG` or the
+`-ubuntu20` image names, nor does it ask users to hand-edit the compose
+file. Users now set `NRP_BACKEND_TAG` (`nest-gazebo` default, or
+`vanilla`) before `start_nrp_docker.sh`, which maps to the Docker Hub
+tag `hbpneurorobotics/nrp-backend:<tag>`. The broader EBRAINS → Docker
+Hub registry migration remains tracked under EBR2-35.
+
 ### 4c. Default branch name
 
 Both install pages clone `-b master`. `nrp-user-scripts` default
@@ -192,7 +200,7 @@ asset issues.
 | Jenkins/Nexus/Ansible deploy chain | EBR2-52 |
 | Bitbucket clone snippet in install pages | EBR2-54 (selectable URL) + page rewrite |
 | `git clone -b master` on `development`-default repo | page rewrite (EBR2-51 child) |
-| EBRAINS Docker registry refs | rewrite after EBR2-35 lands |
+| EBRAINS Docker registry refs | rewrite after EBR2-35 lands; backend-variant selector (`NRP_BACKEND_TAG`) done in EBR2-116 |
 | Probable dead links to neurorobotics.net / humanbrainproject.eu | run `make linkcheck` (EBR2-49) |
 
 This audit closes EBR2-34. Concrete fixes are tracked in the linked
