@@ -25,7 +25,7 @@ The order of commands: `sectionauthor`, link-name, title.
 
 `.github/workflows/docs.yml` (EBR2-52) builds the Sphinx HTML on every
 push and pull request targeting `master`, and deploys the result to
-GitHub Pages on the `vvorobjov/nrp-documentation` mirror. The
+GitHub Pages from the canonical `vvorobjov/nrp-documentation` repo. The
 published site lives at `https://vvorobjov.github.io/nrp-documentation/`
 (activate Pages with source "GitHub Actions" in the repo settings on
 first use). The nrp-core API section is included only when
@@ -34,4 +34,4 @@ latest `vvorobjov/nrp-core` GitHub Release asset, overridable through
 the `NRP_CORE_DOCS_URL` Actions variable); a failed fetch downgrades
 the build to a site without that section instead of failing it. The
 `Jenkinsfile` and `ansible/` playbook are kept as references for the
-upstream Bitbucket-side deploy.
+legacy Bitbucket-side deploy.

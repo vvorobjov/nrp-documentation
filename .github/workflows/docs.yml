@@ -2,8 +2,8 @@
 #
 # Replaces the Jenkins/Nexus pipeline (see Jenkinsfile, kept as a
 # reference for the upstream Bitbucket-side deploy) with a workflow
-# that builds the Sphinx HTML and publishes it to GitHub Pages on
-# the vvorobjov/nrp-documentation mirror.
+# that builds the Sphinx HTML and publishes it to GitHub Pages from
+# the canonical vvorobjov/nrp-documentation repository.
 #
 # Build path:
 #   1. .ci/get-nrp-core-docs.py  — pulls nrp-core-docs.zip from the
