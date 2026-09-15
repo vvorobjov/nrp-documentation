@@ -82,6 +82,10 @@ jobs:
           mkdir -p src/nrp-core
           unzip -o -q nrp-core-docs.zip -d src/nrp-core/
 
+      - name: Flag the omitted nrp-core API section
+        if: hashFiles('nrp-core-docs.zip') == ''
+        run: echo "::warning::nrp-core-docs.zip was not fetched; the nrp-core API section is omitted from this build"
+
       - name: Compute version string
         id: version
         run: |
