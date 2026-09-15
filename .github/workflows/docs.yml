@@ -30,10 +30,11 @@ on:
   pull_request:
     branches: [master]
 
-# Allow only one concurrent Pages deployment; do not cancel in-progress
-# runs so a queued deploy still publishes.
+# One run at a time per ref: master runs (and thus Pages deployments)
+# serialise without cancelling an in-flight deploy, while pull_request
+# runs get their own group and cannot displace a pending master deploy.
 concurrency:
-  group: pages
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
 
 permissions:
