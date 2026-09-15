@@ -19,8 +19,8 @@
 #      but do not fail the build; the retired Jenkins job used to
 #      produce the full multi-repo docs.
 #
-# After the first successful run the user must set the Pages source
-# in the GitHub repo settings to "GitHub Actions".
+# Before the first master push, enable Pages with source "GitHub Actions"
+# in the repo settings: actions/deploy-pages fails until the site exists.
 
 name: docs
 

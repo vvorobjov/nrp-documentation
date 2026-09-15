@@ -27,8 +27,8 @@ The order of commands: `sectionauthor`, link-name, title.
 push and pull request targeting `master`, and deploys the result to
 GitHub Pages from the canonical `vvorobjov/nrp-documentation` repo. The
 published site lives at `https://vvorobjov.github.io/nrp-documentation/`
-(activate Pages with source "GitHub Actions" in the repo settings on
-first use). The nrp-core API section is included only when
+(enable Pages with source "GitHub Actions" in the repo settings before
+the first `master` push). The nrp-core API section is included only when
 `.ci/get-nrp-core-docs.py` can fetch `nrp-core-docs.zip` (default: the
 latest `vvorobjov/nrp-core` GitHub Release asset, overridable through
 the `NRP_CORE_DOCS_URL` Actions variable); a failed fetch downgrades
