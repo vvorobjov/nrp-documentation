@@ -7,7 +7,9 @@
 #
 # Build path:
 #   1. .ci/get-nrp-core-docs.py  — pulls nrp-core-docs.zip from the
-#      GitHub Release configured in the script (EBR2-50).
+#      GitHub Release configured in the script (EBR2-50). Best-effort:
+#      that asset is not published yet, so a failed fetch only drops the
+#      nrp-core API section (toctree warning) instead of failing the job.
 #   2. unzip into src/nrp-core/  — same target as the Makefile's
 #      ``nrp-core-unzip`` recipe.
 #   3. sphinx-build -b html src _build/html — runs the same builder
@@ -65,6 +67,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends unzip
 
       - name: Fetch nrp-core API docs zip
+        continue-on-error: true
         env:
           # Leave unset to use DEFAULT_URL inside the script. Override
           # via the repo's Actions variables if the source-of-truth
@@ -73,6 +76,7 @@ jobs:
         run: python3 .ci/get-nrp-core-docs.py
 
       - name: Unpack nrp-core docs
+        if: hashFiles('nrp-core-docs.zip') != ''
         run: |
           mkdir -p src/nrp-core
           unzip -o -q nrp-core-docs.zip -d src/nrp-core/
