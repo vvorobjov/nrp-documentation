@@ -1,7 +1,7 @@
 # EBR2-52 — docs CI on GitHub Actions.
 #
 # Replaces the Jenkins/Nexus pipeline (see Jenkinsfile, kept as a
-# reference for the upstream Bitbucket-side deploy) with a workflow
+# reference for the legacy Bitbucket-side deploy) with a workflow
 # that builds the Sphinx HTML and publishes it to GitHub Pages from
 # the canonical vvorobjov/nrp-documentation repository.
 #
@@ -16,8 +16,8 @@
 #      the Makefile's ``doc`` target invokes, just without the HBP-
 #      shaped wrapper (user_makefile, platform_venv, nrp-backend doc
 #      copy). Missing nrp-backend toctree entries surface as warnings
-#      but do not fail the build; the upstream Bitbucket Jenkins job
-#      still produces the canonical multi-repo docs.
+#      but do not fail the build; the retired Jenkins job used to
+#      produce the full multi-repo docs.
 #
 # After the first successful run the user must set the Pages source
 # in the GitHub repo settings to "GitHub Actions".
